@@ -1,6 +1,6 @@
 /* Ocean Properties \u00b7 Beds24 booking page
    - Comodidades plegables: en todos los layouts.
-   - Cabecera, titular, cierre y pie: solo en el Layout 2.
+   - Layout 2: cabecera, titular, tarjetas de unidades, columna derecha y pie.
    - P\u00e1gina de datos del hu\u00e9sped: dise\u00f1o propio solo si el hu\u00e9sped viene del Layout 2.
    Se carga desde BOOKING ENGINE > PROPERTY BOOKING PAGE > DEVELOPER > Insert in HTML <BODY> bottom. */
 /* Ocean Properties \u00b7 la p\u00e1gina de datos del hu\u00e9sped no lleva el n\u00famero de layout:
@@ -71,6 +71,134 @@
  var F="<footer class=\"op-footer\"><div class=\"footer-watermark\"><img src=\"https://assets.pedasioceanproperties.com/brand/logos/op-mark-navy-deep.svg\" width=\"340\" height=\"340\" loading=\"lazy\" decoding=\"async\" aria-hidden=\"true\" alt=\"\"></div><div class=\"footer-wrapper\"><div class=\"footer-top\"><div class=\"footer-top-wrapper\"><div class=\"op-footer-logo\"><img src=\"https://assets.pedasioceanproperties.com/brand/logos/op-logo-horizontal-cream.svg\" width=\"150\" height=\"39\" loading=\"lazy\" decoding=\"async\" alt=\"Ocean Properties\"></div><div class=\"footer-top-group\"><div class=\"location\">Ocean Properties Group</div><div class=\"footer-top-group-links\"><div class=\"property-address\">{{addr}}</div></div></div></div></div><div class=\"footer-middle\"><div class=\"quick-link-wrapper\"><div class=\"quick-links\"><div class=\"quick-links-title\">{{t_disc}}</div><ul><li><a href=\"https://pedasioceanproperties.com/about/\">{{l_about}}</a></li><li><a href=\"https://pedasioceanproperties.com/developers/\">{{l_dev}}</a></li><li><a href=\"https://pedasioceanproperties.com/media/\">{{l_media}}</a></li></ul></div><div class=\"quick-links\"><div class=\"quick-links-title\">{{t_expl}}</div><ul><li><a href=\"https://book.pedasioceanproperties.com/\">OP Aparthotel &amp; Villas</a></li><li><a href=\"https://pedasioceanproperties.com/invest/\">OP Capital</a></li></ul></div><div class=\"quick-links quick-links--contact\"><div class=\"quick-links-title\">{{t_cont}}</div><ul><li><a href=\"mailto:reservations@pedasioceanproperties.com\" title=\"reservations@pedasioceanproperties.com\" aria-label=\"Reservations \u2014 reservations@pedasioceanproperties.com\">{{l_res}}</a></li><li><a href=\"mailto:sales@pedasioceanproperties.com\" title=\"sales@pedasioceanproperties.com\" aria-label=\"Real Estate Enquiries \u2014 sales@pedasioceanproperties.com\">{{l_sales}}</a></li></ul></div><div class=\"quick-links quick-links--social\"><div class=\"quick-links-title\">{{t_soc}}</div><div class=\"social-row\"><a href=\"https://facebook.com/pedasioceanproperties\" target=\"_blank\" rel=\"noopener\" aria-label=\"Facebook\"><svg class=\"social-icon\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"4.5\"></rect><path d=\"M14.7 7.8h-1.4c-1 0-1.6.6-1.6 1.6v8.8\"></path><path d=\"M9.6 12.2h4.7\"></path></svg></a><a href=\"https://instagram.com/pedasioceanproperties\" target=\"_blank\" rel=\"noopener\" aria-label=\"Instagram\"><svg class=\"social-icon\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"4.5\"></rect><circle cx=\"12\" cy=\"12\" r=\"3.9\"></circle><path d=\"M16.7 7.3h.01\"></path></svg></a><a href=\"https://tiktok.com/@oceanpropertiespedasi\" target=\"_blank\" rel=\"noopener\" aria-label=\"TikTok\"><svg class=\"social-icon\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"4.5\"></rect><path d=\"M13.4 7.3c.3 1.5 1.2 2.3 2.7 2.4\"></path><path d=\"M13.4 7.3v6.6a2.6 2.6 0 1 1-2.2-2.6\"></path></svg></a><a href=\"https://www.youtube.com/@pedasioceanproperties\" target=\"_blank\" rel=\"noopener\" aria-label=\"YouTube\"><svg class=\"social-icon\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"4.5\"></rect><path d=\"M10 8.7L15.4 12l-5.4 3.3z\"></path></svg></a><a href=\"https://www.linkedin.com/in/azucenalopez/\" target=\"_blank\" rel=\"noopener\" aria-label=\"LinkedIn\"><svg class=\"social-icon\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"4.5\"></rect><path d=\"M7.6 10.6v6\"></path><path d=\"M7.6 7.7h.01\"></path><path d=\"M11.4 16.6v-6\"></path><path d=\"M11.4 13.3a2.4 2.4 0 0 1 4.9 0v3.3\"></path></svg></a><a href=\"https://wa.me/50764799595\" target=\"_blank\" rel=\"noopener\" aria-label=\"WhatsApp +507 6479-9595\"><svg class=\"social-icon\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M2.3 21.7l1.45-5.05A9.5 9.5 0 1 1 7.35 20.3L2.3 21.7z\"></path><path transform=\"translate(12.06 12.05) scale(1.3) translate(-13.14 -12.8)\" stroke-width=\"1.08\" d=\"M10.1 9.8c.16-.37.31-.37.53-.37h.37c.16 0 .31.03.43.37l.53 1.27c.06.19 0 .34-.09.5l-.28.37c-.12.16-.19.31-.06.53a5.15 5.15 0 0 0 2.17 1.95c.22.09.37.06.5-.09l.43-.5c.12-.16.28-.16.43-.09l1.18.59c.19.09.31.19.31.37 0 .37-.16.87-.53 1.12-.37.28-.87.43-1.46.31a7.32 7.32 0 0 1-4.65-4.06c-.31-.71-.22-1.46.19-2.02z\"></path></svg></a></div></div></div><div class=\"footer-bottom\"><div class=\"utility-nav\"><div class=\"utility-nav-title\">\u00a9 2026 Ocean Properties Group</div><ul class=\"utility-nav-wrapper\"><li><a href=\"https://pedasioceanproperties.com/privacy/\">{{l_priv}}</a></li><li><a href=\"https://pedasioceanproperties.com/legal/\">{{l_legal}}</a></li></ul></div></div></div></div></footer>"; var w=document.createElement('div'); w.innerHTML=F.replace(/\{\{(\w+)\}\}/g,function(m,k){return T[k]||m});
  if(foot) foot.parentNode.insertBefore(w.firstChild,foot);
  else { var it=document.querySelector('.innertube'); if(it) it.parentNode.insertBefore(w.firstChild,it.nextSibling); }
+})();
+/* Ocean Properties \u00b7 Layout 2, p\u00e1gina de unidades con la ubicaci\u00f3n de bloques de The Peninsula:
+   foto baja, buscador en una l\u00ednea en el m\u00f3vil, tarjetas con la foto a la izquierda y columna derecha. */
+(function(){
+ var B=document.body; if(!/\blayout2\b/.test(B.className)||B.classList.contains('op-co')) return;
+ var L=(B.className.match(/colorbody-(\w\w)/)||[])[1];
+ var D={
+  es:{adv:'Ventajas de reservar directo',advItems:[],ad:['adulto','adultos'],ch:['ni\u00f1o','ni\u00f1os']},
+  en:{adv:'Benefits of booking direct',advItems:[],ad:['adult','adults'],ch:['child','children']},
+  fr:{adv:'Avantages de la r\u00e9servation directe',advItems:[],ad:['adulte','adultes'],ch:['enfant','enfants']}
+ };
+ var T=D[L]||D.en, ORDER='b';
+ var CHEV='<svg class="op-chev" viewBox="0 0 12 8" width="12" height="8" aria-hidden="true"><path d="M1 1.5l5 5 5-5" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>';
+ function el(t,c,h){var e=document.createElement(t); if(c) e.className=c; if(h!=null) e.innerHTML=h; return e;}
+ function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+ var P='body.layout2 ';
+ var st=el('style'); st.textContent=[
+  /* foto de arriba: 300 px; en el m\u00f3vil no se muestra */
+  P+'.b24fullcontainer-proprow1 .carousel,'+P+'.b24fullcontainer-proprow1 .carousel-inner>.item{height:300px!important;max-height:300px}',
+  P+'.b24fullcontainer-proprow1 .b24-module{padding-bottom:0!important}',
+  P+'.b24fullcontainer-proprow1 .carousel-inner>.item>img{width:100%!important;height:300px!important;object-fit:cover;max-width:none}',
+  /* buscador: resumen de una l\u00ednea (solo m\u00f3vil) */
+  P+'button.op-strip-sum{display:none!important}',
+  /* rejilla: unidades + columna derecha */
+  P+'.op-rgrid{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:32px;align-items:start;margin-top:28px}',
+  P+'.op-rmain .b24panel-room,'+P+'.op-rmain .b24panel-room.border{border:0!important;padding:0!important;margin:0 0 16px!important;background:#fff!important}',
+  P+'.op-rmain .b24panel-room>.panel-body{padding:0!important}',
+  P+'.op-rcard{display:grid;grid-template-columns:40% minmax(0,1fr)}',
+  P+'.op-rc-l .b24-room-slider{width:100%!important;float:none!important;padding:0!important}',
+  P+'.op-rc-l .carousel{height:auto!important;max-height:none}',
+  P+'.op-rc-l .carousel-inner>.item{aspect-ratio:3/2;height:auto!important}',
+  P+'.op-rc-l .carousel-inner>.item>img{width:100%!important;height:100%!important;object-fit:cover;max-width:none}',
+  P+'.op-rc-r{padding:24px 28px 26px;min-width:0}',
+  P+'.op-rc-r .at_roomnametext{display:block!important;font-size:28px!important;line-height:1.15;margin:0 0 12px}',
+  P+'.op-rc-r .b24-room-module{width:auto!important;float:none!important;padding:0!important}',
+  P+'.op-rc-r .b24-room-desc{font-size:15px!important;line-height:1.7!important;margin:0 0 14px}',
+  P+'.op-rc-r .op-key{margin:0 0 8px}',
+  P+'.op-rc-r .offer{border-top:1px solid #ddd4c6;margin-top:18px;padding-top:16px}',
+  P+'.op-rc-r .at_offername{font-family:"Jost",sans-serif;font-size:18px;color:#876c3a;display:inline-block;border-bottom:1px solid #876c3a;margin:0 0 8px;line-height:1.4}',
+  P+'.op-rate{display:flex!important;justify-content:space-between;align-items:flex-start;gap:18px;margin:0!important}',
+  P+'.op-rate:before,'+P+'.op-rate:after{display:none!important}',
+  P+'.op-rate>div{width:auto!important;float:none!important;padding:0!important}',
+  P+'.op-rate .b24-offer-summary{flex:1;min-width:0}',
+  P+'.op-rate .at_offersummary{font-size:14px;line-height:1.6;color:#16202e}',
+  P+'.op-rate .at_offersummary ul{margin:0;padding-left:18px}',
+  P+'.op-rate .b24-offer-select{flex:none;text-align:right}',
+  P+'.op-rate .at_roomofferprice{text-align:right}',
+  P+'.op-rate .b24-roombuttondiv .at_bookingbut{float:none!important;margin-top:10px;height:48px;padding:0 30px!important}',
+  P+'.op-rc-r .b24-offer-pricetable,'+P+'.op-rc-r .b24-offer-detail,'+P+'.op-rc-r hr[id^=offerlinebreak]{display:none!important}',
+  P+'.op-rc-r .b24-offer-cal{margin-top:8px;font-size:12.8px}',
+  P+'.op-hide{display:none!important}',
+  P+'.op-rside .op-sbox{background:#fff;padding:24px 26px;margin:0 0 16px}',
+  P+'.op-rside h3{font-family:"Jost",sans-serif!important;font-weight:400!important;font-size:12px!important;letter-spacing:3px;text-transform:uppercase;color:#876c3a!important;margin:0 0 12px}',
+  P+'.op-rside ul{list-style:none;margin:0;padding:0}',
+  P+'.op-rside li,'+P+'.op-rside p{font-family:"Jost",sans-serif;font-size:14px;line-height:1.75;color:#16202e;margin:0}',
+  P+'.op-rside .op-adv li{padding-left:18px;position:relative;margin:0 0 6px}',
+  P+'.op-rside .op-adv li:before{content:"";position:absolute;left:0;top:.85em;width:10px;height:1px;background:#876c3a}',
+  '@media(max-width:991px){'+P+'.op-rgrid{grid-template-columns:minmax(0,1fr) 280px;gap:22px}'+P+'.op-rcard{grid-template-columns:1fr}}',
+  '@media(max-width:767px){',
+  P+'.b24fullcontainer-proprow1{display:none!important}',
+  P+'button.op-strip-sum{display:flex!important;width:100%;justify-content:space-between;align-items:center;gap:12px;background:#0c1d35!important;border:0!important;padding:16px 18px!important;color:#faf7f2!important;font-family:"Jost",sans-serif!important;font-size:14px!important;letter-spacing:0!important;text-transform:none!important;text-align:left}',
+  P+'.op-strip-sum .op-chev{color:#c9a96e;flex:none;transition:transform .2s}',
+  P+'#b24scroller:not(.op-open){display:none!important}',
+  P+'.op-strip-sum[aria-expanded=true] .op-chev{transform:rotate(180deg)}',
+  P+'.op-rgrid{display:block;margin-top:18px}',
+  P+'.op-rc-r{padding:18px 18px 20px}',
+  P+'.op-rc-r .at_roomnametext{font-size:26px!important}',
+  P+'.op-rate{flex-direction:column;align-items:stretch}',
+  P+'.op-rate .b24-offer-select,'+P+'.op-rate .at_roomofferprice{text-align:left}',
+  P+'.op-rate .b24-offer-select{width:100%!important}',
+  P+'.op-rate .b24-roombuttondiv .at_bookingbut{width:100%!important;float:none!important}',
+  '}'
+ ].join('\n'); document.head.appendChild(st);
+
+ /* orden de arriba: a) foto, buscador, titular; b) foto, titular, buscador */
+ var intro=document.querySelector('.op-intro'), selc=document.getElementById('b24scroller-fullcontainer');
+ if(ORDER==='a'&&intro&&selc) selc.parentNode.insertBefore(intro,selc.nextSibling);
+
+ /* buscador en el m\u00f3vil: una l\u00ednea con fechas y hu\u00e9spedes que abre los campos */
+ var strip=document.getElementById('b24scroller');
+ if(strip){
+  var sb=el('button','op-strip-sum'); sb.type='button'; sb.setAttribute('aria-expanded','false');
+  var val=function(id){var e=document.getElementById(id); return e?e.value:'';};
+  var lab=function(id){var l=document.querySelector('label[for='+id+']'); return l?l.textContent.trim():'';};
+  var upd=function(){
+   var ci=val('inputcheckin'), co=val('inputcheckout'), na=+val('inputnumadult')||0, nc=+val('inputnumchild')||0;
+   var d=function(s){return s.replace(/^\S+\s+/,'');};
+   var t=(ci?d(ci):lab('inputcheckin'))+' \u2013 '+(co?d(co):lab('inputcheckout'));
+   if(na) t+=' \u00b7 '+na+' '+T.ad[na===1?0:1]+(nc?', '+nc+' '+T.ch[nc===1?0:1]:'');
+   sb.innerHTML='<span>'+esc(t)+'</span>'+CHEV;
+  };
+  upd(); strip.parentNode.insertBefore(sb,strip);
+  sb.onclick=function(){var o=strip.classList.toggle('op-open'); sb.setAttribute('aria-expanded',o);};
+  strip.addEventListener('change',function(){setTimeout(upd,0);});
+  if(window.jQuery) jQuery('#checkin,#checkout').on('dp.change',function(){setTimeout(upd,0);});
+ }
+
+ /* unidades a la izquierda, columna derecha */
+ var rc=document.querySelector('.b24fullcontainer-rooms > .container'); if(!rc) return;
+ var grid=el('div','op-rgrid'), main=el('div','op-rmain'), side=el('aside','op-rside');
+ [].slice.call(rc.children).forEach(function(c){main.appendChild(c);});
+ grid.appendChild(main); grid.appendChild(side); rc.appendChild(grid);
+
+ /* tarjeta de cada unidad: foto a la izquierda; nombre, descripci\u00f3n, comodidades y tarifa a la derecha */
+ [].slice.call(main.querySelectorAll('.b24room')).forEach(function(room){
+  var body=room.querySelector('.panel-body'), head=room.querySelector('.panel-heading'); if(!body) return;
+  var card=el('div','op-rcard'), left=el('div','op-rc-l'), right=el('div','op-rc-r');
+  var slider=body.querySelector('.b24-room-slider'); if(slider) left.appendChild(slider);
+  if(head) [].slice.call(head.children).forEach(function(c){right.appendChild(c);});
+  var desc=body.querySelector('.b24-room-desc'); if(desc) right.appendChild(desc);
+  var feat=body.querySelector('.b24-features'); if(feat) right.appendChild(feat.parentNode);
+  [].slice.call(body.querySelectorAll('.offer,[id^=ajaxroomnooffer]')).forEach(function(o){
+   right.appendChild(o);
+   var on=o.querySelector('.at_offername'); if(on&&!on.textContent.trim()) on.classList.add('op-hide');
+   var sm=o.querySelector('.b24-offer-summary'); if(sm&&sm.parentNode) sm.parentNode.classList.add('op-rate');
+  });
+  card.appendChild(left); card.appendChild(right); body.insertBefore(card,body.firstChild);
+  if(head) head.classList.add('op-hide');
+ });
+
+ /* columna derecha: ventajas, reservas, opiniones y c\u00f3mo llegar (los bloques de cierre del Layout 2) */
+ if(T.advItems.length) side.appendChild(el('div','op-sbox op-adv','<h3>'+esc(T.adv)+'</h3><ul>'+T.advItems.map(function(x){return '<li>'+esc(x)+'</li>';}).join('')+'</ul>'));
+ var close=document.querySelector('.op-closing');
+ if(close){
+  var cols=close.querySelectorAll('.op-in > div');
+  [2,1,0].forEach(function(i){ if(cols[i]){var bx=el('div','op-sbox'); bx.appendChild(cols[i]); side.appendChild(bx);} });
+  close.classList.add('op-hide');
+ }
 })();
 /* Ocean Properties \u00b7 p\u00e1gina de datos del hu\u00e9sped (checkout), con la ubicaci\u00f3n de bloques de The Peninsula.
    Solo se activa con body.op-co (ver arriba). Los campos, precios y botones son los de Beds24: solo se mueven. */
