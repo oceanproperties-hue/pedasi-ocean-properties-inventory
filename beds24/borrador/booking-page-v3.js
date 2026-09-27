@@ -41,16 +41,22 @@
 (function(){
  if(!/\blayout2\b/.test(document.body.className)) return;
  var L=(document.body.className.match(/colorbody-(\w\w)/)||[])[1]; var D={"en": {"t_disc": "Discover", "t_expl": "Explore", "t_cont": "Contact", "t_soc": "Social", "l_about": "About us", "l_dev": "Developers", "l_media": "Media", "l_res": "Reservations", "l_sales": "Real Estate Enquiries", "l_priv": "Privacy Policy", "l_legal": "Legal", "addr": "Beach Studios Building, Playa Destiladeros, Pedas\u00ed, Azuero Peninsula, Panam\u00e1", "home": "https://pedasioceanproperties.com/", "eyebrow": "Pedas\u00ed \u00b7 Azuero Peninsula \u00b7 Panam\u00e1", "h1": "Beachfront, at Playa Destiladeros.", "lede": "A boutique aparthotel. We have been here since 2009.", "c1": "Getting here", "c2": "Guest reviews", "c3": "Reservations", "g": ["40 min by air from Panama City, with daily flights", "15 min from Pedas\u00ed Airport", "10 min to Pedas\u00ed town", "4 h by road"], "google": "Read on Google"}, "es": {"t_disc": "Descubrir", "t_expl": "Explorar", "t_cont": "Contacto", "t_soc": "Redes", "l_about": "Qui\u00e9nes somos", "l_dev": "Promotores", "l_media": "Prensa", "l_res": "Reservas", "l_sales": "Consultas de bienes ra\u00edces", "l_priv": "Pol\u00edtica de Privacidad", "l_legal": "Aviso legal", "addr": "Beach Studios Building, Playa Destiladeros, Pedas\u00ed, Pen\u00ednsula de Azuero, Panam\u00e1", "home": "https://pedasioceanproperties.com/es/", "eyebrow": "Pedas\u00ed \u00b7 Pen\u00ednsula de Azuero \u00b7 Panam\u00e1", "h1": "Frente al mar, en Playa Destiladeros.", "lede": "Un aparthotel boutique. Estamos aqu\u00ed desde 2009.", "c1": "C\u00f3mo llegar", "c2": "Opiniones", "c3": "Reservas", "g": ["40 min en avi\u00f3n desde Ciudad de Panam\u00e1, con vuelos todos los d\u00edas", "15 min desde el Aeropuerto de Pedas\u00ed", "10 min al pueblo de Pedas\u00ed", "4 h por carretera"], "google": "Leer en Google"}, "fr": {"t_disc": "D\u00e9couvrir", "t_expl": "Explorer", "t_cont": "Contact", "t_soc": "R\u00e9seaux", "l_about": "Qui sommes-nous", "l_dev": "Promoteurs", "l_media": "Presse", "l_res": "R\u00e9servations", "l_sales": "Demandes immobili\u00e8res", "l_priv": "Politique de Confidentialit\u00e9", "l_legal": "Mentions l\u00e9gales", "addr": "Beach Studios Building, Playa Destiladeros, Pedas\u00ed, P\u00e9ninsule d'Azuero, Panam\u00e1", "home": "https://pedasioceanproperties.com/fr/", "eyebrow": "Pedas\u00ed \u00b7 P\u00e9ninsule d'Azuero \u00b7 Panam\u00e1", "h1": "Face \u00e0 la mer, \u00e0 Playa Destiladeros.", "lede": "Un aparthotel boutique. Nous sommes ici depuis 2009.", "c1": "Comment venir", "c2": "Avis des voyageurs", "c3": "R\u00e9servations", "g": ["40 min en avion depuis Panama City, vols quotidiens", "15 min de l'a\u00e9roport de Pedas\u00ed", "10 min du village de Pedas\u00ed", "4 h par la route"], "google": "Lire sur Google"}}; var T=D[L]||D.en;
- var LOGO='https://assets.pedasioceanproperties.com/brand/logos/logotype-white.svg', WA='https://wa.me/50764799595';
- var fx=document.createElement('style'); fx.textContent='body.layout2{overflow-x:hidden}body.layout2 #b24scroller,body.layout2 .b24-bookingstrip{max-width:100%;box-sizing:border-box}'
+ var CO=document.body.classList.contains('op-co');
+ var LOGO='https://assets.pedasioceanproperties.com/brand/logos/logotype-'+(CO?'black':'white')+'.svg', WA='https://wa.me/50764799595';
+ var MB={es:'Mis reservas',en:'My bookings',fr:'Mes r\u00e9servations'}[L]||'My bookings';
+ var fx=document.createElement('style'); fx.textContent='body.layout2 .op-topbar{background:#112c4e!important}body.layout2 #b24scroller.b24-bookingstrip,body.layout2 .b24-bookingstrip{background:#112c4e!important}body.layout2 .b24-bookingstrip label,body.layout2 .b24-bookingstrip .control-label,body.layout2 .b24-bookingstrip .input-group-addon .glyphicon{color:#d7af74!important}'
+ +'body.layout2 .btn,body.layout2 .btn-primary,body.layout2 .at_bookingbut{background:#112c4e!important;border-color:#112c4e!important}body.layout2 .btn:hover,body.layout2 .at_bookingbut:hover{background:transparent!important;color:#112c4e!important}'
+ +'body.layout2 .op-footer,body.layout2 .b24fullcontainer-footer{background:#112c4e!important}body.layout2 .op-footer a:hover{color:#d7af74!important}body.layout2 .op-topbar a.op-wa span,body.layout2 .op-topbar a.op-wa .op-wa-num span{color:#d7af74}'
+ +'body.layout2 .op-topbar a.op-mb{color:#faf7f2!important;text-decoration:none!important;font-family:"Jost",sans-serif;font-size:11px;letter-spacing:3px;text-transform:uppercase}'
+ +'body.layout2{overflow-x:hidden}body.layout2 #b24scroller,body.layout2 .b24-bookingstrip{max-width:100%;box-sizing:border-box}'
  +'body.layout2 .op-topbar{display:flex!important;justify-content:space-between;align-items:center;gap:20px;padding:18px 30px!important}'
  +'body.layout2 .op-nav{display:flex;align-items:center;gap:26px}body.layout2 .op-wa-ico{display:none;width:20px;height:20px}body.layout2 .op-topbar a.op-wa .op-wa-num,body.layout2 .op-topbar a.op-wa .op-wa-txt{color:inherit}body.layout2 .op-topbar a.op-wa .op-wa-num span{color:#c9a96e}'
- +'body.layout2 .op-logo{flex:none}'
+ +'body.layout2 .op-logo{flex:none}body.layout2 .op-logo img{max-height:36px;object-fit:contain;object-position:left center}'
  +'@media(max-width:767px){body.layout2 .op-topbar{padding:12px 16px!important;gap:12px}body.layout2 .op-logo img{width:118px!important;height:auto!important}body.layout2 .op-nav{gap:12px}body.layout2 .op-wa-num,body.layout2 .op-wa-txt{display:none}body.layout2 .op-wa-ico{display:block}body.layout2 .op-topbar a.op-wa{line-height:0}'
- +'body.layout2 .op-topbar .b24languagedropdown .btn,body.layout2 .op-topbar .b24currencydropdown .btn,body.layout2 .op-topbar a.op-wa{font-size:10px!important;letter-spacing:1.5px!important}}'; document.head.appendChild(fx);
+ +'body.layout2 .op-topbar .b24languagedropdown .btn,body.layout2 .op-topbar .b24currencydropdown .btn,body.layout2 .op-topbar a.op-wa,body.layout2 .op-topbar a.op-mb{font-size:10px!important;letter-spacing:1.5px!important}}'; document.head.appendChild(fx);
  var css=document.createElement('link'); css.rel='stylesheet'; css.href='https://pedasioceanproperties.com/assets/css/footer.css?v=bcd553b6'; document.head.appendChild(css);
  var bar=document.createElement('header'); bar.className='op-topbar';
- bar.innerHTML='<a class="op-logo" href="'+T.home+'"><img src="'+LOGO+'" width="170" height="36" alt="Ocean Properties"></a><div class="op-nav"><div class="op-left"></div><a class="op-wa" href="'+WA+'" target="_blank" rel="noopener" aria-label="WhatsApp +507 6479-9595"><svg class="op-wa-ico" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.3 21.7l1.45-5.05A9.5 9.5 0 1 1 7.35 20.3L2.3 21.7z"></path><path transform="translate(12.06 12.05) scale(1.3) translate(-13.14 -12.8)" stroke-width="1.08" d="M10.1 9.8c.16-.37.31-.37.53-.37h.37c.16 0 .31.03.43.37l.53 1.27c.06.19 0 .34-.09.5l-.28.37c-.12.16-.19.31-.06.53a5.15 5.15 0 0 0 2.17 1.95c.22.09.37.06.5-.09l.43-.5c.12-.16.28-.16.43-.09l1.18.59c.19.09.31.19.31.37 0 .37-.16.87-.53 1.12-.37.28-.87.43-1.46.31a7.32 7.32 0 0 1-4.65-4.06c-.31-.71-.22-1.46.19-2.02z"></path></svg><span class="op-wa-txt">WhatsApp</span><span class="op-wa-num"> <span>\u00b7</span> +507 6479-9595</span></a></div>';
+ bar.innerHTML='<a class="op-logo" href="'+T.home+'"><img src="'+LOGO+'" width="170" height="36" alt="Ocean Properties"></a><div class="op-nav"><a class="op-mb" href="https://my-booking.info" target="_blank" rel="noopener">'+MB+'</a><div class="op-left"></div><a class="op-wa" href="'+WA+'" target="_blank" rel="noopener" aria-label="WhatsApp +507 6479-9595"><svg class="op-wa-ico" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.3 21.7l1.45-5.05A9.5 9.5 0 1 1 7.35 20.3L2.3 21.7z"></path><path transform="translate(12.06 12.05) scale(1.3) translate(-13.14 -12.8)" stroke-width="1.08" d="M10.1 9.8c.16-.37.31-.37.53-.37h.37c.16 0 .31.03.43.37l.53 1.27c.06.19 0 .34-.09.5l-.28.37c-.12.16-.19.31-.06.53a5.15 5.15 0 0 0 2.17 1.95c.22.09.37.06.5-.09l.43-.5c.12-.16.28-.16.43-.09l1.18.59c.19.09.31.19.31.37 0 .37-.16.87-.53 1.12-.37.28-.87.43-1.46.31a7.32 7.32 0 0 1-4.65-4.06c-.31-.71-.22-1.46.19-2.02z"></path></svg><span class="op-wa-txt">WhatsApp</span><span class="op-wa-num"> <span>\u00b7</span> +507 6479-9595</span></a></div>';
  document.body.insertBefore(bar,document.body.firstChild);
  ['.b24languagedropdown','.b24currencydropdown'].forEach(function(s){var e=document.querySelector(s); if(e) bar.querySelector('.op-left').appendChild(e);});
  var intro=document.createElement('section'); intro.className='op-intro';
@@ -131,8 +137,8 @@
   '@media(max-width:991px){'+P+'.op-rgrid{grid-template-columns:minmax(0,1fr) 280px;gap:22px}'+P+'.op-rcard{grid-template-columns:1fr}}',
   '@media(max-width:767px){',
   P+'.b24fullcontainer-proprow1{display:none!important}',
-  P+'button.op-strip-sum{display:flex!important;width:100%;justify-content:space-between;align-items:center;gap:12px;background:#0c1d35!important;border:0!important;padding:16px 18px!important;color:#faf7f2!important;font-family:"Jost",sans-serif!important;font-size:14px!important;letter-spacing:0!important;text-transform:none!important;text-align:left}',
-  P+'.op-strip-sum .op-chev{color:#c9a96e;flex:none;transition:transform .2s}',
+  P+'button.op-strip-sum{display:flex!important;width:100%;justify-content:space-between;align-items:center;gap:12px;background:#112c4e!important;border:0!important;padding:16px 18px!important;color:#faf7f2!important;font-family:"Jost",sans-serif!important;font-size:14px!important;letter-spacing:0!important;text-transform:none!important;text-align:left}',
+  P+'.op-strip-sum .op-chev{color:#d7af74;flex:none;transition:transform .2s}',
   P+'#b24scroller:not(.op-open){display:none!important}',
   P+'.op-strip-sum[aria-expanded=true] .op-chev{transform:rotate(180deg)}',
   P+'.op-rgrid{display:block;margin-top:18px}',
@@ -168,6 +174,15 @@
   if(window.jQuery) jQuery('#checkin,#checkout').on('dp.change',function(){setTimeout(upd,0);});
  }
 
+ /* precios por noche: se guardan al pulsar Reservar para el desglose de la p\u00e1gina de datos del hu\u00e9sped */
+ document.addEventListener('click',function(e){
+  var b=e.target&&e.target.closest?e.target.closest('.at_bookingbut'):null; if(!b) return;
+  var m=(b.name||'').match(/^br(\d+)-(\d+)$/); if(!m) return;
+  var orid=m[1]+'-'+m[2], n=+((document.getElementById('inputnumnight')||{}).value||0), p=[];
+  for(var j=0;j<n&&j<7;j++){var v=document.getElementById('ptval'+orid+'-'+j); p.push(v?v.textContent.trim():'');}
+  try{var all=JSON.parse(sessionStorage.getItem('opNights')||'{}'); all[m[2]]={ci:(document.getElementById('checkin_hide')||{}).value||'',n:n,p:p}; sessionStorage.setItem('opNights',JSON.stringify(all));}catch(x){}
+ },true);
+
  /* unidades a la izquierda, columna derecha */
  var rc=document.querySelector('.b24fullcontainer-rooms > .container'); if(!rc) return;
  var grid=el('div','op-rgrid'), main=el('div','op-rmain'), side=el('aside','op-rside');
@@ -200,8 +215,9 @@
   close.classList.add('op-hide');
  }
 })();
-/* Ocean Properties \u00b7 p\u00e1gina de datos del hu\u00e9sped (checkout), con la ubicaci\u00f3n de bloques de The Peninsula.
-   Solo se activa con body.op-co (ver arriba). Los campos, precios y botones son los de Beds24: solo se mueven. */
+/* Ocean Properties \u00b7 p\u00e1gina de datos del hu\u00e9sped (checkout), con la misma estructura que el checkout de The Peninsula.
+   Paleta oficial de Gr\u00e9goire (navy #112c4e, oro #d7af74; #876c3a para texto peque\u00f1o sobre claro). Jost nunca por encima de 400.
+   Solo se activa con body.op-co (ver arriba). Campos, importes y bot\u00f3n son los de Beds24: se mueven y se leen, no se sustituyen. */
 (function(){
  var B=document.body; if(!B.classList.contains('op-co')) return;
  var form=document.getElementById('formbook'); if(!form) return;
@@ -209,223 +225,327 @@
  var L=(B.className.match(/colorbody-(\w\w)/)||[])[1];
  var D={
   es:{title:'Confirmar reserva',contact:'Datos de contacto',req:'* Obligatorio',help:'Enviaremos la confirmaci\u00f3n a este correo.',
-   stay:'Tu estancia',pay:'Pago',payText:'',pol:'Pol\u00edticas',ack:'Aceptaci\u00f3n',price:'Detalle del precio',
-   arr:'Llegada',dep:'Salida',guests:'Hu\u00e9spedes',nt:['noche','noches'],ad:['adulto','adultos'],ch:['ni\u00f1o','ni\u00f1os'],unit:'Unidad',
-   times:'Check-in: 16:00 \u2013 24:00 \u00b7 Check-out: hasta las 11:00',polHead:'TARIFA NO REEMBOLSABLE',
+   stay:'Tu estancia',companion:'Acompa\u00f1ante (opcional)',pol:'Pol\u00edticas',ack:'Aceptaci\u00f3n',price:'Detalle del precio',
+   nt:['noche','noches'],ad:['adulto','adultos'],ch:['ni\u00f1o','ni\u00f1os'],taxes:'Impuestos y cargos',total:'Total',taxInc:'Impuestos incluidos',
+   add:'A\u00f1adir otra unidad',err:'Este campo es obligatorio.',prefix:'Prefijo',unit:'Unidad',
+   ci:['Check-in','16:00 \u2013 24:00'],co:['Check-out','hasta las 11:00'],polHead:'Tarifa no reembolsable',
    pols:[['Pago por adelantado:','Para garantizar su reserva, se requiere el pago total del coste de su estancia en el momento de realizar la reserva.'],
     ['Cancelaci\u00f3n y cambios:','Esta reserva no se puede cancelar, modificar ni reembolsar bajo ninguna circunstancia. En caso de no presentarse (no-show) o de realizar cambios en su reserva, se aplicar\u00e1 un cargo equivalente al 100% del coste total de su estancia a su tarjeta de cr\u00e9dito.'],
     ['Flexibilidad de fechas:','Tenga en cuenta que esta tarifa no permite cambios en las fechas de su estancia. El pago realizado por esta reserva no es reembolsable bajo ninguna circunstancia.'],
     ['Verificaci\u00f3n de la tarjeta de cr\u00e9dito:','Al momento del check-in, se solicitar\u00e1 la presentaci\u00f3n de la tarjeta de cr\u00e9dito utilizada para el pago con fines de verificaci\u00f3n.']]},
   en:{title:'Confirm booking',contact:'Contact details',req:'* Required',help:'We will send the confirmation to this email.',
-   stay:'Your stay',pay:'Payment',payText:'',pol:'Policies',ack:'Acknowledgement',price:'Price details',
-   arr:'Arrival',dep:'Departure',guests:'Guests',nt:['night','nights'],ad:['adult','adults'],ch:['child','children'],unit:'Unit',
-   times:'Check-in: 16:00 \u2013 24:00 \u00b7 Check-out: by 11:00',polHead:'NON REFUNDABLE.',
+   stay:'Your stay',companion:'Companion (optional)',pol:'Policies',ack:'Acknowledgement',price:'Price details',
+   nt:['night','nights'],ad:['adult','adults'],ch:['child','children'],taxes:'Taxes and fees',total:'Total',taxInc:'Including taxes and fees',
+   add:'Add another unit',err:'This field is required.',prefix:'Code',unit:'Unit',
+   ci:['Check-in','16:00 \u2013 24:00'],co:['Check-out','by 11:00'],polHead:'Non refundable.',
    pols:[['Prepayment:','To secure your reservation, full payment of the total cost of your stay is required at the time of booking.'],
     ['Cancellation and Changes:','This reservation cannot be canceled, modified, or refunded under any circumstances. In the event of a no-show or changes to your reservation, a charge equivalent to 100% of the total cost of your stay will be applied to your credit card.'],
     ['Date Flexibility:','Please note that this rate does not allow changes to the date of your stay. The payment made for this reservation is non-refundable under any circumstances.'],
     ['Credit Card Verification:','Upon check-in, the presentation of the credit card used for payment will be requested for verification purposes.']]},
   fr:{title:'Confirmer la r\u00e9servation',contact:'Coordonn\u00e9es',req:'* Obligatoire',help:'Nous enverrons la confirmation \u00e0 cette adresse e-mail.',
-   stay:'Votre s\u00e9jour',pay:'Paiement',payText:'',pol:'Conditions',ack:'Acceptation',price:'D\u00e9tail du prix',
-   arr:'Arriv\u00e9e',dep:'D\u00e9part',guests:'Voyageurs',nt:['nuit','nuits'],ad:['adulte','adultes'],ch:['enfant','enfants'],unit:'Logement',
-   times:'Check-in : 16:00 \u2013 24:00 \u00b7 Check-out : jusqu\u2019\u00e0 11:00',polHead:'TARIF NON REMBOURSABLE',
+   stay:'Votre s\u00e9jour',companion:'Accompagnant (facultatif)',pol:'Conditions',ack:'Acceptation',price:'D\u00e9tail du prix',
+   nt:['nuit','nuits'],ad:['adulte','adultes'],ch:['enfant','enfants'],taxes:'Taxes et frais',total:'Total',taxInc:'Taxes et frais inclus',
+   add:'Ajouter un logement',err:'Ce champ est obligatoire.',prefix:'Indicatif',unit:'Logement',
+   ci:['Check-in','16:00 \u2013 24:00'],co:['Check-out','jusqu\u2019\u00e0 11:00'],polHead:'Tarif non remboursable',
    pols:[['Pr\u00e9paiement :','Pour garantir votre r\u00e9servation, le paiement int\u00e9gral du montant total de votre s\u00e9jour est requis au moment de la r\u00e9servation.'],
     ['Annulation et modifications :','Cette r\u00e9servation ne peut \u00eatre annul\u00e9e, modifi\u00e9e ou rembours\u00e9e en aucun cas. En cas de non-pr\u00e9sentation (no-show) ou de modification de votre r\u00e9servation, des frais \u00e9quivalents \u00e0 100 % du montant total de votre s\u00e9jour seront pr\u00e9lev\u00e9s sur votre carte de cr\u00e9dit.'],
     ['Flexibilit\u00e9 des dates :','Veuillez noter que ce tarif ne permet aucun changement de dates pour votre s\u00e9jour. Le paiement effectu\u00e9 pour cette r\u00e9servation est non remboursable en aucun cas.'],
     ['V\u00e9rification de la carte de cr\u00e9dit :','Lors de l\u2019enregistrement (check-in), la pr\u00e9sentation de la carte de cr\u00e9dit utilis\u00e9e pour le paiement sera demand\u00e9e \u00e0 des fins de v\u00e9rification.']]}
  };
  var T=D[L]||D.en;
+ /* preguntas personalizadas de Beds24 que forman la fila "Acompa\u00f1ante" (se crean el d\u00eda de publicar) */
+ var COMPANION=['guestcustomq2','guestcustomq3'];
+ /* prefijos de pa\u00eds del m\u00f3vil */
+ var DIAL=['+507','+1','+34','+33','+44','+49','+39','+41','+31','+32','+351','+43','+46','+47','+45','+52','+57','+506','+54','+55','+56','+51','+58','+593','+502','+503','+504','+505','+598','+595','+591','+61','+81','+86'];
  var CHEV='<svg class="op-chev" viewBox="0 0 12 8" width="12" height="8" aria-hidden="true"><path d="M1 1.5l5 5 5-5" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>';
  var ARROW='<svg viewBox="0 0 32 16" width="32" height="16" aria-hidden="true"><path d="M31 8H2M9 1L2 8l7 7" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>';
- var LOCK='<svg viewBox="0 0 14 16" width="12" height="14" aria-hidden="true"><rect x="1.5" y="7" width="11" height="8" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M4 7V4.5a3 3 0 0 1 6 0V7" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>';
- function lockUrl(c){return 'url("data:image/svg+xml,'+encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 16"><rect x="1.5" y="7" width="11" height="8" fill="none" stroke="'+c+'" stroke-width="1.2"/><path d="M4 7V4.5a3 3 0 0 1 6 0V7" fill="none" stroke="'+c+'" stroke-width="1.2"/></svg>')+'")';}
- var SEL='url("data:image/svg+xml,'+encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 8"><path d="M1 1.5l5 5 5-5" fill="none" stroke="#876c3a" stroke-width="1.2"/></svg>')+'")';
+ function svgUrl(inner,vb){return 'url("data:image/svg+xml,'+encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="'+vb+'">'+inner+'</svg>')+'")';}
+ function lock(c){return svgUrl('<rect x="1.5" y="7" width="11" height="8" fill="none" stroke="'+c+'" stroke-width="1.2"/><path d="M4 7V4.5a3 3 0 0 1 6 0V7" fill="none" stroke="'+c+'" stroke-width="1.2"/>','0 0 14 16');}
+ var SEL=svgUrl('<path d="M1 1.5l5 5 5-5" fill="none" stroke="#876c3a" stroke-width="1.2"/>','0 0 12 8');
  function el(t,c,h){var e=document.createElement(t); if(c) e.className=c; if(h!=null) e.innerHTML=h; return e;}
  function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+ function txt(n){return n?n.textContent.replace(/\s+/g,' ').trim():'';}
  function fields(n){return !!n.querySelector('input:not([type=hidden]),select,textarea');}
 
- var fo=document.createElement('link'); fo.rel='stylesheet'; fo.href='https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap'; document.head.appendChild(fo);
+ var N='#112c4e',G='#d7af74',A='#876c3a',I='#16202e',S='#46535f',R='#ddd4c6',C='#faf7f2',PB='#f4efe6',E='#912018';
  var P='body.op-co ';
  var st=el('style'); st.textContent=[
-  P+'#bookingpage{padding-bottom:10px}',
-  P+'.op-co-head{display:flex;align-items:center;gap:18px;margin:46px 0 28px}',
-  P+'.op-co-head h1{font-family:"Cormorant Garamond",Georgia,serif!important;font-weight:300!important;font-size:44px!important;line-height:1.1;color:#0c1d35!important;margin:0}',
-  P+'.op-co-back{display:inline-flex;align-items:center;color:#876c3a!important;text-decoration:none!important;line-height:0}',
-  P+'.op-co-grid{display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:32px;align-items:start}',
-  P+'.op-card{background:#fff;padding:30px 32px 32px;margin:0 0 16px}',
-  P+'.op-card-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin:0 0 22px}',
-  P+'.op-card-h h2{display:flex;align-items:center;gap:10px;font-family:"Jost",sans-serif!important;font-weight:400!important;font-size:12px!important;letter-spacing:3px;text-transform:uppercase;color:#876c3a!important;margin:0}',
-  P+'.op-req{font-size:12px;color:#46535f}',
-  P+'.op-fields{display:grid;grid-template-columns:1fr 1fr;gap:16px}',
-  P+'.op-fields .questionrow{margin:0!important}',
+  /* cabecera blanca con l\u00ednea fina, como Peninsula */
+  P+'.op-topbar{background:#fff!important;border-bottom:1px solid '+R+';min-height:85px;padding:0 30px!important}',
+  P+'.op-topbar a.op-mb,'+P+'.op-topbar a.op-wa{color:'+I+'!important}',
+  P+'.op-topbar a.op-wa .op-wa-txt,'+P+'.op-topbar a.op-wa .op-wa-num{color:'+I+'!important}',
+  P+'.op-topbar a.op-wa .op-wa-num span{color:'+A+'!important}',
+  P+'#bookingpage{width:auto!important;max-width:1280px;margin:0 auto;padding:0 16px 8px!important}',
+  P+'.op-co-head{display:flex;align-items:center;gap:16px;margin:32px 0 24px}',
+  P+'.op-co-head h1{font-family:"Cormorant Garamond",Georgia,serif!important;font-weight:400!important;font-size:36px!important;line-height:44px;letter-spacing:.04em;text-transform:uppercase;color:'+I+'!important;margin:0}',
+  P+'.op-co-back{display:inline-flex;align-items:center;color:'+A+'!important;text-decoration:none!important;line-height:0}',
+  P+'.op-co-grid{display:grid;grid-template-columns:minmax(0,853fr) minmax(0,411fr);gap:16px;align-items:start}',
+  P+'.op-card{background:#fff;padding:24px;margin:0 0 16px}',
+  P+'.op-card-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin:0 0 20px}',
+  P+'.op-card-h h2{font-family:"Jost",sans-serif!important;font-weight:300!important;font-size:12px!important;letter-spacing:4.5px;text-transform:uppercase;color:'+A+'!important;margin:0}',
+  P+'.op-card-t{font-family:"Cormorant Garamond",Georgia,serif!important;font-weight:400!important;font-size:26px!important;line-height:1.2;color:'+I+'!important;margin:0 0 16px}',
+  P+'.op-req{font-size:12px;color:'+S+'}',
+  /* campos: 56 px, borde fino, etiqueta flotante */
+  P+'.op-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}',
+  P+'.op-pair{display:grid;grid-template-columns:138px minmax(0,1fr)}',
+  P+'.op-pair>.op-f+.op-f .form-control{margin-left:-1px;width:calc(100% + 1px)}',
+  P+'.op-f{margin:0!important;min-width:0}',
   P+'.op-f>.col-sm-4{display:none}',
-  P+'.op-f>.col-sm-8,'+P+'.op-acc-row>.col-sm-8{width:auto;float:none;padding:0}',
+  P+'.op-f>.col-sm-8{width:auto;float:none;padding:0}',
   P+'.op-f .booktextdiv{position:relative}',
-  P+'.op-f .form-control{height:56px!important;min-height:56px;padding:22px 16px 6px!important;font-size:16px!important;line-height:1.4!important;border:1px solid #ddd4c6!important;background-color:#fff!important;border-radius:0!important;box-shadow:none!important;color:#16202e!important}',
-  P+'.op-f .form-control:focus,'+P+'.op-acc-row textarea:focus{border-color:#876c3a!important;outline:0}',
-  P+'.op-f select.form-control{-webkit-appearance:none;appearance:none;background:#fff '+SEL+' no-repeat right 16px center/12px 8px!important;padding-right:40px!important}',
-  P+'.op-fl{position:absolute;left:17px;top:17px;margin:0;font-family:"Jost",sans-serif;font-weight:400;font-size:15px;line-height:1.3;color:#46535f;pointer-events:none;transition:top .15s,font-size .15s}',
-  P+'.op-fl em{font-style:normal;color:#876c3a;margin-left:3px}',
-  P+'.op-f .form-control:focus+.op-fl,'+P+'.op-f .form-control:not(:placeholder-shown)+.op-fl,'+P+'.op-f-sel .op-fl{top:7px;font-size:11px;letter-spacing:.4px}',
-  P+'.op-help{display:block;font-size:12px;color:#46535f;margin-top:6px}',
-  P+'.op-acc-row{grid-column:1/-1;border-top:1px solid #ddd4c6}',
-  P+'.op-acc-row>.col-sm-4{display:none}',
-  P+'.op-acc-row:not(.op-open)>.col-sm-8{display:none}',
-  P+'button.op-acc{display:flex!important;width:100%;justify-content:space-between;align-items:center;background:none!important;border:0!important;padding:18px 0!important;color:#16202e!important;font-family:"Jost",sans-serif!important;font-size:15px!important;letter-spacing:0!important;text-transform:none!important}',
-  P+'.op-acc .op-chev{color:#876c3a;transition:transform .2s}',
-  P+'.op-open>.op-acc .op-chev,'+P+'.op-co-side.op-open .op-sum .op-chev{transform:rotate(180deg)}',
-  P+'.op-acc-row textarea{height:110px!important;padding:14px 16px!important;border:1px solid #ddd4c6!important;border-radius:0!important;box-shadow:none!important;margin-bottom:6px}',
-  P+'.op-pay-t{margin:0;font-size:15px;line-height:1.7;color:#16202e}',
-  P+'.op-pol-box{background:#faf7f2;padding:22px 24px;font-size:14px;line-height:1.7;color:#16202e}',
+  P+'.op-f .form-control{height:56px!important;min-height:56px;padding:22px 12px 6px!important;font-family:"Jost",sans-serif!important;font-weight:400!important;font-size:15px!important;line-height:1.4!important;color:'+I+'!important;background-color:#fff!important;border:1px solid '+R+'!important;border-radius:0!important;box-shadow:none!important}',
+  P+'.op-f .form-control:focus{border-color:'+N+'!important;box-shadow:inset 0 0 0 1px '+N+'!important;outline:0;position:relative;z-index:1}',
+  P+'.op-f select.form-control{-webkit-appearance:none;appearance:none;background:#fff '+SEL+' no-repeat right 14px center/12px 8px!important;padding-right:36px!important}',
+  P+'.op-fl{position:absolute;left:13px;top:18px;margin:0;font-family:"Jost",sans-serif;font-weight:400;font-size:15px;line-height:1.3;color:'+S+';pointer-events:none;transition:top .12s,font-size .12s;z-index:2}',
+  P+'.op-fl em{font-style:normal;color:'+A+';margin-left:3px}',
+  P+'.op-f .form-control:focus~.op-fl,'+P+'.op-f .form-control:not(:placeholder-shown)~.op-fl,'+P+'.op-f-sel .op-fl{top:7px;font-size:12px}',
+  P+'.op-help{display:block;font-size:12px;line-height:1.5;color:'+S+';margin-top:6px}',
+  P+'.op-phone{display:grid;grid-template-columns:96px minmax(0,1fr)}',
+  P+'.op-phone .op-dial{width:100%;height:56px;border:1px solid '+R+';border-right:0;background:#fff '+SEL+' no-repeat right 10px center/10px 7px;-webkit-appearance:none;appearance:none;padding:22px 24px 6px 12px;font-family:"Jost",sans-serif;font-size:15px;color:'+I+';border-radius:0}',
+  P+'.op-phone .op-dial-l{position:absolute;left:13px;top:7px;font-size:12px;color:'+S+';pointer-events:none}',
+  P+'.op-phone-w{position:relative}',
+  P+'.op-err .form-control,'+P+'.op-err .op-dial{border-color:'+E+'!important;box-shadow:inset 0 0 0 1px '+E+'!important}',
+  P+'.op-errbar{display:none;background:'+E+';color:#fff;font-size:12px;line-height:1.4;padding:8px 12px}',
+  P+'.op-err .op-errbar{display:block}',
+  /* filas plegables, como las de Peninsula */
+  P+'.op-acc{border:1px solid '+R+'}',
+  P+'.op-acc-i+.op-acc-i{border-top:1px solid '+R+'}',
+  P+'button.op-acc-h{display:flex!important;width:100%;min-height:58px;justify-content:space-between;align-items:center;background:#fff!important;border:0!important;padding:0 17px!important;color:'+I+'!important;font-family:"Jost",sans-serif!important;font-weight:400!important;font-size:16px!important;letter-spacing:0!important;text-transform:none!important;text-align:left}',
+  P+'button.op-acc-h:hover{background:#fff!important;color:'+I+'!important}',
+  P+'.op-acc-h .op-chev{color:'+A+';flex:none;transition:transform .2s}',
+  P+'.op-acc-i.op-open>.op-acc-h .op-chev{transform:rotate(180deg)}',
+  P+'.op-acc-b{display:none;padding:0 17px 17px}',
+  P+'.op-acc-i.op-open>.op-acc-b{display:block}',
+  P+'.op-acc-b .op-grid{gap:16px}',
+  P+'.op-acc-b textarea{width:100%;min-height:110px;border:1px solid '+R+'!important;border-radius:0!important;box-shadow:none!important;padding:14px 12px!important;font-family:"Jost",sans-serif!important;font-size:15px!important;color:'+I+'!important}',
+  P+'.op-acc-b .questionrow{margin:0!important}',
+  P+'.op-acc-b .questionrow>.col-sm-4{display:none}',
+  P+'.op-acc-b .questionrow>.col-sm-8{width:auto;float:none;padding:0}',
+  /* pol\u00edticas */
+  P+'.op-pol-box{background:'+PB+';padding:16px 20px;font-family:"Jost",sans-serif;font-weight:400;font-size:15px;line-height:1.7;color:'+I+'}',
   P+'.op-pol-box p{margin:0 0 10px}',
   P+'.op-pol-box p:last-child{margin:0}',
-  P+'.op-pol-box h3{font-family:"Jost",sans-serif!important;font-weight:500!important;font-size:12px!important;letter-spacing:2px;text-transform:uppercase;color:#0c1d35!important;margin:18px 0 10px}',
-  P+'.op-pol-box strong{font-weight:500;color:#0c1d35}',
-  P+'.op-c-ack .questionrow{display:flex;gap:12px;align-items:flex-start;margin:0 0 12px!important}',
+  P+'.op-pol-2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:0 0 14px}',
+  P+'.op-k{display:block;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:'+S+';line-height:1.6}',
+  P+'.op-v{display:block;font-size:16px;color:'+N+'}',
+  P+'.op-pol-u{margin:0 0 14px}',
+  P+'.op-pol-h{font-size:12px;letter-spacing:3px;text-transform:uppercase;color:'+N+';margin:0 0 10px}',
+  P+'.op-pol-box em{font-family:"Cormorant Garamond",Georgia,serif;font-style:italic;font-size:17px;color:'+N+'}',
+  /* aceptaci\u00f3n */
+  P+'.op-c-ack .questionrow{display:flex;gap:10px;align-items:flex-start;margin:0 0 12px!important}',
   P+'.op-c-ack .questionrow>div{width:auto;float:none;padding:0}',
-  P+'.op-c-ack .questionrow>.col-sm-4{order:2;font-size:14px;line-height:1.6;color:#16202e}',
+  P+'.op-c-ack .questionrow>.col-sm-4{order:2;font-size:16px;line-height:25px;color:'+I+'}',
   P+'.op-c-ack .booktextdiv{line-height:0}',
-  P+'.op-c-ack input[type=checkbox]{width:18px;height:18px;margin:2px 0 0;accent-color:#0c1d35}',
-  P+'.op-c-ack a{color:#876c3a!important;text-decoration:underline!important}',
+  P+'.op-c-ack input[type=checkbox]{-webkit-appearance:none;appearance:none;width:18px;height:18px;margin:3px 0 0;border:1px solid '+R+';border-radius:2px;background:#fff;cursor:pointer}',
+  P+'.op-c-ack input[type=checkbox]:checked{background:'+N+' '+svgUrl('<path d="M2 6.5l3 3 6-7" fill="none" stroke="#fff" stroke-width="1.6"/>','0 0 13 12')+' no-repeat center/11px 10px;border-color:'+N+'}',
+  P+'.op-c-ack input[type=checkbox]:focus-visible{outline:2px solid '+N+';outline-offset:2px}',
+  P+'.op-c-ack a{color:'+A+'!important;text-decoration:none!important;border-bottom:1px solid '+A+'}',
   P+'.op-c-ack .requiredfield{display:none}',
-  P+'.op-actions{display:flex;flex-direction:column;align-items:flex-end;gap:10px;margin:10px 0 64px}',
+  P+'.op-c-ack .op-err input[type=checkbox]{border-color:'+E+'}',
+  /* bot\u00f3n de confirmar: azul marino, a la derecha, fuera de las tarjetas */
+  P+'.op-actions{display:flex;justify-content:flex-end;margin:0 0 48px}',
   P+'.book_confirmbooking{float:none!important;margin:0!important;text-align:right}',
-  P+'input.book_confirmbookingbut{height:52px;padding:0 58px 0 36px!important;background:#0c1d35 '+lockUrl('#faf7f2')+' no-repeat right 30px center/12px 14px!important;color:#faf7f2!important;border:1px solid #0c1d35!important;border-radius:0!important;box-shadow:none!important;font-family:"Jost",sans-serif!important;font-weight:400!important;font-size:12px!important;letter-spacing:3px;text-transform:uppercase;transition:background-color .3s,color .3s}',
-  P+'input.book_confirmbookingbut:hover{background-color:transparent!important;background-image:'+lockUrl('#0c1d35')+'!important;color:#0c1d35!important}',
-  P+'.book_securelogo{text-align:right}',
-  P+'.book_securelogo img{height:44px;width:auto}',
-  P+'.op-co-side{position:sticky;top:24px}',
-  P+'.op-price{background:#fff;border:1px solid #876c3a;padding:26px 26px 22px}',
-  P+'.op-price-h{font-family:"Jost",sans-serif;font-size:12px;letter-spacing:3px;text-transform:uppercase;color:#876c3a;margin:0 0 16px}',
-  P+'.op-price .panel-body{padding:0!important}',
-  P+'.op-price .at_roomnametext{display:block!important;font-size:26px!important;line-height:1.2;margin:0 0 14px}',
-  P+'.op-price .row:before,'+P+'.op-price .row:after{display:none}',
-  P+'.op-price .row{display:flex;justify-content:space-between;gap:14px;margin:0 0 6px;font-size:14px;line-height:1.5}',
-  P+'.op-price .row>div{width:auto;float:none;padding:0;font-weight:400!important}',
-  P+'.op-price .op-kv>div:first-child{color:#46535f;white-space:nowrap}',
-  P+'.op-price .op-kv>div:last-child{text-align:right}',
-  P+'.op-price .op-nights{border-top:1px solid #ddd4c6;padding-top:12px;margin-top:12px}',
-  P+'.op-price .op-nights .pull-right{float:none!important}',
-  P+'.op-price .b24-checkout-divder{border-color:#ddd4c6!important;margin:14px 0 12px}',
-  P+'.op-price .totalpricerow{align-items:baseline;margin:0}',
-  P+'.op-price .totalpricerow>div:first-child{font-size:12px;letter-spacing:3px;text-transform:uppercase;color:#0c1d35}',
-  P+'.op-price .totalpricerow>div:last-child{font-family:"Jost",sans-serif;font-weight:300!important;font-size:28px;line-height:1.2;color:#0c1d35}',
-  P+'.op-hide,'+P+'.at_roomqtyselector:empty,'+P+'.at_offername:empty{display:none!important}',
-  P+'button.op-sum{display:none!important}',
-  '@media(max-width:991px){'+P+'.op-co-grid{grid-template-columns:minmax(0,1fr) 300px;gap:24px}}',
+  P+'input.book_confirmbookingbut{height:48px;min-width:202px;padding:0 48px 0 26px!important;background:'+N+' '+lock('#fff')+' no-repeat right 22px center/11px 13px!important;color:#fff!important;border:1px solid '+N+'!important;border-radius:0!important;box-shadow:none!important;font-family:"Jost",sans-serif!important;font-weight:400!important;font-size:12px!important;letter-spacing:3px;text-transform:uppercase;transition:background-color .1s,color .1s}',
+  P+'input.book_confirmbookingbut:hover{background-color:#fff!important;background-image:'+lock(N)+'!important;color:'+N+'!important}',
+  P+'.book_bookingback{display:none}',
+  /* detalle del precio */
+  P+'.op-co-side{position:sticky;top:16px}',
+  P+'.op-price-l{font-family:"Jost",sans-serif;font-weight:400;font-size:16px;color:'+I+';margin:0 0 8px}',
+  P+'.op-price{background:#fff;border:1px solid '+G+';padding:16px}',
+  P+'.op-pr{display:flex;justify-content:space-between;align-items:baseline;gap:12px;font-size:15px;line-height:1.5;color:'+I+';margin:0 0 8px}',
+  P+'.op-pr:last-child{margin:0}',
+  P+'.op-pr-n{color:'+S+';font-size:14px;margin-top:-6px}',
+  P+'.op-num{font-variant-numeric:lining-nums tabular-nums;font-weight:300;white-space:nowrap}',
+  P+'button.op-lnk{background:none!important;border:0!important;padding:0!important;color:'+A+'!important;font-family:"Jost",sans-serif!important;font-weight:400!important;font-size:15px!important;letter-spacing:0!important;text-transform:none!important;cursor:pointer;text-align:left}',
+  P+'button.op-lnk:after{content:"\\203A";display:inline-block;margin-left:6px;transition:transform .2s}',
+  P+'.op-open>button.op-lnk:after,'+P+'button.op-lnk[aria-expanded=true]:after{transform:rotate(90deg)}',
+  P+'.op-sub{display:none;margin:-2px 0 10px;padding:0 0 0 12px;border-left:1px solid '+R+'}',
+  P+'.op-sub.op-open{display:block}',
+  P+'.op-sub .op-pr{font-size:14px;color:'+S+';margin:0 0 4px}',
+  P+'.op-tot{display:flex;justify-content:space-between;align-items:baseline;margin:16px 0 4px;font-family:"Jost",sans-serif;font-weight:300;font-size:24px;color:'+I+'}',
+  P+'.op-tot-n{font-size:16px;color:'+S+';margin:0 0 16px}',
+  P+'a.op-add{display:block;height:48px;line-height:46px;text-align:center;background:#fff;border:1px solid '+G+';color:'+A+'!important;text-decoration:none!important;font-family:"Jost",sans-serif;font-weight:400;font-size:12px;letter-spacing:3px;text-transform:uppercase;transition:background-color .1s}',
+  P+'a.op-add:hover{background:'+C+'}',
+  P+'.book_securelogo{float:none!important;display:block!important;width:auto!important;text-align:right;margin:24px 0 6px}',
+  P+'.book_poweredby{float:none!important;text-align:right;margin:0 0 16px}',
+  P+'.book_securelogo img{height:40px;width:auto}',
+  P+'.op-hide{display:none!important}',
+  '@media(max-width:991px){'+P+'.op-co-grid{grid-template-columns:minmax(0,1fr) 320px}'+P+'.op-grid{grid-template-columns:1fr}}',
   '@media(max-width:767px){',
-  P+'#bookingpage{padding-left:16px;padding-right:16px}',
-  P+'.op-co-head{margin:26px 0 18px;gap:14px}',
-  P+'.op-co-head h1{font-size:32px!important}',
-  P+'.op-co-grid{display:flex;flex-direction:column;align-items:stretch;gap:0}',
-  P+'.op-co-side{order:-1;position:static;margin:0 0 16px}',
-  P+'button.op-sum{display:flex!important;width:100%;align-items:center;gap:12px;background:#fff!important;border:1px solid #876c3a!important;padding:14px 16px!important;color:#0c1d35!important;font-family:"Jost",sans-serif!important;font-size:14px!important;letter-spacing:0!important;text-transform:none!important;text-align:left}',
-  P+'.op-sum-u{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}',
-  P+'.op-sum-t{font-weight:400;white-space:nowrap}',
-  P+'.op-sum .op-chev{color:#876c3a;transition:transform .2s}',
-  P+'.op-co-side:not(.op-open) .op-price{display:none}',
-  P+'.op-co-side.op-open .op-price{border-top:0}',
-  P+'.op-card{padding:22px 18px 24px}',
-  P+'.op-fields{grid-template-columns:1fr}',
-  P+'.op-pol-box{padding:18px}',
-  P+'.op-actions{align-items:stretch;margin-bottom:44px}',
-  P+'.book_confirmbooking{text-align:center}',
+  P+'.op-topbar{min-height:61px;padding:0 16px!important}',
+  P+'#bookingpage{padding:0 16px!important}',
+  P+'.op-co-head{margin:22px 0 16px;gap:12px}',
+  P+'.op-co-head h1{font-size:28px!important;line-height:34px}',
+  P+'.op-co-grid{display:block}',
+  P+'.op-co-side{position:static;margin:0 0 32px}',
+  P+'.op-card{padding:18px 16px}',
+  P+'.op-pair{grid-template-columns:104px minmax(0,1fr)}',
+  P+'.op-pol-2{grid-template-columns:1fr 1fr}',
+  P+'.op-actions{display:block;margin:0 0 24px}',
   P+'input.book_confirmbookingbut{width:100%}',
   P+'.book_securelogo{text-align:center}',
   '}'
  ].join('\n'); document.head.appendChild(st);
 
  /* t\u00edtulo con la flecha de "Atr\u00e1s" de Beds24 */
- var bk=document.querySelector('.book_bookingbackright a,.book_bookingback a');
+ var bk=document.querySelector('.book_bookingbackright a,.book_bookingback a'), back=bk?bk.href:null;
  var head=el('div','op-co-head');
- if(bk){var a=el('a','op-co-back',ARROW); a.href=bk.href; a.setAttribute('aria-label',bk.textContent.trim()); head.appendChild(a);}
+ if(bk){var a=el('a','op-co-back',ARROW); a.href=back; a.setAttribute('aria-label',txt(bk)); head.appendChild(a);}
  head.appendChild(el('h1',null,esc(T.title)));
  var ssi=document.getElementById('selectorstripinfo'); if(ssi) ssi.parentNode.classList.add('op-hide');
  form.parentNode.insertBefore(head,form);
 
- /* rejilla: columna principal + detalle del precio */
  var grid=el('div','op-co-grid'), main=el('div','op-co-main'), side=el('aside','op-co-side');
  grid.appendChild(main); grid.appendChild(side);
  var row1=det.parentNode; form.insertBefore(grid,row1);
- function card(cls,title,extra){var c=el('section','op-card '+cls); c.appendChild(el('div','op-card-h','<h2>'+title+'</h2>'+(extra||''))); main.appendChild(c); return c;}
+ function card(cls,h,t){var c=el('section','op-card '+cls); if(h) c.appendChild(el('div','op-card-h',h)); if(t) c.appendChild(el('h2','op-card-t',esc(t))); main.appendChild(c); return c;}
 
- var cC=card('op-c-contact',esc(T.contact),'<span class="op-req">'+esc(T.req)+'</span>'), fC=el('div','op-fields'); cC.appendChild(fC);
- var cS=card('op-c-stay',esc(T.stay)), fS=el('div','op-fields'); cS.appendChild(fS);
- var ack=[];
- [].slice.call(gd.querySelectorAll('.questionrow')).forEach(function(r){
-  var lab=r.querySelector('.col-sm-4'), f=r.querySelector('input:not([type=hidden]),select,textarea'); if(!lab||!f) return;
-  if(f.type==='checkbox'||f.type==='radio'){ack.push(r); return;}
-  var req=!!lab.querySelector('.requiredfield'), txt=lab.textContent.replace(/\*/g,'').replace(/\u00a0/g,' ').trim();
-  var stay=/questionrow-(guestarrivaltime|guestcomments)\b/.test(r.className);
-  if(f.tagName==='TEXTAREA'){
-   r.classList.add('op-acc-row'); if(f.value.trim()) r.classList.add('op-open');
-   var tg=el('button','op-acc','<span>'+esc(txt)+'</span>'+CHEV); tg.type='button'; tg.setAttribute('aria-expanded',r.classList.contains('op-open'));
-   tg.onclick=function(){var o=r.classList.toggle('op-open'); tg.setAttribute('aria-expanded',o); if(o) f.focus();};
-   r.insertBefore(tg,r.firstChild); (stay?fS:fC).appendChild(r); return;
-  }
-  var box=f.parentNode, fl=f;
-  if(/questionrow-guestarrivaltime\b/.test(r.className) && f.tagName==='INPUT'){
-   /* hora de llegada: desplegable de 16:00 a 24:00; guarda en el mismo campo de Beds24 */
+ /* preguntas de Beds24 por clave: guestfirstname, guestname, guestemail, guestmobile, guestcountry2, guestarrivaltime, guestcomments\u2026 */
+ var rows={}, order=[];
+ [].slice.call(gd.querySelectorAll('.questionrow')).forEach(function(r){var m=r.className.match(/questionrow-(\S+)/); if(m){rows[m[1]]=r; order.push(m[1]);}});
+ function take(k){var r=rows[k]; delete rows[k]; return r;}
+ function input(r){return r&&r.querySelector('input:not([type=hidden]),select,textarea');}
+ function label(r){var l=r&&r.querySelector('.col-sm-4'); return l?l.textContent.replace(/\*/g,'').replace(/\u00a0/g,' ').trim():'';}
+ function required(r){return !!(r&&r.querySelector('.col-sm-4 .requiredfield'));}
+ function floaty(r){ /* campo con etiqueta flotante y barra de error */
+  if(!r) return null; var f=input(r); if(!f) return null;
+  var box=f.parentNode, req=required(r);
+  r.classList.add('op-f'); if(req) r.classList.add('op-required');
+  if(f.tagName==='SELECT') r.classList.add('op-f-sel'); else f.setAttribute('placeholder',' ');
+  var l=el('label','op-fl',esc(label(r))+(req?'<em>*</em>':'')); l.htmlFor=f.id; box.appendChild(l);
+  r.querySelector('.col-sm-8').appendChild(el('div','op-errbar',esc(T.err)));
+  return r;
+ }
+
+ /* datos de contacto: tratamiento + nombre | apellidos \u00b7 m\u00f3vil | correo \u00b7 pa\u00eds */
+ var cC=card('op-c-contact','<h2>'+esc(T.contact)+'</h2><span class="op-req">'+esc(T.req)+'</span>'), gC=el('div','op-grid'); cC.appendChild(gC);
+ var tit=floaty(take('guesttitle')), fn=floaty(take('guestfirstname'));
+ if(tit&&fn){var pair=el('div','op-pair'); pair.appendChild(tit); pair.appendChild(fn); gC.appendChild(pair);} else if(fn) gC.appendChild(fn);
+ var ln=floaty(take('guestname')); if(ln) gC.appendChild(ln);
+ var mob=take('guestmobile'), mf=input(mob);
+ if(mob&&mf){
+  floaty(mob);
+  var w=el('div','op-phone'), dw=el('div','op-phone-w'), sel=el('select','op-dial'); sel.setAttribute('aria-label',T.prefix);
+  sel.appendChild(new Option('\u2014','')); DIAL.forEach(function(d){sel.appendChild(new Option(d,d));});
+  dw.appendChild(sel); dw.appendChild(el('span','op-dial-l',esc(T.prefix)));
+  var bx=mf.parentNode; bx.parentNode.insertBefore(w,bx); w.appendChild(dw); w.appendChild(bx);
+  form.addEventListener('submit',function(){var v=mf.value.trim(); if(sel.value&&v&&v.charAt(0)!=='+') mf.value=sel.value+' '+v;});
+  gC.appendChild(mob);
+ }
+ var em=floaty(take('guestemail')); if(em){em.querySelector('.col-sm-8').insertBefore(el('small','op-help',esc(T.help)),em.querySelector('.op-errbar')); gC.appendChild(em);}
+ var ct=floaty(take('guestcountry2')); if(ct) gC.appendChild(ct);
+
+ /* tu estancia: filas plegables (hora de llegada, acompa\u00f1ante, comentarios) */
+ var cS=card('op-c-stay','<h2>'+esc(T.stay)+'</h2>'), acc=el('div','op-acc'); cS.appendChild(acc);
+ function accItem(title,body,open){
+  var it=el('div','op-acc-i'+(open?' op-open':'')), h=el('button','op-acc-h','<span>'+esc(title)+'</span>'+CHEV), b=el('div','op-acc-b');
+  h.type='button'; h.setAttribute('aria-expanded',open?'true':'false');
+  h.onclick=function(){var o=it.classList.toggle('op-open'); h.setAttribute('aria-expanded',o);};
+  b.appendChild(body); it.appendChild(h); it.appendChild(b); acc.appendChild(it); return it;
+ }
+ var ar=take('guestarrivaltime'), af=input(ar);
+ if(ar&&af){
+  var arLabel=label(ar);
+  if(af.tagName==='INPUT'){ /* desplegable de 16:00 a 24:00 que escribe en el mismo campo de Beds24 */
    var s=el('select','bookselect form-control'); s.id='op-arrival';
    var ph=document.querySelector('#guestcountry2 option'); s.appendChild(new Option(ph?ph.textContent:'\u2014',''));
    for(var h=16;h<=24;h++){s.appendChild(new Option(h+':00',h+':00')); if(h<24) s.appendChild(new Option(h+':30',h+':30'));}
-   if(f.value && !s.querySelector('option[value="'+f.value.replace(/"/g,'')+'"]')) s.appendChild(new Option(f.value,f.value));
-   s.value=f.value; s.onchange=function(){f.value=s.value;}; f.type='hidden'; box.insertBefore(s,f); fl=s;
+   if(af.value&&!s.querySelector('option[value="'+af.value.replace(/"/g,'')+'"]')) s.appendChild(new Option(af.value,af.value));
+   s.value=af.value; s.onchange=function(){af.value=s.value;}; af.type='hidden'; af.parentNode.insertBefore(s,af);
   }
-  r.classList.add('op-f'); if(fl.tagName==='SELECT') r.classList.add('op-f-sel'); else fl.setAttribute('placeholder',' ');
-  var l=el('label','op-fl',esc(txt)+(req?'<em>*</em>':'')); l.htmlFor=fl.id; box.appendChild(l);
-  if(/questionrow-guestemail\b/.test(r.className)) r.querySelector('.col-sm-8').appendChild(el('small','op-help',esc(T.help)));
-  (stay?fS:fC).appendChild(r);
- });
- if(!fS.children.length) cS.classList.add('op-hide');
-
- /* pago: l\u00ednea de texto hasta que haya pasarela */
- if(T.payText){var cPay=card('op-c-pay',esc(T.pay)+LOCK); cPay.appendChild(el('p','op-pay-t',T.payText));}
+  floaty(ar); accItem(arLabel,ar,!!af.value);
+ }
+ var comp=COMPANION.map(take).filter(Boolean);
+ if(comp.length){var cg=el('div','op-grid'); comp.forEach(function(r){cg.appendChild(floaty(r));}); accItem(T.companion,cg,comp.some(function(r){return input(r).value;}));}
+ var cm=take('guestcomments'), cf=input(cm);
+ if(cm&&cf){accItem(label(cm),cm,!!cf.value.trim());}
+ /* el resto de preguntas: casillas a Aceptaci\u00f3n, lo dem\u00e1s a Tu estancia */
+ var ackRows=[];
+ order.forEach(function(k){var r=rows[k]; if(!r) return; var f=input(r); if(!f) return; delete rows[k];
+  if(f.type==='checkbox'||f.type==='radio'){ackRows.push(r); r.querySelector('.col-sm-8').appendChild(el('div','op-errbar',esc(T.err)));}
+  else {var g=el('div','op-grid'); g.appendChild(floaty(r)); accItem(label(r),g,!!f.value);} });
+ if(!acc.children.length) cS.classList.add('op-hide');
 
  /* pol\u00edticas */
- var units=[].map.call(det.querySelectorAll('.panel-body .at_roomnametext'),function(e){return e.textContent.trim();}).filter(Boolean);
- var cP=card('op-c-pol',esc(T.pol)); cP.id='op-pol';
- cP.appendChild(el('div','op-pol-box','<p>'+esc(T.times)+'</p>'+(units.length?'<p>'+esc(T.unit)+': '+esc(units.join(', '))+'</p>':'')
-  +'<h3>'+esc(T.polHead)+'</h3>'+T.pols.map(function(p){return '<p><strong>'+esc(p[0])+'</strong> '+esc(p[1])+'</p>';}).join('')));
+ var pb=det.querySelector('.panel-body');
+ var units=pb?[].map.call(pb.querySelectorAll('.at_roomnametext'),txt).filter(Boolean):[];
+ var cP=card('op-c-pol',null,T.pol); cP.id='op-pol';
+ cP.appendChild(el('div','op-pol-box',
+  '<div class="op-pol-2"><div><span class="op-k">'+esc(T.ci[0])+'</span><span class="op-v">'+esc(T.ci[1])+'</span></div><div><span class="op-k">'+esc(T.co[0])+'</span><span class="op-v">'+esc(T.co[1])+'</span></div></div>'
+  +(units.length?'<div class="op-pol-u"><span class="op-k">'+esc(T.unit)+'</span><span class="op-v">'+esc(units.join(', '))+'</span></div>':'')
+  +'<p class="op-pol-h">'+esc(T.polHead)+'</p>'+T.pols.map(function(p){return '<p><em>'+esc(p[0])+'</em> '+esc(p[1])+'</p>';}).join('')));
 
  /* aceptaci\u00f3n: casillas (preguntas personalizadas de Beds24) */
- if(ack.length){var cA=card('op-c-ack',esc(T.ack)); ack.forEach(function(r){cA.appendChild(r);});}
+ if(ackRows.length){var cA=card('op-c-ack',null,T.ack); ackRows.forEach(function(r){cA.appendChild(r);});}
 
- /* lo que Beds24 a\u00f1ada en el futuro y no se haya colocado arriba, se queda a la vista */
+ /* lo que Beds24 a\u00f1ada y no se haya colocado, a la vista (despu\u00e9s de mover las casillas) */
  if(fields(gd)) main.insertBefore(gd,cP); else gd.classList.add('op-hide');
 
- /* bot\u00f3n de Beds24 y sello de seguridad */
+ /* bot\u00f3n de Beds24 */
  var acts=el('div','op-actions'); main.appendChild(acts);
  var cb=form.querySelector('.book_confirmbooking'); if(cb) acts.appendChild(cb);
- var seal=document.querySelector('.book_securelogo'); if(seal){var sr=seal.parentNode.parentNode; acts.appendChild(seal); if(sr&&!fields(sr)) sr.classList.add('op-hide');}
 
- /* detalle del precio (el panel de Beds24, sin foto) */
- var pb=det.querySelector('.panel-body'), price=el('div','op-price');
- price.appendChild(el('p','op-price-h',esc(T.price)));
- if(pb){
-  price.appendChild(pb);
-  var nights=+((form.querySelector('input[name=numnight]')||{}).value||0), na=0, nc=0, di=0;
-  [].slice.call(pb.children).forEach(function(c){
-   if(c.tagName==='INPUT'){ if(/^na\d/.test(c.id)) na=+c.value||0; if(/^nc\d/.test(c.id)) nc=+c.value||0; return; }
-   if(c.classList.contains('at_roomnametext')){di=0; return;}
-   if(!c.classList.contains('row')||c.classList.contains('totalpricerow')) return;
-   if(c.querySelector('img')){c.classList.add('op-hide'); return;}
-   var k=c.children[0], v=c.children[1]; if(!k||!v) return;
-   c.classList.add('op-kv');
-   var amt=c.querySelector('.bookingpageamount');
-   if(c.querySelector('.glyphicon-user')||amt){
-    var pd=amt?amt.parentNode:null;
-    k.textContent=T.guests;
-    v.textContent=na+' '+T.ad[na===1?0:1]+(nc?', '+nc+' '+T.ch[nc===1?0:1]:'');
-    if(nights||pd){var nr=el('div','row op-kv op-nights'); nr.appendChild(el('div',null,nights?esc(nights+' '+T.nt[nights===1?0:1]):'')); var nv=el('div'); if(pd) nv.appendChild(pd); nr.appendChild(nv); c.parentNode.insertBefore(nr,c.nextSibling);}
-   } else { k.textContent=di===0?T.arr:T.dep; di++; }
+ /* comprobaci\u00f3n antes de enviar: campos obligatorios vac\u00edos y casillas sin marcar */
+ function bad(r){var f=input(r); if(!f) return false; if(f.type==='checkbox') return !f.checked; return !String(f.value||'').trim()||(f.tagName==='SELECT'&&(f.value==='0'||f.value===''));}
+ function check(r){var b=bad(r); r.classList.toggle('op-err',b); return !b;}
+ var reqRows=[].slice.call(main.querySelectorAll('.op-required')).concat(ackRows.filter(required));
+ reqRows.forEach(function(r){var f=input(r); f.addEventListener(f.type==='checkbox'?'change':'blur',function(){check(r);}); f.addEventListener('input',function(){if(r.classList.contains('op-err')) check(r);});});
+ form.addEventListener('submit',function(e){
+  var first=null; reqRows.forEach(function(r){if(!check(r)&&!first) first=r;});
+  if(first){e.preventDefault(); var pw=document.getElementById('pleasewaitimg'); if(pw) pw.classList.add('hidden'); first.scrollIntoView({behavior:'smooth',block:'center'}); var f=input(first); if(f) f.focus({preventScroll:true});}
+ },true);
+
+ /* detalle del precio, con los importes que calcula Beds24 */
+ var cur=txt(det.querySelector('.bookingpagecurrency'))||'$';
+ var dec=(txt(det.querySelector('#totaldispprice')).match(/[.,](?=\d{2}$)/)||[','])[0];
+ function num(s){s=String(s||'').replace(/[^\d.,]/g,''); if(dec===',') s=s.replace(/\./g,'').replace(',','.'); else s=s.replace(/,/g,''); return parseFloat(s)||0;}
+ function fmt(v){var p=v.toFixed(2).split('.'), i=p[0].replace(/\B(?=(\d{3})+(?!\d))/g,dec===','?'.':','); return cur+i+dec+p[1];}
+ var fv=function(n){var e=form.querySelector('input[name='+n+']'); return e?e.value:'';};
+ var first=fv('firstnight'), out=fv('checkout'), nights=+fv('numnight')||0;
+ function day(iso,opt){var d=iso.split('-'); if(d.length<3) return ''; try{return new Date(Date.UTC(+d[0],+d[1]-1,+d[2])).toLocaleDateString(L||'en',Object.assign({timeZone:'UTC'},opt));}catch(x){return iso;}}
+ function addDays(iso,n){var d=iso.split('-'), t=new Date(Date.UTC(+d[0],+d[1]-1,+d[2]+n)); return t.toISOString().slice(0,10);}
+ var stored={}; try{stored=JSON.parse(sessionStorage.getItem('opNights')||'{}');}catch(x){}
+ var price=el('div','op-price');
+ function render(){
+  var h='', na=0, nc=0, rid=null;
+  if(pb) [].slice.call(pb.children).forEach(function(c){
+   if(c.tagName==='INPUT'){var m=c.id.match(/^n([ac])\d+-(\d+)-/); if(m){if(m[1]==='a') na+=+c.value||0; else nc+=+c.value||0; rid=m[2];} return;}
+   if(c.classList.contains('at_roomnametext')){
+    var amt=null, n=c.nextElementSibling;
+    while(n&&!n.classList.contains('at_roomnametext')&&!n.classList.contains('totalpricerow')){var a=n.querySelector&&n.querySelector('[id$=drprice]'); if(a){amt=a; break;} n=n.nextElementSibling;}
+    var ofn=txt(c.parentNode.querySelector('.at_offername'));
+    h+='<div class="op-pr"><span>'+esc(txt(c))+'</span><span class="op-num">'+(amt?esc(cur+txt(amt)):'')+'</span></div>';
+    if(ofn) h+='<div class="op-pr op-pr-n"><span>'+esc(ofn)+'</span></div>';
+    var sn=stored[rid], ok=sn&&sn.n===nights&&sn.p&&sn.p.length===nights&&sn.p.every(function(x){return /\d/.test(x);})&&(!sn.ci||sn.ci===first);
+    var nl=nights+' '+T.nt[nights===1?0:1];
+    if(ok){
+     h+='<div class="op-pr"><button type="button" class="op-lnk" data-t="op-sn" aria-expanded="false">'+esc(nl)+'</button></div><div class="op-sub" id="op-sn">'
+      +sn.p.map(function(p,i){return '<div class="op-pr"><span>'+esc(day(addDays(first,i),{weekday:'short',day:'numeric',month:'short',year:'numeric'}))+'</span><span class="op-num">'+esc(p.replace(/\s/g,''))+'</span></div>';}).join('')+'</div>';
+    } else h+='<div class="op-pr"><span>'+esc(nl)+'</span></div>';
+   }
   });
+  var ups=[].slice.call(det.querySelectorAll('[id^=zupsellrow]')).filter(function(u){return !u.classList.contains('hidden');});
+  if(ups.length){
+   var sum=0, lines=ups.map(function(u){var v=txt(u.querySelector('.bookingpageamount')); sum+=num(v); return '<div class="op-pr"><span>'+esc(txt(u.querySelector('.b24-upsellname')))+'</span><span class="op-num">'+esc(cur+v)+'</span></div>';}).join('');
+   h+='<div class="op-pr"><button type="button" class="op-lnk" data-t="op-st" aria-expanded="false">'+esc(T.taxes)+'</button><span class="op-num">'+esc(fmt(sum))+'</span></div><div class="op-sub" id="op-st">'+lines+'</div>';
+  }
+  if(first&&out) h+='<div class="op-pr"><span>'+esc(day(first,{weekday:'short',day:'numeric',month:'short',year:'numeric'})+' \u2013 '+day(out,{weekday:'short',day:'numeric',month:'short',year:'numeric'}))+'</span></div>';
+  if(na) h+='<div class="op-pr"><span>'+esc(na+' '+T.ad[na===1?0:1]+(nc?', '+nc+' '+T.ch[nc===1?0:1]:''))+'</span></div>';
+  price.innerHTML=h;
+  [].forEach.call(price.querySelectorAll('.op-lnk'),function(b){b.onclick=function(){var s=document.getElementById(b.getAttribute('data-t')); var o=s.classList.toggle('op-open'); b.setAttribute('aria-expanded',o);};});
+  var t=det.querySelector('#totaldispprice'); tot.innerHTML='<span>'+esc(T.total)+'</span><span class="op-num">'+esc(cur+txt(t))+'</span>';
  }
- var sum=el('button','op-sum'); sum.type='button'; sum.setAttribute('aria-expanded','false');
- var tot=price.querySelector('#totaldispprice');
- function sumTxt(){var cur=price.querySelector('.totalpricerow .bookingpagecurrency'); sum.innerHTML='<span class="op-sum-u">'+esc(units.join(', '))+'</span><span class="op-sum-t">'+esc((cur?cur.textContent:'')+(tot?tot.textContent:''))+'</span>'+CHEV;}
- sumTxt(); if(tot&&window.MutationObserver) new MutationObserver(sumTxt).observe(tot,{childList:true,characterData:true,subtree:true});
- sum.onclick=function(){var o=side.classList.toggle('op-open'); sum.setAttribute('aria-expanded',o);};
- side.appendChild(sum); side.appendChild(price);
+ var tot=el('div','op-tot');
+ side.appendChild(el('p','op-price-l',esc(T.price))); side.appendChild(price); side.appendChild(tot);
+ if(ups0()) side.appendChild(el('p','op-tot-n',esc(T.taxInc)));
+ function ups0(){return !![].filter.call(det.querySelectorAll('[id^=zupsellrow]'),function(u){return !u.classList.contains('hidden');}).length;}
+ if(back){var ad=el('a','op-add',esc(T.add)); ad.href=back; side.appendChild(ad);}
+ render();
+ var tEl=det.querySelector('#totaldispprice'); if(tEl&&window.MutationObserver) new MutationObserver(render).observe(tEl,{childList:true,characterData:true,subtree:true});
  det.classList.add('op-hide');
  if(!fields(row1)) row1.classList.add('op-hide');
+
+ /* sello de seguridad justo encima de "powered by Beds24" */
+ var seal=document.querySelector('.book_securelogo'), pw=document.querySelector('.book_poweredby');
+ if(seal){var sr=seal.parentNode&&seal.parentNode.parentNode; if(pw) pw.parentNode.insertBefore(seal,pw); if(sr&&sr.classList&&!fields(sr)) sr.classList.add('op-hide');}
 })();

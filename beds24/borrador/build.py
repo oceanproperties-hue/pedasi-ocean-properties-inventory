@@ -15,16 +15,18 @@ def must(a,b,src):
     assert src.count(a)==1, a
     return src.replace(a,b)
 # --- vista previa (solo para capturas; no se publica) ---
-ack='''(function(){var p=document.querySelector('.b24-guestdetails .panel-body'); if(!p) return; var d=document.createElement('div');
-d.innerHTML='<div class="row questionrow questionrow-guestcustomq1"><div class="col-sm-4"><span class="requiredfield">*</span> &nbsp;He le\\u00eddo y acepto la <a href="#op-pol">pol\\u00edtica de cancelaci\\u00f3n</a> y la <a href="https://pedasioceanproperties.com/privacy/" target="_blank">pol\\u00edtica de privacidad</a>.</div><div class="col-sm-8 col-xs-12"><div class="booktextdiv"><input type="checkbox" id="op-mock-ack"></div></div></div>';
-p.appendChild(d.firstChild);})();
-'''
-rate='''(function(){[].forEach.call(document.querySelectorAll('.b24room .offer'),function(o){var n=o.querySelector('.at_offername'),s=o.querySelector('.at_offersummary');
+mock='''(function(){var p=document.querySelector('.b24-guestdetails .panel-body'); if(!p) return;
+function row(k,lab,req,inner){var d=document.createElement('div'); d.innerHTML='<div class="row questionrow questionrow-'+k+'"><div class="col-sm-4">'+(req?'<span class="requiredfield">*</span> &nbsp;':'')+lab+'</div><div class="col-sm-8 col-xs-12"><div class="booktextdiv">'+inner+'</div></div></div>'; return d.firstChild;}
+p.insertBefore(row('guesttitle','Tratamiento',false,'<select id="op-mock-title" class="bookselect form-control"><option value="">\u2014</option><option>Sr.</option><option>Sra.</option></select>'),p.firstChild);
+p.appendChild(row('guestcustomq2','Nombre del acompa\u00f1ante',false,'<input type="text" id="op-mock-c1" class="booktextinput form-control">'));
+p.appendChild(row('guestcustomq3','Apellidos del acompa\u00f1ante',false,'<input type="text" id="op-mock-c2" class="booktextinput form-control">'));
+p.appendChild(row('guestcustomq1','He le\u00eddo y acepto la <a href="#op-pol">pol\u00edtica de cancelaci\u00f3n</a> y la <a href="https://pedasioceanproperties.com/privacy/" target="_blank">pol\u00edtica de privacidad</a>.',true,'<input type="checkbox" id="op-mock-ack">'));
+var o=document.querySelector('.b24-bookingdetails .at_offername'); if(o) o.textContent='Tarifa no reembolsable';
+})();
+(function(){[].forEach.call(document.querySelectorAll('.b24room .offer'),function(o){var n=o.querySelector('.at_offername'),s=o.querySelector('.at_offersummary');
 if(n) n.textContent='Tarifa no reembolsable'; if(s) s.innerHTML='<ul><li>Pago total al reservar.</li><li>No admite cancelaciones, cambios ni reembolsos.</li></ul>';});})();
 '''
-pv=must("stay:'Tu estancia',pay:'Pago',payText:''","stay:'Tu estancia',pay:'Pago',payText:'[Aqu\\u00ed va tu l\\u00ednea sobre c\\u00f3mo se paga]'",out)
-pv=must("es:{adv:'Ventajas de reservar directo',advItems:[]","es:{adv:'Ventajas de reservar directo',advItems:['[Ventaja 1: tu texto]','[Ventaja 2: tu texto]','[Ventaja 3: tu texto]']",pv)
-open('preview.js','w').write(ack+rate+pv)
-open('preview-b-sin-tarifa.js','w').write(ack+pv)
-open('preview-a.js','w').write(ack+rate+must("ORDER='b'","ORDER='a'",pv))
+pv=must("es:{adv:'Ventajas de reservar directo',advItems:[]","es:{adv:'Ventajas de reservar directo',advItems:['[Ventaja 1: tu texto]','[Ventaja 2: tu texto]','[Ventaja 3: tu texto]']",out)
+pv=must("ORDER='b'","ORDER='a'",pv)
+open('preview.js','w').write(mock+pv)
 print(len(out))

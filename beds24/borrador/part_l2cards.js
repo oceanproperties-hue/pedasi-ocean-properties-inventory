@@ -57,8 +57,8 @@
   '@media(max-width:991px){'+P+'.op-rgrid{grid-template-columns:minmax(0,1fr) 280px;gap:22px}'+P+'.op-rcard{grid-template-columns:1fr}}',
   '@media(max-width:767px){',
   P+'.b24fullcontainer-proprow1{display:none!important}',
-  P+'button.op-strip-sum{display:flex!important;width:100%;justify-content:space-between;align-items:center;gap:12px;background:#0c1d35!important;border:0!important;padding:16px 18px!important;color:#faf7f2!important;font-family:"Jost",sans-serif!important;font-size:14px!important;letter-spacing:0!important;text-transform:none!important;text-align:left}',
-  P+'.op-strip-sum .op-chev{color:#c9a96e;flex:none;transition:transform .2s}',
+  P+'button.op-strip-sum{display:flex!important;width:100%;justify-content:space-between;align-items:center;gap:12px;background:#112c4e!important;border:0!important;padding:16px 18px!important;color:#faf7f2!important;font-family:"Jost",sans-serif!important;font-size:14px!important;letter-spacing:0!important;text-transform:none!important;text-align:left}',
+  P+'.op-strip-sum .op-chev{color:#d7af74;flex:none;transition:transform .2s}',
   P+'#b24scroller:not(.op-open){display:none!important}',
   P+'.op-strip-sum[aria-expanded=true] .op-chev{transform:rotate(180deg)}',
   P+'.op-rgrid{display:block;margin-top:18px}',
@@ -93,6 +93,15 @@
   strip.addEventListener('change',function(){setTimeout(upd,0);});
   if(window.jQuery) jQuery('#checkin,#checkout').on('dp.change',function(){setTimeout(upd,0);});
  }
+
+ /* precios por noche: se guardan al pulsar Reservar para el desglose de la página de datos del huésped */
+ document.addEventListener('click',function(e){
+  var b=e.target&&e.target.closest?e.target.closest('.at_bookingbut'):null; if(!b) return;
+  var m=(b.name||'').match(/^br(\d+)-(\d+)$/); if(!m) return;
+  var orid=m[1]+'-'+m[2], n=+((document.getElementById('inputnumnight')||{}).value||0), p=[];
+  for(var j=0;j<n&&j<7;j++){var v=document.getElementById('ptval'+orid+'-'+j); p.push(v?v.textContent.trim():'');}
+  try{var all=JSON.parse(sessionStorage.getItem('opNights')||'{}'); all[m[2]]={ci:(document.getElementById('checkin_hide')||{}).value||'',n:n,p:p}; sessionStorage.setItem('opNights',JSON.stringify(all));}catch(x){}
+ },true);
 
  /* unidades a la izquierda, columna derecha */
  var rc=document.querySelector('.b24fullcontainer-rooms > .container'); if(!rc) return;
