@@ -225,8 +225,8 @@
  var L=(B.className.match(/colorbody-(\w\w)/)||[])[1];
  var D={
   es:{title:'Confirmar reserva',contact:'Datos de contacto',req:'* Obligatorio',help:'Enviaremos la confirmaci\u00f3n a este correo.',
-   stay:'Tu estancia',companion:'Acompa\u00f1ante (opcional)',pol:'Pol\u00edticas',ack:'Aceptaci\u00f3n',price:'Detalle del precio',
-   nt:['noche','noches'],ad:['adulto','adultos'],ch:['ni\u00f1o','ni\u00f1os'],taxes:'Impuestos y cargos',total:'Total',taxInc:'Impuestos incluidos',
+   stay:'Su estancia',companion:'Acompa\u00f1ante (opcional)',pol:'Pol\u00edticas',ack:'Aceptaci\u00f3n',price:'Detalle del precio',
+   nt:['noche','noches'],ad:['adulto','adultos'],ch:['ni\u00f1o','ni\u00f1os'],total:'Total',taxInc:'Impuesto tur\u00edstico incluido',
    add:'A\u00f1adir otra unidad',err:'Este campo es obligatorio.',prefix:'Prefijo',unit:'Unidad',
    ci:['Check-in','16:00 \u2013 24:00'],co:['Check-out','hasta las 11:00'],polHead:'Tarifa no reembolsable',
    pols:[['Pago por adelantado:','Para garantizar su reserva, se requiere el pago total del coste de su estancia en el momento de realizar la reserva.'],
@@ -235,7 +235,7 @@
     ['Verificaci\u00f3n de la tarjeta de cr\u00e9dito:','Al momento del check-in, se solicitar\u00e1 la presentaci\u00f3n de la tarjeta de cr\u00e9dito utilizada para el pago con fines de verificaci\u00f3n.']]},
   en:{title:'Confirm booking',contact:'Contact details',req:'* Required',help:'We will send the confirmation to this email.',
    stay:'Your stay',companion:'Companion (optional)',pol:'Policies',ack:'Acknowledgement',price:'Price details',
-   nt:['night','nights'],ad:['adult','adults'],ch:['child','children'],taxes:'Taxes and fees',total:'Total',taxInc:'Including taxes and fees',
+   nt:['night','nights'],ad:['adult','adults'],ch:['child','children'],total:'Total',taxInc:'Tourist tax included',
    add:'Add another unit',err:'This field is required.',prefix:'Code',unit:'Unit',
    ci:['Check-in','16:00 \u2013 24:00'],co:['Check-out','by 11:00'],polHead:'Non refundable.',
    pols:[['Prepayment:','To secure your reservation, full payment of the total cost of your stay is required at the time of booking.'],
@@ -244,7 +244,7 @@
     ['Credit Card Verification:','Upon check-in, the presentation of the credit card used for payment will be requested for verification purposes.']]},
   fr:{title:'Confirmer la r\u00e9servation',contact:'Coordonn\u00e9es',req:'* Obligatoire',help:'Nous enverrons la confirmation \u00e0 cette adresse e-mail.',
    stay:'Votre s\u00e9jour',companion:'Accompagnant (facultatif)',pol:'Conditions',ack:'Acceptation',price:'D\u00e9tail du prix',
-   nt:['nuit','nuits'],ad:['adulte','adultes'],ch:['enfant','enfants'],taxes:'Taxes et frais',total:'Total',taxInc:'Taxes et frais inclus',
+   nt:['nuit','nuits'],ad:['adulte','adultes'],ch:['enfant','enfants'],total:'Total',taxInc:'Taxe de s\u00e9jour incluse',
    add:'Ajouter un logement',err:'Ce champ est obligatoire.',prefix:'Indicatif',unit:'Logement',
    ci:['Check-in','16:00 \u2013 24:00'],co:['Check-out','jusqu\u2019\u00e0 11:00'],polHead:'Tarif non remboursable',
    pols:[['Pr\u00e9paiement :','Pour garantir votre r\u00e9servation, le paiement int\u00e9gral du montant total de votre s\u00e9jour est requis au moment de la r\u00e9servation.'],
@@ -435,7 +435,7 @@
  var em=floaty(take('guestemail')); if(em){em.querySelector('.col-sm-8').insertBefore(el('small','op-help',esc(T.help)),em.querySelector('.op-errbar')); gC.appendChild(em);}
  var ct=floaty(take('guestcountry2')); if(ct) gC.appendChild(ct);
 
- /* tu estancia: filas plegables (hora de llegada, acompa\u00f1ante, comentarios) */
+ /* su estancia: filas plegables (hora de llegada, acompa\u00f1ante, comentarios) */
  var cS=card('op-c-stay','<h2>'+esc(T.stay)+'</h2>'), acc=el('div','op-acc'); cS.appendChild(acc);
  function accItem(title,body,open){
   var it=el('div','op-acc-i'+(open?' op-open':'')), h=el('button','op-acc-h','<span>'+esc(title)+'</span>'+CHEV), b=el('div','op-acc-b');
@@ -525,10 +525,7 @@
    }
   });
   var ups=[].slice.call(det.querySelectorAll('[id^=zupsellrow]')).filter(function(u){return !u.classList.contains('hidden');});
-  if(ups.length){
-   var sum=0, lines=ups.map(function(u){var v=txt(u.querySelector('.bookingpageamount')); sum+=num(v); return '<div class="op-pr"><span>'+esc(txt(u.querySelector('.b24-upsellname')))+'</span><span class="op-num">'+esc(cur+v)+'</span></div>';}).join('');
-   h+='<div class="op-pr"><button type="button" class="op-lnk" data-t="op-st" aria-expanded="false">'+esc(T.taxes)+'</button><span class="op-num">'+esc(fmt(sum))+'</span></div><div class="op-sub" id="op-st">'+lines+'</div>';
-  }
+  ups.forEach(function(u){h+='<div class="op-pr"><span>'+esc(txt(u.querySelector('.b24-upsellname')))+'</span><span class="op-num">'+esc(cur+txt(u.querySelector('.bookingpageamount')))+'</span></div>';});
   if(first&&out) h+='<div class="op-pr"><span>'+esc(day(first,{weekday:'short',day:'numeric',month:'short',year:'numeric'})+' \u2013 '+day(out,{weekday:'short',day:'numeric',month:'short',year:'numeric'}))+'</span></div>';
   if(na) h+='<div class="op-pr"><span>'+esc(na+' '+T.ad[na===1?0:1]+(nc?', '+nc+' '+T.ch[nc===1?0:1]:''))+'</span></div>';
   price.innerHTML=h;

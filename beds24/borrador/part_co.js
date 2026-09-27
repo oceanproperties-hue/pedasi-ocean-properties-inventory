@@ -8,8 +8,8 @@
  var L=(B.className.match(/colorbody-(\w\w)/)||[])[1];
  var D={
   es:{title:'Confirmar reserva',contact:'Datos de contacto',req:'* Obligatorio',help:'Enviaremos la confirmación a este correo.',
-   stay:'Tu estancia',companion:'Acompañante (opcional)',pol:'Políticas',ack:'Aceptación',price:'Detalle del precio',
-   nt:['noche','noches'],ad:['adulto','adultos'],ch:['niño','niños'],taxes:'Impuestos y cargos',total:'Total',taxInc:'Impuestos incluidos',
+   stay:'Su estancia',companion:'Acompañante (opcional)',pol:'Políticas',ack:'Aceptación',price:'Detalle del precio',
+   nt:['noche','noches'],ad:['adulto','adultos'],ch:['niño','niños'],total:'Total',taxInc:'Impuesto turístico incluido',
    add:'Añadir otra unidad',err:'Este campo es obligatorio.',prefix:'Prefijo',unit:'Unidad',
    ci:['Check-in','16:00 – 24:00'],co:['Check-out','hasta las 11:00'],polHead:'Tarifa no reembolsable',
    pols:[['Pago por adelantado:','Para garantizar su reserva, se requiere el pago total del coste de su estancia en el momento de realizar la reserva.'],
@@ -18,7 +18,7 @@
     ['Verificación de la tarjeta de crédito:','Al momento del check-in, se solicitará la presentación de la tarjeta de crédito utilizada para el pago con fines de verificación.']]},
   en:{title:'Confirm booking',contact:'Contact details',req:'* Required',help:'We will send the confirmation to this email.',
    stay:'Your stay',companion:'Companion (optional)',pol:'Policies',ack:'Acknowledgement',price:'Price details',
-   nt:['night','nights'],ad:['adult','adults'],ch:['child','children'],taxes:'Taxes and fees',total:'Total',taxInc:'Including taxes and fees',
+   nt:['night','nights'],ad:['adult','adults'],ch:['child','children'],total:'Total',taxInc:'Tourist tax included',
    add:'Add another unit',err:'This field is required.',prefix:'Code',unit:'Unit',
    ci:['Check-in','16:00 – 24:00'],co:['Check-out','by 11:00'],polHead:'Non refundable.',
    pols:[['Prepayment:','To secure your reservation, full payment of the total cost of your stay is required at the time of booking.'],
@@ -27,7 +27,7 @@
     ['Credit Card Verification:','Upon check-in, the presentation of the credit card used for payment will be requested for verification purposes.']]},
   fr:{title:'Confirmer la réservation',contact:'Coordonnées',req:'* Obligatoire',help:'Nous enverrons la confirmation à cette adresse e-mail.',
    stay:'Votre séjour',companion:'Accompagnant (facultatif)',pol:'Conditions',ack:'Acceptation',price:'Détail du prix',
-   nt:['nuit','nuits'],ad:['adulte','adultes'],ch:['enfant','enfants'],taxes:'Taxes et frais',total:'Total',taxInc:'Taxes et frais inclus',
+   nt:['nuit','nuits'],ad:['adulte','adultes'],ch:['enfant','enfants'],total:'Total',taxInc:'Taxe de séjour incluse',
    add:'Ajouter un logement',err:'Ce champ est obligatoire.',prefix:'Indicatif',unit:'Logement',
    ci:['Check-in','16:00 – 24:00'],co:['Check-out','jusqu’à 11:00'],polHead:'Tarif non remboursable',
    pols:[['Prépaiement :','Pour garantir votre réservation, le paiement intégral du montant total de votre séjour est requis au moment de la réservation.'],
@@ -218,7 +218,7 @@
  var em=floaty(take('guestemail')); if(em){em.querySelector('.col-sm-8').insertBefore(el('small','op-help',esc(T.help)),em.querySelector('.op-errbar')); gC.appendChild(em);}
  var ct=floaty(take('guestcountry2')); if(ct) gC.appendChild(ct);
 
- /* tu estancia: filas plegables (hora de llegada, acompañante, comentarios) */
+ /* su estancia: filas plegables (hora de llegada, acompañante, comentarios) */
  var cS=card('op-c-stay','<h2>'+esc(T.stay)+'</h2>'), acc=el('div','op-acc'); cS.appendChild(acc);
  function accItem(title,body,open){
   var it=el('div','op-acc-i'+(open?' op-open':'')), h=el('button','op-acc-h','<span>'+esc(title)+'</span>'+CHEV), b=el('div','op-acc-b');
@@ -308,10 +308,7 @@
    }
   });
   var ups=[].slice.call(det.querySelectorAll('[id^=zupsellrow]')).filter(function(u){return !u.classList.contains('hidden');});
-  if(ups.length){
-   var sum=0, lines=ups.map(function(u){var v=txt(u.querySelector('.bookingpageamount')); sum+=num(v); return '<div class="op-pr"><span>'+esc(txt(u.querySelector('.b24-upsellname')))+'</span><span class="op-num">'+esc(cur+v)+'</span></div>';}).join('');
-   h+='<div class="op-pr"><button type="button" class="op-lnk" data-t="op-st" aria-expanded="false">'+esc(T.taxes)+'</button><span class="op-num">'+esc(fmt(sum))+'</span></div><div class="op-sub" id="op-st">'+lines+'</div>';
-  }
+  ups.forEach(function(u){h+='<div class="op-pr"><span>'+esc(txt(u.querySelector('.b24-upsellname')))+'</span><span class="op-num">'+esc(cur+txt(u.querySelector('.bookingpageamount')))+'</span></div>';});
   if(first&&out) h+='<div class="op-pr"><span>'+esc(day(first,{weekday:'short',day:'numeric',month:'short',year:'numeric'})+' – '+day(out,{weekday:'short',day:'numeric',month:'short',year:'numeric'}))+'</span></div>';
   if(na) h+='<div class="op-pr"><span>'+esc(na+' '+T.ad[na===1?0:1]+(nc?', '+nc+' '+T.ch[nc===1?0:1]:''))+'</span></div>';
   price.innerHTML=h;
