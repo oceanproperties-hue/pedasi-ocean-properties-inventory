@@ -20,6 +20,7 @@ const LOCAL = {
     if (r.method() === 'POST' && /booking2\.php/.test(u) && (r.postData() || '').includes('bookbook')) { posted = true; return route.abort(); } // nunca enviar el formulario
     if (u.startsWith('https://assets.pedasioceanproperties.com/brand/booking/booking-page.js')) return route.fulfill({ status: 200, contentType: 'application/javascript', body: fs.readFileSync(js) });
     if (u.startsWith('https://pedasioceanproperties.com/assets/css/footer.css')) return route.fulfill({ status: 200, contentType: 'text/css', body: fs.readFileSync(SITE + '/PARA-EL-HOSTING/assets/css/footer.css') });
+    { const m = u.match(/^https:\/\/cdn\.jsdelivr\.net\/npm\/flag-icons@7\.5\.0\/flags\/4x3\/([a-z]{2})\.svg$/); if (m) return route.fulfill({ status: 200, contentType: 'image/svg+xml', body: fs.readFileSync('/tmp/claude-0/-home-user-pedasi-ocean-properties-inventory/eb848910-725f-5531-b32e-78b8e0984779/scratchpad/flags/package/flags/4x3/' + m[1] + '.svg') }); }
     if (LOCAL[u]) return route.fulfill({ status: 200, contentType: 'image/svg+xml', body: fs.readFileSync(LOCAL[u]) });
     if (/pedasioceanproperties\.com|jscache\.com|tripadvisor/.test(u)) return route.abort();
     try {
@@ -36,6 +37,11 @@ const LOCAL = {
   await p.waitForLoadState('load'); await p.waitForTimeout(3000);
   const info = await p.evaluate(() => ({ body: document.body.className, url: location.href.slice(0, 80), nights: sessionStorage.getItem('opNights'), docW: document.documentElement.scrollWidth, inForm: [...document.querySelectorAll('input[name],select[name],textarea[name]')].filter(e => !e.closest('#formbook')).map(e => e.name) }));
   await p.screenshot({ path: prefix + '-1.png', fullPage: true });
+  await p.evaluate(() => { const b = document.querySelector('.op-dial-btn'); if (b) { b.scrollIntoView({block:'center'}); b.click(); } }); await p.waitForTimeout(1500);
+  await p.screenshot({ path: prefix + '-dial.png', fullPage: false });
+  await p.evaluate(() => { const li=[...document.querySelectorAll('.op-dial-list li')].find(l=>/Espa/.test(l.textContent)); if (li) li.click(); }); await p.waitForTimeout(300);
+  console.log(await p.evaluate(() => JSON.stringify({btn: document.querySelector('.op-dial-v') && document.querySelector('.op-dial-v').textContent, first: [...document.querySelectorAll('.op-dial-list li')].slice(0,4).map(l=>l.textContent), flagsLoaded: [...document.querySelectorAll('.op-dial-list img')].filter(i=>i.complete&&i.naturalWidth>0).length})));
+  await p.evaluate(() => { const b = document.querySelector('.op-dial-btn'); b.click(); }); await p.waitForTimeout(300); await p.evaluate(() => { const b = document.querySelector('.op-dial-btn'); b.click(); });
   // desplegables abiertos y errores al salir de campos vacíos (sin enviar nada)
   await p.evaluate(() => { document.querySelectorAll('.op-lnk').forEach(b => b.click()); const h = document.querySelector('.op-acc-h'); if (h) h.click();
     ['guestfirstname', 'guestemail'].forEach(n => { const f = document.querySelector('[name=' + n + ']'); if (f) { f.focus(); f.blur(); } }); });

@@ -257,6 +257,7 @@
  var COMPANION=['guestcustomq2','guestcustomq3'];
  /* prefijos de pa\u00eds del m\u00f3vil (ISO + c\u00f3digo); el nombre del pa\u00eds lo pone el navegador en el idioma de la p\u00e1gina */
  var DIAL='AF93 AL355 DZ213 AD376 AO244 AI1264 AG1268 AR54 AM374 AW297 AU61 AT43 AZ994 BS1242 BH973 BD880 BB1246 BY375 BE32 BZ501 BJ229 BM1441 BT975 BO591 BQ599 BA387 BW267 BR55 VG1284 BN673 BG359 BF226 BI257 KH855 CM237 CA1 CV238 KY1345 CF236 TD235 CL56 CN86 CO57 KM269 CG242 CD243 CR506 CI225 HR385 CU53 CW599 CY357 CZ420 DK45 DJ253 DM1767 DO1809 EC593 EG20 SV503 GQ240 ER291 EE372 SZ268 ET251 FO298 FJ679 FI358 FR33 GF594 PF689 GA241 GM220 GE995 DE49 GH233 GI350 GR30 GL299 GD1473 GP590 GU1671 GT502 GN224 GW245 GY592 HT509 HN504 HK852 HU36 IS354 IN91 ID62 IR98 IQ964 IE353 IL972 IT39 JM1876 JP81 JO962 KZ7 KE254 KI686 KW965 KG996 LA856 LV371 LB961 LS266 LR231 LY218 LI423 LT370 LU352 MO853 MG261 MW265 MY60 MV960 ML223 MT356 MH692 MQ596 MR222 MU230 MX52 FM691 MD373 MC377 MN976 ME382 MS1664 MA212 MZ258 MM95 NA264 NR674 NP977 NL31 NC687 NZ64 NI505 NE227 NG234 KP850 MK389 NO47 OM968 PK92 PW680 PS970 PA507 PG675 PY595 PE51 PH63 PL48 PT351 PR1787 QA974 RE262 RO40 RU7 RW250 KN1869 LC1758 VC1784 WS685 SM378 ST239 SA966 SN221 RS381 SC248 SL232 SG65 SX1721 SK421 SI386 SB677 SO252 ZA27 KR82 SS211 ES34 LK94 SD249 SR597 SE46 CH41 SY963 TW886 TJ992 TZ255 TH66 TL670 TG228 TO676 TT1868 TN216 TR90 TM993 TC1649 TV688 UG256 UA380 AE971 GB44 US1 UY598 VI1340 UZ998 VU678 VA39 VE58 VN84 YE967 ZM260 ZW263'.split(' ');
+ var FLAGS='https://cdn.jsdelivr.net/npm/flag-icons@7.5.0/flags/4x3/';
  function sortOpts(sel,keep){ /* orden alfab\u00e9tico sin distinguir acentos ni may\u00fasculas; "keep" primeras opciones se quedan arriba */
   var fixed=[].slice.call(sel.options,0,keep), rest=[].slice.call(sel.options,keep), seen={};
   rest=rest.filter(function(o){if(seen[o.value]) return false; seen[o.value]=1; return true;});
@@ -307,14 +308,20 @@
   P+'.op-fl em{font-style:normal;color:'+A+';margin-left:3px}',
   P+'.op-f .form-control:focus~.op-fl,'+P+'.op-f .form-control:not(:placeholder-shown)~.op-fl,'+P+'.op-f-sel .op-fl{top:7px;font-size:12px}',
   P+'.op-help{display:block;font-size:12px;line-height:1.5;color:'+S+';margin-top:6px}',
-  P+'.op-phone{display:grid;grid-template-columns:96px minmax(0,1fr)}',
-  P+'.op-phone .op-dial{position:absolute;inset:0;width:100%;height:56px;opacity:0;cursor:pointer;font-size:15px}',
-  P+'.op-phone-w{height:56px;border:1px solid '+R+';border-right:0;background:#fff '+SEL+' no-repeat right 10px center/10px 7px}',
-  P+'.op-phone-w:focus-within{border-color:'+N+';box-shadow:inset 0 0 0 1px '+N+'}',
-  P+'.op-dial-v{position:absolute;left:13px;top:24px;font-family:"Jost",sans-serif;font-size:15px;color:'+I+';pointer-events:none}',
-  P+'.op-phone .op-dial-l{position:absolute;left:13px;top:7px;font-size:12px;color:'+S+';pointer-events:none}',
-  P+'.op-phone-w{position:relative}',
-  P+'.op-err .form-control,'+P+'.op-err .op-phone-w{border-color:'+E+'!important;box-shadow:inset 0 0 0 1px '+E+'!important}',
+  P+'.op-phone{display:grid;grid-template-columns:112px minmax(0,1fr)}',
+  P+'.op-phone-w{position:relative;height:56px}',
+  P+'button.op-dial-btn{display:block!important;position:relative;width:100%;height:56px;background:#fff '+SEL+' no-repeat right 10px center/10px 7px!important;border:1px solid '+R+'!important;border-right:0!important;padding:0!important;text-align:left;cursor:pointer;text-transform:none!important;letter-spacing:0!important;color:'+I+'!important;font-size:15px!important}',
+  P+'button.op-dial-btn:focus-visible,'+P+'button.op-dial-btn[aria-expanded=true]{border-color:'+N+'!important;box-shadow:inset 0 0 0 1px '+N+'!important;outline:0}',
+  P+'.op-dial-l{position:absolute;left:13px;top:7px;font-family:"Jost",sans-serif;font-size:12px;color:'+S+'}',
+  P+'.op-dial-v{position:absolute;left:13px;top:26px;display:flex;align-items:center;gap:8px;font-family:"Jost",sans-serif;font-size:15px;line-height:1;color:'+I+'}',
+  P+'.op-flag{width:20px;height:15px;object-fit:cover;box-shadow:0 0 0 1px rgba(22,32,46,.12);flex:none}',
+  P+'.op-dial-list{position:absolute;left:0;top:100%;z-index:30;width:330px;max-width:calc(100vw - 32px);max-height:300px;overflow-y:auto;margin:4px 0 0;padding:6px 0;list-style:none;background:#fff;border:1px solid '+R+';box-shadow:0 12px 32px rgba(17,44,78,.12)}',
+  P+'.op-dial-list li{display:flex;align-items:center;gap:10px;padding:9px 14px;font-family:"Jost",sans-serif;font-size:14px;line-height:1.3;color:'+I+';cursor:pointer;outline:0}',
+  P+'.op-dial-list li:hover,'+P+'.op-dial-list li:focus{background:'+C+'}',
+  P+'.op-dial-list li[aria-selected=true]{background:'+PB+';color:'+N+'}',
+  P+'.op-dn{flex:1;min-width:0}',
+  P+'.op-dc{color:'+S+';font-variant-numeric:tabular-nums;white-space:nowrap}',
+  P+'.op-err .form-control,'+P+'.op-err button.op-dial-btn{border-color:'+E+'!important;box-shadow:inset 0 0 0 1px '+E+'!important}',
   P+'.op-errbar{display:none;background:'+E+';color:#fff;font-size:12px;line-height:1.4;padding:8px 12px}',
   P+'.op-err .op-errbar{display:block}',
   /* filas plegables, como las de Peninsula */
@@ -435,14 +442,35 @@
  var mob=take('guestmobile'), mf=input(mob);
  if(mob&&mf){
   floaty(mob);
-  var w=el('div','op-phone'), dw=el('div','op-phone-w'), sel=el('select','op-dial'); sel.setAttribute('aria-label',T.prefix);
+  /* prefijo: bandera + (c\u00f3digo), lista por orden alfab\u00e9tico y Panam\u00e1 por defecto; se guarda delante del n\u00famero */
+  var w=el('div','op-phone'), dw=el('div','op-phone-w');
   var names=null; try{names=new Intl.DisplayNames([L||'es'],{type:'region'});}catch(x){}
-  DIAL.forEach(function(d){var iso=d.slice(0,2), code='+'+d.slice(2), n=names?names.of(iso):iso; var o=new Option(n+' ('+code+')',code); o.setAttribute('data-iso',iso); if(iso==='PA') o.selected=true; sel.appendChild(o);});
-  sortOpts(sel,0); [].some.call(sel.options,function(o){if(o.getAttribute('data-iso')==='PA'){o.selected=true; return true;}});
-  var shown=el('span','op-dial-v',esc(sel.value)); sel.onchange=function(){shown.textContent=sel.value;};
-  dw.appendChild(el('span','op-dial-l',esc(T.prefix))); dw.appendChild(shown); dw.appendChild(sel);
+  var list=DIAL.map(function(d){var iso=d.slice(0,2); return {iso:iso,code:'+'+d.slice(2),name:(names&&names.of(iso))||iso};})
+   .sort(function(a,b){return a.name.localeCompare(b.name,L||'es',{sensitivity:'base'});});
+  var pc=list.filter(function(c){return c.iso==='PA';})[0]||list[0];
+  function flag(iso,lazy){return '<img class="op-flag" '+(lazy?'data-src':'src')+'="'+FLAGS+iso.toLowerCase()+'.svg" alt="" width="20" height="15">';}
+  var btn=el('button','op-dial-btn'); btn.type='button'; btn.setAttribute('aria-haspopup','listbox'); btn.setAttribute('aria-expanded','false');
+  function paint(){btn.innerHTML='<span class="op-dial-l">'+esc(T.prefix)+'</span><span class="op-dial-v">'+flag(pc.iso)+'<span>'+esc(pc.code)+'</span></span>'; btn.setAttribute('aria-label',T.prefix+': '+pc.name+' '+pc.code);}
+  var ul=el('ul','op-dial-list'); ul.setAttribute('role','listbox'); ul.setAttribute('aria-label',T.prefix); ul.hidden=true;
+  ul.innerHTML=list.map(function(c,i){return '<li role="option" tabindex="-1" data-i="'+i+'" aria-selected="'+(c===pc)+'">'+flag(c.iso,true)+'<span class="op-dn">'+esc(c.name)+'</span><span class="op-dc">('+esc(c.code)+')</span></li>';}).join('');
+  var items=ul.children, loaded=false;
+  function open(){if(!loaded){[].forEach.call(ul.querySelectorAll('img[data-src]'),function(im){im.src=im.getAttribute('data-src');}); loaded=true;} ul.hidden=false; btn.setAttribute('aria-expanded','true'); var it=items[list.indexOf(pc)]; it.focus({preventScroll:true}); ul.scrollTop=it.offsetTop-ul.clientHeight/2;}
+  function close(back){ul.hidden=true; btn.setAttribute('aria-expanded','false'); if(back) btn.focus();}
+  function pick(i){pc=list[i]; [].forEach.call(items,function(li,k){li.setAttribute('aria-selected',k===i);}); paint(); close(true);}
+  function plain(t){return t.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();}
+  btn.onclick=function(){ul.hidden?open():close();};
+  btn.onkeydown=function(e){if(e.key==='ArrowDown'){e.preventDefault(); open();}};
+  ul.onclick=function(e){var li=e.target.closest('li'); if(li) pick(+li.getAttribute('data-i'));};
+  ul.onkeydown=function(e){var a=document.activeElement, i=a&&a.parentNode===ul?+a.getAttribute('data-i'):0;
+   if(e.key==='ArrowDown'){e.preventDefault(); (items[i+1]||items[i]).focus();}
+   else if(e.key==='ArrowUp'){e.preventDefault(); (items[i-1]||items[i]).focus();}
+   else if(e.key==='Enter'||e.key===' '){e.preventDefault(); pick(i);}
+   else if(e.key==='Escape'){close(true);} else if(e.key==='Tab'){close();}
+   else if(e.key.length===1){var ch=plain(e.key); for(var k=1;k<=list.length;k++){var j=(i+k)%list.length; if(plain(list[j].name).charAt(0)===ch){items[j].focus(); break;}}}};
+  document.addEventListener('click',function(e){if(!ul.hidden&&!dw.contains(e.target)) close();});
+  paint(); dw.appendChild(btn); dw.appendChild(ul);
   var bx=mf.parentNode; bx.parentNode.insertBefore(w,bx); w.appendChild(dw); w.appendChild(bx);
-  form.addEventListener('submit',function(){var v=mf.value.trim(); if(sel.value&&v&&v.charAt(0)!=='+') mf.value=sel.value+' '+v;});
+  form.addEventListener('submit',function(){var v=mf.value.trim(); if(v&&v.charAt(0)!=='+') mf.value=pc.code+' '+v;});
   gC.appendChild(mob);
  }
  var em=floaty(take('guestemail')); if(em){em.querySelector('.col-sm-8').insertBefore(el('small','op-help',esc(T.help)),em.querySelector('.op-errbar')); gC.appendChild(em);}
