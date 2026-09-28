@@ -100,6 +100,61 @@ Los corchetes son variables de Beds24. Comprobar en la prueba que cada una sale 
 - [AVBASEPRICE] es la media por noche del alojamiento si las noches tienen precios distintos.
 - cobros@ no se reenvía: el enlace [VIEWBOOKING] da acceso a la reserva.
 
+### 4. Pago confirmado (email y WhatsApp al huésped; a mano hasta que exista la consola)
+
+**ES** — Asunto: Reserva [número de reserva] confirmada
+
+    Su reserva [número de reserva] está confirmada. Hemos realizado el cobro de [total], impuesto turístico incluido.
+    Le esperamos en [tipo de alojamiento], del [llegada] al [salida].
+    Para cualquier consulta, puede responder a este mensaje.
+    Ocean Properties
+
+**EN** — Subject: Reservation [número de reserva] confirmed
+
+    Your reservation [número de reserva] is confirmed. We have processed the charge of [total], tourism tax included.
+    We look forward to welcoming you to [tipo de alojamiento], from [llegada] to [salida].
+    For any questions, reply to this message.
+    Ocean Properties
+
+**FR** — Objet : Réservation [número de reserva] confirmée
+
+    Votre réservation [número de reserva] est confirmée. Nous avons effectué le prélèvement de [total], taxe touristique incluse.
+    Nous vous attendons dans [tipo de alojamiento], du [llegada] au [salida].
+    Pour toute question, répondez à ce message.
+    Ocean Properties
+
+### 5. Cobro no autorizado (email y WhatsApp al huésped)
+
+**ES** — Asunto: Su reserva [número de reserva], pago pendiente
+
+    Al cobrar su reserva [número de reserva], del [llegada] al [salida], su banco no autorizó el cargo. Es habitual con tarjetas internacionales: algunos bancos piden autorizarlo antes.
+    Puede pagar con otra tarjeta en este enlace seguro: [enlace seguro]
+    O, tras autorizar el cargo con su banco, usar la misma tarjeta en ese enlace.
+    Mantenemos su alojamiento reservado 4 horas, hasta las [hora].
+    Para cualquier consulta, puede responder a este mensaje.
+    Ocean Properties
+
+**EN** — Subject: Your reservation [número de reserva], payment pending
+
+    When charging your reservation [número de reserva], from [llegada] to [salida], your bank did not authorize the payment. This is common with international cards: some banks require prior approval.
+    You can pay with another card at this secure link: [enlace seguro]
+    Or, once your bank authorizes the charge, use the same card at that link.
+    Your accommodation is held for 4 hours, until [hora].
+    For any questions, reply to this message.
+    Ocean Properties
+
+**FR** — Objet : Votre réservation [número de reserva], paiement en attente
+
+    Votre banque n'a pas autorisé le débit de votre réservation [número de reserva], du [llegada] au [salida]. C'est fréquent avec les cartes internationales : certaines banques demandent une autorisation préalable.
+    Vous pouvez payer avec une autre carte via ce lien sécurisé : [enlace seguro]
+    Ou, après accord de votre banque, utiliser la même carte sur ce lien.
+    Votre hébergement reste réservé 4 heures, jusqu'à [hora].
+    Pour toute question, répondez à ce message.
+    Ocean Properties
+
+- [enlace seguro] = https://beds24.com/bookpay.php?bookid=NÚMERO&g=cc (comprobar en la prueba).
+- Si en la prueba la tarjeta no se borra al verla, revisar la frase de "usar la misma tarjeta".
+
 ## Pendientes derivados
 
 - Al configurar extras (upsells): el impuesto turístico 10 % solo sobre el alojamiento;
