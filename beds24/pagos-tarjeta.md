@@ -65,7 +65,9 @@
 
 ### 3. Email interno a cobros@4rentpanama.com (reservas de la web)
 
-Beds24 → "Additional Booking Notification Email", solo reservas de la página de reservas.
+Beds24 → **Auto Action** (el "Additional Booking Notification Email" solo admite "todas las reservas", canales incluidos).
+Disparo: Booking, inmediato; Booking Source = Direct; Referrer = el de la página de reservas (comprobar en la prueba);
+estado: todos menos cancelada. Acción: email interno a cobros@ y etiqueta "En proceso de cobro".
 Los corchetes son variables de Beds24. Comprobar en la prueba que cada una sale bien.
 
 **Asunto:** Cobrar reserva web [BOOKID] · [GUESTFULLNAME]
@@ -92,7 +94,7 @@ Los corchetes son variables de Beds24. Comprobar en la prueba que cada una sale 
     2. Cobre el total en el terminal.
     3. Si sale aprobado: cambie la etiqueta a "Cobrada", anote el pago en la reserva y envíe al huésped la confirmación por email y WhatsApp.
     4. Si sale rechazado: cambie la etiqueta a "Cobro rechazado" y envíe al huésped el aviso. La unidad queda bloqueada 4 horas. Pasado ese tiempo sin otra tarjeta, cambie el estado a Inquiry: la reserva sigue, pero la unidad queda libre.
-    5. Responda a este email con la foto del voucher.
+    5. Envíe la foto del voucher a cobros@4rentpanama.com, con el número de reserva en el asunto. No responda a este email: la respuesta puede llegar al huésped.
 
     Nunca anote la tarjeta en papel, chat ni hojas.
 
@@ -155,7 +157,29 @@ Los corchetes son variables de Beds24. Comprobar en la prueba que cada una sale 
 - [enlace seguro] = https://beds24.com/bookpay.php?bookid=NÚMERO&g=cc (comprobar en la prueba).
 - Si en la prueba la tarjeta no se borra al verla, revisar la frase de "usar la misma tarjeta".
 
+## Ajustes de Beds24 (lectura del 28 sep con la API y Chrome)
+
+| Ajuste | Hoy | Cambio |
+|---|---|---|
+| Booking Type (Normal y Near Term) | confirmedWithDepositCollection1 (100 %, sin pago → Inquiry) | confirmedWithCreditCard ("Collect CC") — por API |
+| Credit Card Collection | Not Used | Prioridad 10 — por API |
+| Tarjetas | Visa, Mastercard | + American Express — por API |
+| Código de seguridad | No obligatorio | Obligatorio — por API |
+| Credit Card Security (cuenta) | Allow Cards | Sin cambio |
+| Título de la pasarela (ES/EN/FR) | vacío | Pago con tarjeta · Card payment · Paiement par carte |
+| Instruction (ES/EN/FR) | vacío | Texto 2 |
+| Confirmation Messages → "Automatic with Credit Card" (ES/EN/FR) | vacío | Texto 1 |
+| Booking Flag Text Values | Arrived, Departed, Paid, VIP | + En proceso de cobro,FFA500 · Cobrada,2E7D32 · Cobro rechazado,D32F2F |
+| Host Notifications → Additional Booking Notification Email | Disabled (solo Disabled / All Bookings) | Sin cambio: se usa una Auto Action |
+| Administrator Email | reservations@pedasioceanproperties.com; las notificaciones responden al email del huésped | Sin cambio |
+| Use New Booking Status | Allowed | Sin cambio |
+| Account Access (quién ve tarjetas) | pide contraseña | Lili escribe la contraseña; Chrome solo lee |
+
+Pendiente aparte: los mensajes generales de confirmación ("first part" y "last part") solo
+tienen texto en inglés; español y francés están vacíos.
+
 ## Pendientes derivados
 
+- Mensajes generales de confirmación en español y francés (hoy solo inglés).
 - Al configurar extras (upsells): el impuesto turístico 10 % solo sobre el alojamiento;
   los extras con ITBMS 7 %.
