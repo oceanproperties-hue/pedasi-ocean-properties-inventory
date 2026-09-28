@@ -8,7 +8,7 @@
   en:{adv:'Benefits of booking direct',advItems:[],ad:['adult','adults'],ch:['child','children']},
   fr:{adv:'Avantages de la réservation directe',advItems:[],ad:['adulte','adultes'],ch:['enfant','enfants']}
  };
- var T=D[L]||D.en, ORDER='b';
+ var T=D[L]||D.en, ORDER='a';
  var CHEV='<svg class="op-chev" viewBox="0 0 12 8" width="12" height="8" aria-hidden="true"><path d="M1 1.5l5 5 5-5" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>';
  function el(t,c,h){var e=document.createElement(t); if(c) e.className=c; if(h!=null) e.innerHTML=h; return e;}
  function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
@@ -46,7 +46,7 @@
   P+'.op-rate .at_roomofferprice{text-align:right}',
   P+'.op-rate .b24-roombuttondiv .at_bookingbut{float:none!important;margin-top:10px;height:48px;padding:0 30px!important}',
   P+'.op-rc-r .b24-offer-pricetable,'+P+'.op-rc-r .b24-offer-detail,'+P+'.op-rc-r hr[id^=offerlinebreak]{display:none!important}',
-  P+'.op-rc-r .b24-offer-cal{margin-top:8px;font-size:12.8px}',
+  P+'.op-rc-r .b24-offer-cal{display:none!important}',
   P+'.op-hide{display:none!important}',
   P+'.op-rside .op-sbox{background:#fff;padding:24px 26px;margin:0 0 16px}',
   P+'.op-rside h3{font-family:"Jost",sans-serif!important;font-weight:400!important;font-size:12px!important;letter-spacing:3px;text-transform:uppercase;color:#876c3a!important;margin:0 0 12px}',

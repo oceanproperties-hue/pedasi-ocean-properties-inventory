@@ -27,6 +27,5 @@ var o=document.querySelector('.b24-bookingdetails .at_offername'); if(o) o.textC
 if(n) n.textContent='Tarifa no reembolsable'; if(s) s.innerHTML='<ul><li>Pago total al reservar.</li><li>No admite cancelaciones, cambios ni reembolsos.</li></ul>';});})();
 '''
 pv=must("es:{adv:'Ventajas de reservar directo',advItems:[]","es:{adv:'Ventajas de reservar directo',advItems:['[Ventaja 1: tu texto]','[Ventaja 2: tu texto]','[Ventaja 3: tu texto]']",out)
-pv=must("ORDER='b'","ORDER='a'",pv)
 open('preview.js','w').write(mock+pv)
 print(len(out))

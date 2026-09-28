@@ -88,7 +88,7 @@
   en:{adv:'Benefits of booking direct',advItems:[],ad:['adult','adults'],ch:['child','children']},
   fr:{adv:'Avantages de la r\u00e9servation directe',advItems:[],ad:['adulte','adultes'],ch:['enfant','enfants']}
  };
- var T=D[L]||D.en, ORDER='b';
+ var T=D[L]||D.en, ORDER='a';
  var CHEV='<svg class="op-chev" viewBox="0 0 12 8" width="12" height="8" aria-hidden="true"><path d="M1 1.5l5 5 5-5" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>';
  function el(t,c,h){var e=document.createElement(t); if(c) e.className=c; if(h!=null) e.innerHTML=h; return e;}
  function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
@@ -126,7 +126,7 @@
   P+'.op-rate .at_roomofferprice{text-align:right}',
   P+'.op-rate .b24-roombuttondiv .at_bookingbut{float:none!important;margin-top:10px;height:48px;padding:0 30px!important}',
   P+'.op-rc-r .b24-offer-pricetable,'+P+'.op-rc-r .b24-offer-detail,'+P+'.op-rc-r hr[id^=offerlinebreak]{display:none!important}',
-  P+'.op-rc-r .b24-offer-cal{margin-top:8px;font-size:12.8px}',
+  P+'.op-rc-r .b24-offer-cal{display:none!important}',
   P+'.op-hide{display:none!important}',
   P+'.op-rside .op-sbox{background:#fff;padding:24px 26px;margin:0 0 16px}',
   P+'.op-rside h3{font-family:"Jost",sans-serif!important;font-weight:400!important;font-size:12px!important;letter-spacing:3px;text-transform:uppercase;color:#876c3a!important;margin:0 0 12px}',
@@ -236,7 +236,7 @@
   en:{title:'Confirm booking',contact:'Contact details',req:'* Required',help:'We will send the confirmation to this email.',
    stay:'Your stay',companion:'Companion (optional)',pol:'Policies',ack:'Acknowledgement',price:'Price details',
    nt:['night','nights'],ad:['adult','adults'],ch:['child','children'],total:'Total',taxInc:'Tourist tax included',
-   add:'Add another unit',err:'This field is required.',prefix:'Code',unit:'Unit',
+   add:'Add another unit',err:'This field is required.',prefix:'Country code',unit:'Unit',
    ci:['Check-in','16:00 \u2013 24:00'],co:['Check-out','by 11:00'],polHead:'Non refundable.',
    pols:[['Prepayment:','To secure your reservation, full payment of the total cost of your stay is required at the time of booking.'],
     ['Cancellation and Changes:','This reservation cannot be canceled, modified, or refunded under any circumstances. In the event of a no-show or changes to your reservation, a charge equivalent to 100% of the total cost of your stay will be applied to your credit card.'],
