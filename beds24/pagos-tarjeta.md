@@ -111,14 +111,14 @@ Los corchetes son variables de Beds24. Comprobar en la prueba que cada una sale 
 
 **EN** — Subject: Reservation [número de reserva] confirmed
 
-    Your reservation [número de reserva] is confirmed. We have processed the charge of [total], tourism tax included.
+    Your reservation [número de reserva] is confirmed. We have processed the charge of [total], tourist tax included.
     We look forward to welcoming you to [tipo de alojamiento], from [llegada] to [salida].
     For any questions, reply to this message.
     Ocean Properties
 
 **FR** — Objet : Réservation [número de reserva] confirmée
 
-    Votre réservation [número de reserva] est confirmée. Nous avons effectué le prélèvement de [total], taxe touristique incluse.
+    Votre réservation [número de reserva] est confirmée. Nous avons effectué le prélèvement de [total], taxe de séjour incluse.
     Nous vous attendons dans [tipo de alojamiento], du [llegada] au [salida].
     Pour toute question, répondez à ce message.
     Ocean Properties
