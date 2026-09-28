@@ -187,7 +187,6 @@
   P+'.op-pol-2{grid-template-columns:1fr 1fr}',
   P+'.op-actions{display:block;margin:0 0 24px}',
   P+'input.book_confirmbookingbut{width:100%}',
-  P+'.book_securelogo{text-align:center}',
   '}'
  ].join('\n'); document.head.appendChild(st);
 

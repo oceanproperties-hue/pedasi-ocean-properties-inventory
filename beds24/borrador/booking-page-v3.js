@@ -13,6 +13,19 @@
   else if(co && sessionStorage.getItem('opL2')==='1') document.body.classList.add('layout2','op-co');
  }catch(e){}
 })();
+/* Sello de seguridad justo encima de "powered by Beds24" en las p\u00e1ginas sin dise\u00f1o propio
+   (p. ej. la de pago tras solicitar la reserva). La p\u00e1gina de datos del hu\u00e9sped lo coloca ella misma. */
+(function(){
+ if(document.body.classList.contains('op-co')) return;
+ var seal=document.querySelector('.book_securelogo'), pw=document.querySelector('.book_poweredby');
+ if(!seal||!pw||seal.contains(pw)||pw.contains(seal)) return;
+ var old=seal.parentNode;
+ pw.parentNode.insertBefore(seal,pw);
+ if(old&&old!==pw.parentNode&&!old.textContent.trim()&&!old.querySelector('img,input,button,select,textarea,a')) old.style.display='none';
+ var st=document.createElement('style');
+ st.textContent='.book_securelogo{float:none!important;display:block!important;width:auto!important;text-align:right;margin:24px 0 6px}.book_securelogo img{height:40px;width:auto}.book_poweredby{float:none!important;text-align:right}';
+ document.head.appendChild(st);
+})();
 /* Ocean Properties \u00b7 comodidades: 6 clave a la vista + "ver todas". */
 (function(){
   function run(){
@@ -405,7 +418,6 @@
   P+'.op-pol-2{grid-template-columns:1fr 1fr}',
   P+'.op-actions{display:block;margin:0 0 24px}',
   P+'input.book_confirmbookingbut{width:100%}',
-  P+'.book_securelogo{text-align:center}',
   '}'
  ].join('\n'); document.head.appendChild(st);
 
