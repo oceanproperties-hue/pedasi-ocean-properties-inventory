@@ -50,13 +50,14 @@
  +'body.layout2 .op-topbar a.op-mb{color:#faf7f2!important;text-decoration:none!important;font-family:"Jost",sans-serif;font-size:11px;letter-spacing:3px;text-transform:uppercase}'
  +'body.layout2{overflow-x:hidden}body.layout2 #b24scroller,body.layout2 .b24-bookingstrip{max-width:100%;box-sizing:border-box}'
  +'body.layout2 .op-topbar{display:flex!important;justify-content:space-between;align-items:center;gap:20px;padding:18px 30px!important}'
- +'body.layout2 .op-nav{display:flex;align-items:center;gap:26px}body.layout2 .op-wa-ico{display:none;width:20px;height:20px}body.layout2 .op-topbar a.op-wa .op-wa-num,body.layout2 .op-topbar a.op-wa .op-wa-txt{color:inherit}body.layout2 .op-topbar a.op-wa .op-wa-num span{color:#c9a96e}'
+ +'body.layout2 .op-nav{display:flex;align-items:center;gap:26px}body.layout2 .op-wa-ico,body.layout2 .op-mb-ico{display:none;width:20px;height:20px}body.layout2 .op-topbar a.op-wa .op-wa-num,body.layout2 .op-topbar a.op-wa .op-wa-txt{color:inherit}body.layout2 .op-topbar a.op-wa .op-wa-num span{color:#c9a96e}'
  +'body.layout2 .op-logo{flex:none}body.layout2 .op-logo img{max-height:36px;object-fit:contain;object-position:left center}'
- +'@media(max-width:767px){body.layout2 .op-topbar{padding:12px 16px!important;gap:12px}body.layout2 .op-logo img{width:118px!important;height:auto!important}body.layout2 .op-nav{gap:12px}body.layout2 .op-wa-num,body.layout2 .op-wa-txt{display:none}body.layout2 .op-wa-ico{display:block}body.layout2 .op-topbar a.op-wa{line-height:0}'
- +'body.layout2 .op-topbar .b24languagedropdown .btn,body.layout2 .op-topbar .b24currencydropdown .btn,body.layout2 .op-topbar a.op-wa,body.layout2 .op-topbar a.op-mb{font-size:10px!important;letter-spacing:1.5px!important}}'; document.head.appendChild(fx);
+ +'@media(max-width:767px){body.layout2 .op-topbar{padding:12px 16px!important;gap:12px}body.layout2 .op-logo img{width:118px!important;height:auto!important}body.layout2 .op-nav{gap:12px}body.layout2 .op-wa-num,body.layout2 .op-wa-txt,body.layout2 .op-mb-txt{display:none}body.layout2 .op-wa-ico,body.layout2 .op-mb-ico{display:block}body.layout2 .op-topbar a.op-wa,body.layout2 .op-topbar a.op-mb{line-height:0}'
+ +'body.layout2 .op-topbar .b24languagedropdown .btn,body.layout2 .op-topbar .b24currencydropdown .btn,body.layout2 .op-topbar a.op-wa,body.layout2 .op-topbar a.op-mb{font-size:10px!important;letter-spacing:1.5px!important}}'
+ +'@media(max-width:400px){body.layout2 .op-logo img{width:100px!important}body.layout2 .op-nav{gap:9px}body.layout2 .op-topbar{gap:8px;padding:12px 12px!important}body.layout2 .op-topbar .b24languagedropdown .btn,body.layout2 .op-topbar .b24currencydropdown .btn{font-size:9.5px!important;letter-spacing:1px!important}}'; document.head.appendChild(fx);
  var css=document.createElement('link'); css.rel='stylesheet'; css.href='https://pedasioceanproperties.com/assets/css/footer.css?v=bcd553b6'; document.head.appendChild(css);
  var bar=document.createElement('header'); bar.className='op-topbar';
- bar.innerHTML='<a class="op-logo" href="'+T.home+'"><img src="'+LOGO+'" width="170" height="36" alt="Ocean Properties"></a><div class="op-nav"><a class="op-mb" href="https://my-booking.info" target="_blank" rel="noopener">'+MB+'</a><div class="op-left"></div><a class="op-wa" href="'+WA+'" target="_blank" rel="noopener" aria-label="WhatsApp +507 6479-9595"><svg class="op-wa-ico" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.3 21.7l1.45-5.05A9.5 9.5 0 1 1 7.35 20.3L2.3 21.7z"></path><path transform="translate(12.06 12.05) scale(1.3) translate(-13.14 -12.8)" stroke-width="1.08" d="M10.1 9.8c.16-.37.31-.37.53-.37h.37c.16 0 .31.03.43.37l.53 1.27c.06.19 0 .34-.09.5l-.28.37c-.12.16-.19.31-.06.53a5.15 5.15 0 0 0 2.17 1.95c.22.09.37.06.5-.09l.43-.5c.12-.16.28-.16.43-.09l1.18.59c.19.09.31.19.31.37 0 .37-.16.87-.53 1.12-.37.28-.87.43-1.46.31a7.32 7.32 0 0 1-4.65-4.06c-.31-.71-.22-1.46.19-2.02z"></path></svg><span class="op-wa-txt">WhatsApp</span><span class="op-wa-num"> <span>\u00b7</span> +507 6479-9595</span></a></div>';
+ bar.innerHTML='<a class="op-logo" href="'+T.home+'"><img src="'+LOGO+'" width="170" height="36" alt="Ocean Properties"></a><div class="op-nav"><a class="op-mb" href="https://my-booking.info" target="_blank" rel="noopener" aria-label="'+MB+'"><svg class="op-mb-ico" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"></path></svg><span class="op-mb-txt">'+MB+'</span></a><div class="op-left"></div><a class="op-wa" href="'+WA+'" target="_blank" rel="noopener" aria-label="WhatsApp +507 6479-9595"><svg class="op-wa-ico" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.3 21.7l1.45-5.05A9.5 9.5 0 1 1 7.35 20.3L2.3 21.7z"></path><path transform="translate(12.06 12.05) scale(1.3) translate(-13.14 -12.8)" stroke-width="1.08" d="M10.1 9.8c.16-.37.31-.37.53-.37h.37c.16 0 .31.03.43.37l.53 1.27c.06.19 0 .34-.09.5l-.28.37c-.12.16-.19.31-.06.53a5.15 5.15 0 0 0 2.17 1.95c.22.09.37.06.5-.09l.43-.5c.12-.16.28-.16.43-.09l1.18.59c.19.09.31.19.31.37 0 .37-.16.87-.53 1.12-.37.28-.87.43-1.46.31a7.32 7.32 0 0 1-4.65-4.06c-.31-.71-.22-1.46.19-2.02z"></path></svg><span class="op-wa-txt">WhatsApp</span><span class="op-wa-num"> <span>\u00b7</span> +507 6479-9595</span></a></div>';
  document.body.insertBefore(bar,document.body.firstChild);
  ['.b24languagedropdown','.b24currencydropdown'].forEach(function(s){var e=document.querySelector(s); if(e) bar.querySelector('.op-left').appendChild(e);});
  var intro=document.createElement('section'); intro.className='op-intro';
@@ -227,7 +228,7 @@
   es:{title:'Confirmar reserva',contact:'Datos de contacto',req:'* Obligatorio',help:'Enviaremos la confirmaci\u00f3n a este correo.',
    stay:'Su estancia',companion:'Acompa\u00f1ante (opcional)',pol:'Pol\u00edticas',ack:'Aceptaci\u00f3n',price:'Detalle del precio',
    nt:['noche','noches'],ad:['adulto','adultos'],ch:['ni\u00f1o','ni\u00f1os'],total:'Total',taxInc:'Impuesto tur\u00edstico incluido',
-   add:'A\u00f1adir otra unidad',err:'Este campo es obligatorio.',prefix:'Prefijo',title:['Tratamiento',['Sr.','Sra.']],unit:'Unidad',
+   add:'A\u00f1adir otra unidad',err:'Este campo es obligatorio.',prefix:'Prefijo',honor:['Tratamiento',['Sr.','Sra.']],unit:'Unidad',
    ci:['Check-in','16:00 \u2013 24:00'],co:['Check-out','hasta las 11:00'],polHead:'Tarifa no reembolsable',
    pols:[['Pago por adelantado:','Para garantizar su reserva, se requiere el pago total del coste de su estancia en el momento de realizar la reserva.'],
     ['Cancelaci\u00f3n y cambios:','Esta reserva no se puede cancelar, modificar ni reembolsar bajo ninguna circunstancia. En caso de no presentarse (no-show) o de realizar cambios en su reserva, se aplicar\u00e1 un cargo equivalente al 100% del coste total de su estancia a su tarjeta de cr\u00e9dito.'],
@@ -236,7 +237,7 @@
   en:{title:'Confirm booking',contact:'Contact details',req:'* Required',help:'We will send the confirmation to this email.',
    stay:'Your stay',companion:'Companion (optional)',pol:'Policies',ack:'Acknowledgement',price:'Price details',
    nt:['night','nights'],ad:['adult','adults'],ch:['child','children'],total:'Total',taxInc:'Tourist tax included',
-   add:'Add another unit',err:'This field is required.',prefix:'Country code',title:['Title',['Mr','Mrs','Ms']],unit:'Unit',
+   add:'Add another unit',err:'This field is required.',prefix:'Country code',honor:['Title',['Mr','Mrs','Ms']],unit:'Unit',
    ci:['Check-in','16:00 \u2013 24:00'],co:['Check-out','by 11:00'],polHead:'Non refundable.',
    pols:[['Prepayment:','To secure your reservation, full payment of the total cost of your stay is required at the time of booking.'],
     ['Cancellation and Changes:','This reservation cannot be canceled, modified, or refunded under any circumstances. In the event of a no-show or changes to your reservation, a charge equivalent to 100% of the total cost of your stay will be applied to your credit card.'],
@@ -245,7 +246,7 @@
   fr:{title:'Confirmer la r\u00e9servation',contact:'Coordonn\u00e9es',req:'* Obligatoire',help:'Nous enverrons la confirmation \u00e0 cette adresse e-mail.',
    stay:'Votre s\u00e9jour',companion:'Accompagnant (facultatif)',pol:'Conditions',ack:'Acceptation',price:'D\u00e9tail du prix',
    nt:['nuit','nuits'],ad:['adulte','adultes'],ch:['enfant','enfants'],total:'Total',taxInc:'Taxe de s\u00e9jour incluse',
-   add:'Ajouter un logement',err:'Ce champ est obligatoire.',prefix:'Indicatif',title:['Civilit\u00e9',['M.','Mme']],unit:'Logement',
+   add:'Ajouter un logement',err:'Ce champ est obligatoire.',prefix:'Indicatif',honor:['Civilit\u00e9',['M.','Mme']],unit:'Logement',
    ci:['Check-in','16:00 \u2013 24:00'],co:['Check-out','jusqu\u2019\u00e0 11:00'],polHead:'Tarif non remboursable',
    pols:[['Pr\u00e9paiement :','Pour garantir votre r\u00e9servation, le paiement int\u00e9gral du montant total de votre s\u00e9jour est requis au moment de la r\u00e9servation.'],
     ['Annulation et modifications :','Cette r\u00e9servation ne peut \u00eatre annul\u00e9e, modifi\u00e9e ou rembours\u00e9e en aucun cas. En cas de non-pr\u00e9sentation (no-show) ou de modification de votre r\u00e9servation, des frais \u00e9quivalents \u00e0 100 % du montant total de votre s\u00e9jour seront pr\u00e9lev\u00e9s sur votre carte de cr\u00e9dit.'],
@@ -390,11 +391,13 @@
   P+'.book_securelogo img{height:40px;width:auto}',
   P+'.op-hide{display:none!important}',
   '@media(max-width:991px){'+P+'.op-co-grid{grid-template-columns:minmax(0,1fr) 320px}'+P+'.op-grid{grid-template-columns:1fr}}',
+  '@media(max-width:400px){'+P+'.op-co-head h1{font-size:24px!important;line-height:30px}}',
   '@media(max-width:767px){',
   P+'.op-topbar{min-height:61px;padding:0 16px!important}',
   P+'#bookingpage{padding:0 16px!important}',
   P+'.op-co-head{margin:22px 0 16px;gap:12px}',
   P+'.op-co-head h1{font-size:28px!important;line-height:34px}',
+  P+'.op-co-head h1{min-width:0;overflow-wrap:break-word}',
   P+'.op-co-grid{display:block}',
   P+'.op-co-side{position:static;margin:0 0 32px}',
   P+'.op-card{padding:18px 16px}',
@@ -442,10 +445,10 @@
  var tr=take('guesttitle'), tf=input(tr);
  if(tf&&tf.tagName==='INPUT'){
   var ts=el('select','bookselect form-control'); ts.id='op-title'; ts.appendChild(new Option('\u2014',''));
-  T.title[1].forEach(function(v){ts.appendChild(new Option(v,v));});
-  if(tf.value&&T.title[1].indexOf(tf.value)<0) ts.appendChild(new Option(tf.value,tf.value));
+  T.honor[1].forEach(function(v){ts.appendChild(new Option(v,v));});
+  if(tf.value&&T.honor[1].indexOf(tf.value)<0) ts.appendChild(new Option(tf.value,tf.value));
   ts.value=tf.value; ts.onchange=function(){tf.value=ts.value;}; tf.type='hidden'; tf.parentNode.insertBefore(ts,tf);
-  var tl=tr.querySelector('.col-sm-4'); if(tl) tl.textContent=T.title[0];
+  var tl=tr.querySelector('.col-sm-4'); if(tl) tl.textContent=T.honor[0];
  }
  var tit=floaty(tr), fn=floaty(take('guestfirstname'));
  if(tit&&fn){var pair=el('div','op-pair'); pair.appendChild(tit); pair.appendChild(fn); gC.appendChild(pair);} else if(fn) gC.appendChild(fn);

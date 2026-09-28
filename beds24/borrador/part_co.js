@@ -10,7 +10,7 @@
   es:{title:'Confirmar reserva',contact:'Datos de contacto',req:'* Obligatorio',help:'Enviaremos la confirmación a este correo.',
    stay:'Su estancia',companion:'Acompañante (opcional)',pol:'Políticas',ack:'Aceptación',price:'Detalle del precio',
    nt:['noche','noches'],ad:['adulto','adultos'],ch:['niño','niños'],total:'Total',taxInc:'Impuesto turístico incluido',
-   add:'Añadir otra unidad',err:'Este campo es obligatorio.',prefix:'Prefijo',title:['Tratamiento',['Sr.','Sra.']],unit:'Unidad',
+   add:'Añadir otra unidad',err:'Este campo es obligatorio.',prefix:'Prefijo',honor:['Tratamiento',['Sr.','Sra.']],unit:'Unidad',
    ci:['Check-in','16:00 – 24:00'],co:['Check-out','hasta las 11:00'],polHead:'Tarifa no reembolsable',
    pols:[['Pago por adelantado:','Para garantizar su reserva, se requiere el pago total del coste de su estancia en el momento de realizar la reserva.'],
     ['Cancelación y cambios:','Esta reserva no se puede cancelar, modificar ni reembolsar bajo ninguna circunstancia. En caso de no presentarse (no-show) o de realizar cambios en su reserva, se aplicará un cargo equivalente al 100% del coste total de su estancia a su tarjeta de crédito.'],
@@ -19,7 +19,7 @@
   en:{title:'Confirm booking',contact:'Contact details',req:'* Required',help:'We will send the confirmation to this email.',
    stay:'Your stay',companion:'Companion (optional)',pol:'Policies',ack:'Acknowledgement',price:'Price details',
    nt:['night','nights'],ad:['adult','adults'],ch:['child','children'],total:'Total',taxInc:'Tourist tax included',
-   add:'Add another unit',err:'This field is required.',prefix:'Country code',title:['Title',['Mr','Mrs','Ms']],unit:'Unit',
+   add:'Add another unit',err:'This field is required.',prefix:'Country code',honor:['Title',['Mr','Mrs','Ms']],unit:'Unit',
    ci:['Check-in','16:00 – 24:00'],co:['Check-out','by 11:00'],polHead:'Non refundable.',
    pols:[['Prepayment:','To secure your reservation, full payment of the total cost of your stay is required at the time of booking.'],
     ['Cancellation and Changes:','This reservation cannot be canceled, modified, or refunded under any circumstances. In the event of a no-show or changes to your reservation, a charge equivalent to 100% of the total cost of your stay will be applied to your credit card.'],
@@ -28,7 +28,7 @@
   fr:{title:'Confirmer la réservation',contact:'Coordonnées',req:'* Obligatoire',help:'Nous enverrons la confirmation à cette adresse e-mail.',
    stay:'Votre séjour',companion:'Accompagnant (facultatif)',pol:'Conditions',ack:'Acceptation',price:'Détail du prix',
    nt:['nuit','nuits'],ad:['adulte','adultes'],ch:['enfant','enfants'],total:'Total',taxInc:'Taxe de séjour incluse',
-   add:'Ajouter un logement',err:'Ce champ est obligatoire.',prefix:'Indicatif',title:['Civilité',['M.','Mme']],unit:'Logement',
+   add:'Ajouter un logement',err:'Ce champ est obligatoire.',prefix:'Indicatif',honor:['Civilité',['M.','Mme']],unit:'Logement',
    ci:['Check-in','16:00 – 24:00'],co:['Check-out','jusqu’à 11:00'],polHead:'Tarif non remboursable',
    pols:[['Prépaiement :','Pour garantir votre réservation, le paiement intégral du montant total de votre séjour est requis au moment de la réservation.'],
     ['Annulation et modifications :','Cette réservation ne peut être annulée, modifiée ou remboursée en aucun cas. En cas de non-présentation (no-show) ou de modification de votre réservation, des frais équivalents à 100 % du montant total de votre séjour seront prélevés sur votre carte de crédit.'],
@@ -173,11 +173,13 @@
   P+'.book_securelogo img{height:40px;width:auto}',
   P+'.op-hide{display:none!important}',
   '@media(max-width:991px){'+P+'.op-co-grid{grid-template-columns:minmax(0,1fr) 320px}'+P+'.op-grid{grid-template-columns:1fr}}',
+  '@media(max-width:400px){'+P+'.op-co-head h1{font-size:24px!important;line-height:30px}}',
   '@media(max-width:767px){',
   P+'.op-topbar{min-height:61px;padding:0 16px!important}',
   P+'#bookingpage{padding:0 16px!important}',
   P+'.op-co-head{margin:22px 0 16px;gap:12px}',
   P+'.op-co-head h1{font-size:28px!important;line-height:34px}',
+  P+'.op-co-head h1{min-width:0;overflow-wrap:break-word}',
   P+'.op-co-grid{display:block}',
   P+'.op-co-side{position:static;margin:0 0 32px}',
   P+'.op-card{padding:18px 16px}',
@@ -225,10 +227,10 @@
  var tr=take('guesttitle'), tf=input(tr);
  if(tf&&tf.tagName==='INPUT'){
   var ts=el('select','bookselect form-control'); ts.id='op-title'; ts.appendChild(new Option('—',''));
-  T.title[1].forEach(function(v){ts.appendChild(new Option(v,v));});
-  if(tf.value&&T.title[1].indexOf(tf.value)<0) ts.appendChild(new Option(tf.value,tf.value));
+  T.honor[1].forEach(function(v){ts.appendChild(new Option(v,v));});
+  if(tf.value&&T.honor[1].indexOf(tf.value)<0) ts.appendChild(new Option(tf.value,tf.value));
   ts.value=tf.value; ts.onchange=function(){tf.value=ts.value;}; tf.type='hidden'; tf.parentNode.insertBefore(ts,tf);
-  var tl=tr.querySelector('.col-sm-4'); if(tl) tl.textContent=T.title[0];
+  var tl=tr.querySelector('.col-sm-4'); if(tl) tl.textContent=T.honor[0];
  }
  var tit=floaty(tr), fn=floaty(take('guestfirstname'));
  if(tit&&fn){var pair=el('div','op-pair'); pair.appendChild(tit); pair.appendChild(fn); gC.appendChild(pair);} else if(fn) gC.appendChild(fn);
