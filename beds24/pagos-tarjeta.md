@@ -62,3 +62,45 @@
     Le débit est effectué dans les prochaines heures. Vous recevrez la confirmation par e-mail et, si vous nous avez indiqué votre WhatsApp, également par WhatsApp.
     Paiement chiffré, protégé selon la norme internationale de sécurité des cartes. Nous ne vous demanderons jamais ces données par téléphone, WhatsApp ou e-mail.
     Visa, Mastercard et American Express.
+
+### 3. Email interno a cobros@4rentpanama.com (reservas de la web)
+
+Beds24 → "Additional Booking Notification Email", solo reservas de la página de reservas.
+Los corchetes son variables de Beds24. Comprobar en la prueba que cada una sale bien.
+
+**Asunto:** Cobrar reserva web [BOOKID] · [GUESTFULLNAME]
+
+    Nueva reserva de la web, pendiente de cobro.
+
+    Abrir la reserva en Beds24 y cobrar: [VIEWBOOKING]
+
+    Reserva: [BOOKID]
+    Huésped: [GUESTFULLNAME]
+    Móvil: [GUESTMOBILE] · Email: [GUESTEMAIL]
+    Unidad: [ROOMNAME]
+    Llegada: [FIRSTNIGHT] · Salida: [LEAVINGDAY]
+
+    Precio por noche: [AVBASEPRICE] · Noches: [NUMNIGHT]
+
+    [INVOICETABLE]
+
+    Total a cobrar: [INVOICEBALANCE]
+
+    Plazo: 2 horas. Si la reserva entra entre las 9 pm y las 7 am, el plazo empieza a las 7 am.
+
+    1. Con el terminal delante, pulse el enlace de arriba y vea la tarjeta. Beds24 le pedirá su contraseña y la muestra una sola vez.
+    2. Cobre el total en el terminal.
+    3. Si sale aprobado: cambie la etiqueta a "Cobrada", anote el pago en la reserva y envíe al huésped la confirmación por email y WhatsApp.
+    4. Si sale rechazado: cambie la etiqueta a "Cobro rechazado" y envíe al huésped el aviso. La unidad queda bloqueada 4 horas. Pasado ese tiempo sin otra tarjeta, cambie el estado a Inquiry: la reserva sigue, pero la unidad queda libre.
+    5. Responda a este email con la foto del voucher.
+
+    Nunca anote la tarjeta en papel, chat ni hojas.
+
+- [INVOICETABLE] muestra cada línea (alojamiento, impuesto, extras futuros) y el total.
+- [AVBASEPRICE] es la media por noche del alojamiento si las noches tienen precios distintos.
+- cobros@ no se reenvía: el enlace [VIEWBOOKING] da acceso a la reserva.
+
+## Pendientes derivados
+
+- Al configurar extras (upsells): el impuesto turístico 10 % solo sobre el alojamiento;
+  los extras con ITBMS 7 %.
