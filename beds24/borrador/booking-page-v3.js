@@ -227,7 +227,7 @@
   es:{title:'Confirmar reserva',contact:'Datos de contacto',req:'* Obligatorio',help:'Enviaremos la confirmaci\u00f3n a este correo.',
    stay:'Su estancia',companion:'Acompa\u00f1ante (opcional)',pol:'Pol\u00edticas',ack:'Aceptaci\u00f3n',price:'Detalle del precio',
    nt:['noche','noches'],ad:['adulto','adultos'],ch:['ni\u00f1o','ni\u00f1os'],total:'Total',taxInc:'Impuesto tur\u00edstico incluido',
-   add:'A\u00f1adir otra unidad',err:'Este campo es obligatorio.',prefix:'Prefijo',unit:'Unidad',
+   add:'A\u00f1adir otra unidad',err:'Este campo es obligatorio.',prefix:'Prefijo',title:['Tratamiento',['Sr.','Sra.']],unit:'Unidad',
    ci:['Check-in','16:00 \u2013 24:00'],co:['Check-out','hasta las 11:00'],polHead:'Tarifa no reembolsable',
    pols:[['Pago por adelantado:','Para garantizar su reserva, se requiere el pago total del coste de su estancia en el momento de realizar la reserva.'],
     ['Cancelaci\u00f3n y cambios:','Esta reserva no se puede cancelar, modificar ni reembolsar bajo ninguna circunstancia. En caso de no presentarse (no-show) o de realizar cambios en su reserva, se aplicar\u00e1 un cargo equivalente al 100% del coste total de su estancia a su tarjeta de cr\u00e9dito.'],
@@ -236,7 +236,7 @@
   en:{title:'Confirm booking',contact:'Contact details',req:'* Required',help:'We will send the confirmation to this email.',
    stay:'Your stay',companion:'Companion (optional)',pol:'Policies',ack:'Acknowledgement',price:'Price details',
    nt:['night','nights'],ad:['adult','adults'],ch:['child','children'],total:'Total',taxInc:'Tourist tax included',
-   add:'Add another unit',err:'This field is required.',prefix:'Country code',unit:'Unit',
+   add:'Add another unit',err:'This field is required.',prefix:'Country code',title:['Title',['Mr','Mrs','Ms']],unit:'Unit',
    ci:['Check-in','16:00 \u2013 24:00'],co:['Check-out','by 11:00'],polHead:'Non refundable.',
    pols:[['Prepayment:','To secure your reservation, full payment of the total cost of your stay is required at the time of booking.'],
     ['Cancellation and Changes:','This reservation cannot be canceled, modified, or refunded under any circumstances. In the event of a no-show or changes to your reservation, a charge equivalent to 100% of the total cost of your stay will be applied to your credit card.'],
@@ -245,7 +245,7 @@
   fr:{title:'Confirmer la r\u00e9servation',contact:'Coordonn\u00e9es',req:'* Obligatoire',help:'Nous enverrons la confirmation \u00e0 cette adresse e-mail.',
    stay:'Votre s\u00e9jour',companion:'Accompagnant (facultatif)',pol:'Conditions',ack:'Acceptation',price:'D\u00e9tail du prix',
    nt:['nuit','nuits'],ad:['adulte','adultes'],ch:['enfant','enfants'],total:'Total',taxInc:'Taxe de s\u00e9jour incluse',
-   add:'Ajouter un logement',err:'Ce champ est obligatoire.',prefix:'Indicatif',unit:'Logement',
+   add:'Ajouter un logement',err:'Ce champ est obligatoire.',prefix:'Indicatif',title:['Civilit\u00e9',['M.','Mme']],unit:'Logement',
    ci:['Check-in','16:00 \u2013 24:00'],co:['Check-out','jusqu\u2019\u00e0 11:00'],polHead:'Tarif non remboursable',
    pols:[['Pr\u00e9paiement :','Pour garantir votre r\u00e9servation, le paiement int\u00e9gral du montant total de votre s\u00e9jour est requis au moment de la r\u00e9servation.'],
     ['Annulation et modifications :','Cette r\u00e9servation ne peut \u00eatre annul\u00e9e, modifi\u00e9e ou rembours\u00e9e en aucun cas. En cas de non-pr\u00e9sentation (no-show) ou de modification de votre r\u00e9servation, des frais \u00e9quivalents \u00e0 100 % du montant total de votre s\u00e9jour seront pr\u00e9lev\u00e9s sur votre carte de cr\u00e9dit.'],
@@ -254,7 +254,7 @@
  };
  var T=D[L]||D.en;
  /* preguntas personalizadas de Beds24 que forman la fila "Acompa\u00f1ante" (se crean el d\u00eda de publicar) */
- var COMPANION=['guestcustomq2','guestcustomq3'];
+ var COMPANION=['guestcustq2','guestcustq3'];
  /* prefijos de pa\u00eds del m\u00f3vil (ISO + c\u00f3digo); el nombre del pa\u00eds lo pone el navegador en el idioma de la p\u00e1gina */
  var DIAL='AF93 AL355 DZ213 AD376 AO244 AI1264 AG1268 AR54 AM374 AW297 AU61 AT43 AZ994 BS1242 BH973 BD880 BB1246 BY375 BE32 BZ501 BJ229 BM1441 BT975 BO591 BQ599 BA387 BW267 BR55 VG1284 BN673 BG359 BF226 BI257 KH855 CM237 CA1 CV238 KY1345 CF236 TD235 CL56 CN86 CO57 KM269 CG242 CD243 CR506 CI225 HR385 CU53 CW599 CY357 CZ420 DK45 DJ253 DM1767 DO1809 EC593 EG20 SV503 GQ240 ER291 EE372 SZ268 ET251 FO298 FJ679 FI358 FR33 GF594 PF689 GA241 GM220 GE995 DE49 GH233 GI350 GR30 GL299 GD1473 GP590 GU1671 GT502 GN224 GW245 GY592 HT509 HN504 HK852 HU36 IS354 IN91 ID62 IR98 IQ964 IE353 IL972 IT39 JM1876 JP81 JO962 KZ7 KE254 KI686 KW965 KG996 LA856 LV371 LB961 LS266 LR231 LY218 LI423 LT370 LU352 MO853 MG261 MW265 MY60 MV960 ML223 MT356 MH692 MQ596 MR222 MU230 MX52 FM691 MD373 MC377 MN976 ME382 MS1664 MA212 MZ258 MM95 NA264 NR674 NP977 NL31 NC687 NZ64 NI505 NE227 NG234 KP850 MK389 NO47 OM968 PK92 PW680 PS970 PA507 PG675 PY595 PE51 PH63 PL48 PT351 PR1787 QA974 RE262 RO40 RU7 RW250 KN1869 LC1758 VC1784 WS685 SM378 ST239 SA966 SN221 RS381 SC248 SL232 SG65 SX1721 SK421 SI386 SB677 SO252 ZA27 KR82 SS211 ES34 LK94 SD249 SR597 SE46 CH41 SY963 TW886 TJ992 TZ255 TH66 TL670 TG228 TO676 TT1868 TN216 TR90 TM993 TC1649 TV688 UG256 UA380 AE971 GB44 US1 UY598 VI1340 UZ998 VU678 VA39 VE58 VN84 YE967 ZM260 ZW263'.split(' ');
  var FLAGS='https://cdn.jsdelivr.net/npm/flag-icons@7.5.0/flags/4x3/';
@@ -349,7 +349,9 @@
   P+'.op-pol-h{font-size:12px;letter-spacing:3px;text-transform:uppercase;color:'+N+';margin:0 0 10px}',
   P+'.op-pol-box em{font-family:"Cormorant Garamond",Georgia,serif;font-style:italic;font-size:17px;color:'+N+'}',
   /* aceptaci\u00f3n */
-  P+'.op-c-ack .questionrow{display:flex;gap:10px;align-items:flex-start;margin:0 0 12px!important}',
+  P+'.op-c-ack .questionrow{display:flex;flex-wrap:wrap;gap:10px;align-items:flex-start;margin:0 0 12px!important}',
+  P+'.op-c-ack .questionrow>.op-errbar{flex-basis:100%;order:3;padding:8px 12px}',
+  P+'.op-c-ack .questionrow>.col-sm-4{flex:1;min-width:0}',
   P+'.op-c-ack .questionrow>div{width:auto;float:none;padding:0}',
   P+'.op-c-ack .questionrow>.col-sm-4{order:2;font-size:16px;line-height:25px;color:'+I+'}',
   P+'.op-c-ack .booktextdiv{line-height:0}',
@@ -427,6 +429,7 @@
  function floaty(r){ /* campo con etiqueta flotante y barra de error */
   if(!r) return null; var f=input(r); if(!f) return null;
   var box=f.parentNode, req=required(r);
+  if(f.tagName!=='TEXTAREA'&&f.type!=='checkbox') f.classList.add('form-control');
   r.classList.add('op-f'); if(req) r.classList.add('op-required');
   if(f.tagName==='SELECT') r.classList.add('op-f-sel'); else f.setAttribute('placeholder',' ');
   var l=el('label','op-fl',esc(label(r))+(req?'<em>*</em>':'')); l.htmlFor=f.id; box.appendChild(l);
@@ -436,7 +439,15 @@
 
  /* datos de contacto: tratamiento + nombre | apellidos \u00b7 m\u00f3vil | correo \u00b7 pa\u00eds */
  var cC=card('op-c-contact','<h2>'+esc(T.contact)+'</h2><span class="op-req">'+esc(T.req)+'</span>'), gC=el('div','op-grid'); cC.appendChild(gC);
- var tit=floaty(take('guesttitle')), fn=floaty(take('guestfirstname'));
+ var tr=take('guesttitle'), tf=input(tr);
+ if(tf&&tf.tagName==='INPUT'){
+  var ts=el('select','bookselect form-control'); ts.id='op-title'; ts.appendChild(new Option('\u2014',''));
+  T.title[1].forEach(function(v){ts.appendChild(new Option(v,v));});
+  if(tf.value&&T.title[1].indexOf(tf.value)<0) ts.appendChild(new Option(tf.value,tf.value));
+  ts.value=tf.value; ts.onchange=function(){tf.value=ts.value;}; tf.type='hidden'; tf.parentNode.insertBefore(ts,tf);
+  var tl=tr.querySelector('.col-sm-4'); if(tl) tl.textContent=T.title[0];
+ }
+ var tit=floaty(tr), fn=floaty(take('guestfirstname'));
  if(tit&&fn){var pair=el('div','op-pair'); pair.appendChild(tit); pair.appendChild(fn); gC.appendChild(pair);} else if(fn) gC.appendChild(fn);
  var ln=floaty(take('guestname')); if(ln) gC.appendChild(ln);
  var mob=take('guestmobile'), mf=input(mob);
@@ -470,7 +481,7 @@
   document.addEventListener('click',function(e){if(!ul.hidden&&!dw.contains(e.target)) close();});
   paint(); dw.appendChild(btn); dw.appendChild(ul);
   var bx=mf.parentNode; bx.parentNode.insertBefore(w,bx); w.appendChild(dw); w.appendChild(bx);
-  form.addEventListener('submit',function(){var v=mf.value.trim(); if(v&&v.charAt(0)!=='+') mf.value=pc.code+' '+v;});
+  form.addEventListener('submit',function(e){if(e.defaultPrevented) return; var v=mf.value.trim(); if(v&&v.charAt(0)!=='+') mf.value=pc.code+' '+v;});
   gC.appendChild(mob);
  }
  var em=floaty(take('guestemail')); if(em){em.querySelector('.col-sm-8').insertBefore(el('small','op-help',esc(T.help)),em.querySelector('.op-errbar')); gC.appendChild(em);}
@@ -505,7 +516,7 @@
  /* el resto de preguntas: casillas a Aceptaci\u00f3n, lo dem\u00e1s a Tu estancia */
  var ackRows=[];
  order.forEach(function(k){var r=rows[k]; if(!r) return; var f=input(r); if(!f) return; delete rows[k];
-  if(f.type==='checkbox'||f.type==='radio'){ackRows.push(r); r.querySelector('.col-sm-8').appendChild(el('div','op-errbar',esc(T.err)));}
+  if(f.type==='checkbox'||f.type==='radio'){ackRows.push(r); r.appendChild(el('div','op-errbar',esc(T.err)));}
   else {var g=el('div','op-grid'); g.appendChild(floaty(r)); accItem(label(r),g,!!f.value);} });
  if(!acc.children.length) cS.classList.add('op-hide');
 

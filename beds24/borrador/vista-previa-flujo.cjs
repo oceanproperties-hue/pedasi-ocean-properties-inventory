@@ -47,6 +47,11 @@ const LOCAL = {
     ['guestfirstname', 'guestemail'].forEach(n => { const f = document.querySelector('[name=' + n + ']'); if (f) { f.focus(); f.blur(); } }); });
   await p.waitForTimeout(500);
   await p.screenshot({ path: prefix + '-2.png', fullPage: true });
-  console.log(JSON.stringify({ info, posted, errors }, null, 1));
+  // intento de enviar sin marcar la casilla: el formulario no debe salir
+  await p.evaluate(() => { const set=(n,v)=>{const f=document.querySelector('[name='+n+']'); if(f){f.value=v; f.dispatchEvent(new Event('input'));}}; set('guestfirstname','Prueba'); set('guestname','Prueba'); set('guestemail','prueba@example.com'); set('guestmobile','60000000'); });
+  await p.evaluate(() => { const b=document.getElementById('booking2Submit'); if(b) b.click(); }); await p.waitForTimeout(1500);
+  const ackErr = await p.evaluate(() => ({ackErr: !!document.querySelector('.op-c-ack .op-err'), stillHere: !!document.getElementById('formbook'), title: [...document.querySelectorAll('#op-title option')].map(o=>o.text), comp: [...document.querySelectorAll('.op-acc-h span')].map(s=>s.textContent)}));
+  await p.screenshot({ path: prefix + '-3.png', fullPage: true });
+  console.log(JSON.stringify({ info, posted, errors, ackErr }, null, 1));
   await b.close();
 })();
