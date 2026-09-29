@@ -178,6 +178,20 @@ Los corchetes son variables de Beds24. Comprobar en la prueba que cada una sale 
 Pendiente aparte: los mensajes generales de confirmación ("first part" y "last part") solo
 tienen texto en inglés; español y francés están vacíos.
 
+## Estado de la configuración (29 sep, noche)
+
+- Guardado y verificado con Chrome: título e instrucciones de la tarjeta (ES/EN/FR),
+  mensaje "Automatic with Credit Card" (ES/EN/FR) y las 3 etiquetas nuevas.
+- Auto Action "Cobrar reserva web": rellenada (Trigger: Booking · Immediate · Direct ·
+  Referer oceanproperties · All Not Cancelled; Messaging: Internal only a cobros@, Reply To
+  cobros@, asunto y HTML en ES/EN/FR; Booking: flag "En proceso de cobro" ffa500).
+  Se guarda en **Disable** hasta la activación.
+- Sin aplicar (API): Collect CC, pasarela de tarjeta, Amex y CVV obligatorio. Copia y
+  vuelta atrás preparadas en el scratchpad.
+- Activación pendiente, con Lili presente: 1) Auto Action a Auto; 2) cambios por API;
+  3) reserva de prueba en la web y cancelación.
+- La sesión de Chrome se cae cuando otra persona entra con el usuario oppedasi.
+
 ## Pendientes derivados
 
 - Mensajes generales de confirmación en español y francés (hoy solo inglés).
