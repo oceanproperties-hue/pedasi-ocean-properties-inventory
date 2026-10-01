@@ -4,9 +4,9 @@
  var B=document.body; if(!/\blayout2\b/.test(B.className)||B.classList.contains('op-co')) return;
  var L=(B.className.match(/colorbody-(\w\w)/)||[])[1];
  var D={
-  es:{adv:'Ventajas de reservar directo',advItems:[],ad:['adulto','adultos'],ch:['niño','niños']},
-  en:{adv:'Benefits of booking direct',advItems:[],ad:['adult','adults'],ch:['child','children']},
-  fr:{adv:'Avantages de la réservation directe',advItems:[],ad:['adulte','adultes'],ch:['enfant','enfants']}
+  es:{adv:'Ventajas de reservar directo',advItems:[],ad:['adulto','adultos'],ch:['niño','niños'],search:'Buscar'},
+  en:{adv:'Benefits of booking direct',advItems:[],ad:['adult','adults'],ch:['child','children'],search:'Search'},
+  fr:{adv:'Avantages de la réservation directe',advItems:[],ad:['adulte','adultes'],ch:['enfant','enfants'],search:'Rechercher'}
  };
  var T=D[L]||D.en, ORDER='a';
  var CHEV='<svg class="op-chev" viewBox="0 0 12 8" width="12" height="8" aria-hidden="true"><path d="M1 1.5l5 5 5-5" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>';
@@ -20,6 +20,12 @@
   P+'.b24fullcontainer-proprow1 .carousel-inner>.item>img{width:100%!important;height:300px!important;object-fit:cover;max-width:none}',
   /* buscador: resumen de una línea (solo móvil) */
   P+'button.op-strip-sum{display:none!important}',
+  /* buscador: noches calculadas con las fechas y botón Buscar */
+  P+'.op-nights{display:flex!important;align-items:center;cursor:default;user-select:none}',
+  P+'#b24scroller button.op-search-btn{display:block;height:44px;padding:0 34px!important;margin:0 0 15px;background:#d7af74!important;border:1px solid #d7af74!important;border-radius:0!important;color:#112c4e!important;font-family:"Jost",sans-serif!important;font-size:12px!important;font-weight:500!important;letter-spacing:3px!important;text-transform:uppercase!important;white-space:nowrap;cursor:pointer;box-shadow:none!important;transition:background .2s,color .2s}',
+  P+'#b24scroller button.op-search-btn:hover,'+P+'#b24scroller button.op-search-btn:focus-visible{background:transparent!important;color:#d7af74!important}',
+  '@media(min-width:992px){'+P+'#b24scroller>.row{display:flex;align-items:flex-end;flex-wrap:nowrap}'+P+'#b24scroller>.row:before,'+P+'#b24scroller>.row:after{display:none}'+P+'#b24scroller>.row>div{float:none;width:auto;flex:1 1 0;min-width:0}'+P+'#b24scroller>.row>.b24-selector-checkin,'+P+'#b24scroller>.row>.b24-selector-checkout{flex-grow:1.35}'+P+'#b24scroller>.row>.b24-selector-numnight{flex-grow:.7}'+P+'#b24scroller>.row>.op-sel-search{flex:0 0 auto;padding:0 15px}}',
+  '@media(max-width:991px){'+P+'.op-sel-search{clear:both;float:left;width:100%;padding:4px 15px 0}'+P+'#b24scroller button.op-search-btn{width:100%}}',
   /* rejilla: unidades + columna derecha */
   P+'.op-rgrid{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:32px;align-items:start;margin-top:28px}',
   P+'.op-rmain .b24panel-room,'+P+'.op-rmain .b24panel-room.border{border:0!important;padding:0!important;margin:0 0 16px!important;background:#fff!important}',
@@ -92,6 +98,42 @@
   sb.onclick=function(){var o=strip.classList.toggle('op-open'); sb.setAttribute('aria-expanded',o);};
   strip.addEventListener('change',function(){setTimeout(upd,0);});
   if(window.jQuery) jQuery('#checkin,#checkout').on('dp.change',function(){setTimeout(upd,0);});
+
+  /* noches: se calculan con las fechas (el selector de Beds24 queda oculto y sincronizado) */
+  var $j=window.jQuery, pk=function(id){var x=$j&&$j('#'+id); return x&&x.data?x.data('DateTimePicker'):null;};
+  var dn=function(){var a=pk('inputcheckin'),b=pk('inputcheckout'); if(!a||!b||!a.date()||!b.date()) return 0;
+   return Math.round(b.date().clone().startOf('day').diff(a.date().clone().startOf('day'),'days',true));};
+  var nsel=document.getElementById('inputnumnight'), nup=function(){};
+  if(nsel){
+   var nbox=el('div','form-control op-nights'); nbox.setAttribute('aria-live','polite');
+   nsel.classList.add('op-hide'); nsel.parentNode.insertBefore(nbox,nsel.nextSibling);
+   var nl=document.querySelector('label[for=inputnumnight]'); if(nl) nl.removeAttribute('for');
+   nup=function(){var n=dn()||+nsel.value||0; nbox.textContent=n>0?n:'';};
+   nup(); if($j) $j('#inputcheckin,#inputcheckout').on('dp.change dp.hide',function(){setTimeout(nup,0);});
+   nsel.addEventListener('change',nup);
+  }
+
+  /* botón Buscar: actualiza las unidades con las fechas y personas, y baja a ellas */
+  var row=strip.querySelector('.row');
+  if(row){
+   var sw=el('div','op-sel-search'), go=el('button','op-search-btn',esc(T.search)); go.type='button'; sw.appendChild(go); row.appendChild(sw);
+   go.onclick=function(){
+    var a=pk('inputcheckin'),b=pk('inputcheckout');
+    if(a) a.hide(); if(b) b.hide();
+    if(a&&b&&a.date()&&b.date()){
+     var f=function(m){return m.year()+'-'+(m.month()+1)+'-'+m.date();}, n=dn();
+     var ih=document.getElementById('checkin_hide'), oh=document.getElementById('checkout_hide');
+     if(ih) ih.value=f(a.date()); if(oh) oh.value=f(b.date()); if(nsel&&n>0) nsel.value=n;
+    }
+    if(typeof window.ajaxupdateroomavailability==='function') window.ajaxupdateroomavailability(true);
+    else {var fm=document.getElementById('formlook'); if(fm) fm.submit();}
+    if(strip.classList.contains('op-open')){strip.classList.remove('op-open'); sb.setAttribute('aria-expanded','false');}
+    upd(); nup();
+    /* bajar a las unidades cuando Beds24 termine de actualizarlas */
+    var done=false, down=function(){if(done) return; done=true; var to=document.querySelector('.b24fullcontainer-rooms'); if(to) to.scrollIntoView({behavior:'smooth',block:'start'});};
+    if($j) $j(document).one('ajaxStop',function(){setTimeout(down,50);}); setTimeout(down,2500);
+   };
+  }
  }
 
  /* precios por noche: se guardan al pulsar Reservar para el desglose de la página de datos del huésped */
