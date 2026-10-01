@@ -17,8 +17,9 @@
   autorizar el cobro con su banco (frecuente con tarjetas europeas e internacionales).
   La unidad queda bloqueada 4 horas de cortesía. Después **se libera sin cancelar**
   (la reserva sigue viva; si paga después y la unidad sigue libre, se recupera).
-- **Aviso de cobro** (email a cobros@4rentpanama.com + WhatsApp a Eugenio): solo para
-  reservas de la web y del agente, nunca de canales.
+- **Aviso de cobro** (email a reservations@pedasioceanproperties.com + WhatsApp a
+  Eugenio): solo para reservas de la web y del agente, nunca de canales. Hasta el 1 oct
+  iba a cobros@4rentpanama.com.
 - **Voucher:** Eugenio adjunta la foto del voucher del terminal y marca Aprobado o
   Rechazado. Si un voucher imprimiera el número completo de la tarjeta, no se guarda.
 - **Mientras la pestaña Reservas de la Staff Console no esté lista:** se activa ya y se
@@ -63,11 +64,11 @@
     Paiement chiffré, protégé selon la norme internationale de sécurité des cartes. Nous ne vous demanderons jamais ces données par téléphone, WhatsApp ou e-mail.
     Visa, Mastercard et American Express.
 
-### 3. Email interno a cobros@4rentpanama.com (reservas de la web)
+### 3. Email interno de cobro a reservations@pedasioceanproperties.com (reservas de la web)
 
 Beds24 → **Auto Action** (el "Additional Booking Notification Email" solo admite "todas las reservas", canales incluidos).
 Disparo: Booking, inmediato; Booking Source = Direct; Referrer = el de la página de reservas (comprobar en la prueba);
-estado: todos menos cancelada. Acción: email interno a cobros@ y etiqueta "En proceso de cobro".
+estado: todos menos cancelada. Acción: email interno a reservations@ y etiqueta "En proceso de cobro".
 Los corchetes son variables de Beds24. Comprobar en la prueba que cada una sale bien.
 
 **Asunto:** Cobrar reserva web [BOOKID] · [GUESTFULLNAME]
@@ -94,13 +95,15 @@ Los corchetes son variables de Beds24. Comprobar en la prueba que cada una sale 
     2. Cobre el total en el terminal.
     3. Si sale aprobado: cambie la etiqueta a "Cobrada", anote el pago en la reserva y envíe al huésped la confirmación por email y WhatsApp.
     4. Si sale rechazado: cambie la etiqueta a "Cobro rechazado" y envíe al huésped el aviso. La unidad queda bloqueada 4 horas. Pasado ese tiempo sin otra tarjeta, cambie el estado a Inquiry: la reserva sigue, pero la unidad queda libre.
-    5. Envíe la foto del voucher a cobros@4rentpanama.com, con el número de reserva en el asunto. No responda a este email: la respuesta puede llegar al huésped.
+    5. Envíe la foto del voucher en un email nuevo a reservations@pedasioceanproperties.com, con el número de reserva en el asunto. No responda a este email: la respuesta puede llegar al huésped.
 
     Nunca anote la tarjeta en papel, chat ni hojas.
 
 - [INVOICETABLE] muestra cada línea (alojamiento, impuesto, extras futuros) y el total.
 - [AVBASEPRICE] es la media por noche del alojamiento si las noches tienen precios distintos.
-- cobros@ no se reenvía: el enlace [VIEWBOOKING] da acceso a la reserva.
+- El email de cobro no se reenvía: el enlace [VIEWBOOKING] da acceso a la reserva.
+- Paso 5: el 1 oct cambia la dirección (antes cobros@4rentpanama.com) y se añade "en un
+  email nuevo". Pendiente de aprobar.
 
 ### 4. Pago confirmado (email y WhatsApp al huésped; a mano hasta que exista la consola)
 
@@ -185,43 +188,44 @@ tienen texto en inglés; español y francés están vacíos.
 - Auto Action "Cobrar reserva web": rellenada (Trigger: Booking · Immediate · Direct ·
   Referer oceanproperties · All Not Cancelled; Messaging: Internal only a cobros@, Reply To
   cobros@, asunto y HTML en ES/EN/FR; Booking: flag "En proceso de cobro" ffa500).
-  Se guarda en **Disable** hasta la activación.
+  Se guarda en **Disable** hasta la activación. El 1 oct: pasar el destinatario y el Reply To a
+  reservations@pedasioceanproperties.com y cambiar el paso 5.
 - Sin aplicar (API): Collect CC, pasarela de tarjeta, Amex y CVV obligatorio. Copia y
   vuelta atrás preparadas en el scratchpad.
 - Activación pendiente, con Lili presente: 1) Auto Action a Auto; 2) cambios por API;
   3) reserva de prueba en la web y cancelación.
 - La sesión de Chrome se cae cuando otra persona entra con el usuario oppedasi.
 
-## Villas (decisiones de Lili, 1 oct)
+## Arquitectura de cobro (decisión de Lili, 1 oct)
 
-- **El pago con tarjeta del aparthotel queda tal cual.** Las villas van aparte.
-- **La tarjeta es solo una garantía.** El huésped deja la tarjeta completa en el mismo
-  formulario, como garantía por daños. No se cobra nada por adelantado.
-- **La reserva se confirma con la transferencia.** El huésped transfiere el importe y
-  adjunta el comprobante (imagen o PDF). El equipo lo comprueba en el banco y confirma.
+Sustituye lo decidido antes para las villas (garantía sin cargo, transferencia con
+comprobante y plazo de 24 horas).
+
+- **Todo se cobra con tarjeta, también las villas.** El huésped deja la tarjeta en
+  Beds24 (sin cobro en línea). La reserva entra confirmada y pendiente de cobro. El
+  equipo cobra el total con el terminal físico. La página de reservas trata igual las
+  villas y el aparthotel.
+- **El aviso de cobro llega a reservations@pedasioceanproperties.com**, en lugar de
+  cobros@4rentpanama.com. Hay que cambiar la Auto Action (destinatario, Reply To y el
+  paso 5).
+- **Voucher:** hasta que exista la pestaña Reservas de la Staff Console, la foto se
+  envía en un email nuevo a reservations@, con el número de reserva en el asunto.
+- **Transferencia:** solo como alternativa del agente en casos concretos. La web solo
+  admite tarjeta.
+- **Villas: depósito por daños aparte, además del alquiler.** Falta definir el importe
+  por villa y cómo se hace en el terminal: una retención (preautorización), o un cargo
+  que se devuelve tras la salida. Depende de si Beds24 sigue mostrando la tarjeta
+  después de verla una vez; se comprueba en la reserva de prueba.
 - **En la web se reservan todas las villas, también Villa Alborán con precio.** Esto
-  cambia la regla de marca anterior, que decía "Alborán solo por contacto directo".
-- **El comprobante se sube en una página segura nuestra.** Se llega a ella con el botón
-  de la pantalla final y con el del email de reserva. El archivo se guarda en la reserva
-  de Beds24, como mensaje con adjunto por la API, y avisa al equipo.
-- **Plazo de 24 horas para el comprobante.** Si no llega, la villa se libera sin
-  cancelar (pasa a Inquiry), igual que en el aparthotel.
+  cambia la regla de marca anterior ("solo por contacto directo").
+- **Cobro automático en línea:** pendiente. Al terminar la configuración se compara
+  Banco General, BAC y Tilopay.
 
-Para montarlo, cuando las villas estén en Beds24 (hoy solo están las 7 unidades del
-aparthotel):
-
-- La villa entra como **Request** (solicitud con tarjeta): bloquea la unidad, pero no
-  queda confirmada. Hay que comprobar si Beds24 deja fijar ese tipo de reserva por
-  villa, en sus ofertas. Si no lo permite, las villas irían como propiedad aparte.
-- La Auto Action "Cobrar reserva web" debe **excluir las villas**: no hay cobro con el
-  terminal.
-- Hace falta una Auto Action propia para las villas, con la etiqueta "Esperando
-  transferencia", un recordatorio y un aviso a las 24 horas.
-- La página reconoce la villa y cambia el texto de la tarjeta (garantía, sin cargo).
-- Los datos bancarios y el importe salen en la pantalla final y en el email. Los datos
-  bancarios los da Lili.
-- En los T&C hay que cuadrar los horarios: las villas tienen entrada a las 3 pm y salida
-  a las 12 pm; los T&C dicen 4 pm y 11 am.
+Cuando las villas estén en Beds24 (hoy solo están las 7 unidades del aparthotel):
+- Comprobar que la Auto Action "Cobrar reserva web" las incluye.
+- Añadir el depósito al texto de la tarjeta y al email de cobro.
+- Cuadrar los horarios de los T&C: las villas tienen entrada a las 3 pm y salida a las
+  12 pm; los T&C dicen 4 pm y 11 am.
 
 ## Pendientes derivados
 
