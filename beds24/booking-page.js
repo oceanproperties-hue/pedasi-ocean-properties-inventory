@@ -243,6 +243,7 @@
    nt:['noche','noches'],ad:['adulto','adultos'],ch:['ni\u00f1o','ni\u00f1os'],total:'Total',taxInc:'Impuesto tur\u00edstico incluido',
    add:'A\u00f1adir otra unidad',err:'Este campo es obligatorio.',prefix:'Prefijo',honor:['Tratamiento',['Sr.','Sra.']],unit:'Unidad',
    ci:['Check-in','16:00 \u2013 24:00'],co:['Check-out','hasta las 11:00'],polHead:'Tarifa no reembolsable',
+   cvv:['CVV','\u00bfD\u00f3nde lo encuentro?','Visa y Mastercard: los 3 d\u00edgitos del reverso, junto a la firma. American Express: los 4 d\u00edgitos del frente, sobre el n\u00famero.','Reverso','Frente'],
    pay:['Pago con tarjeta',['Complete aqu\u00ed el pago de su reserva.','El cargo se realiza en las pr\u00f3ximas horas. Recibir\u00e1 la confirmaci\u00f3n por email y, si nos indic\u00f3 su WhatsApp, tambi\u00e9n por WhatsApp.','Pago cifrado y protegido bajo la norma internacional de seguridad para tarjetas. Nunca le pediremos estos datos por tel\u00e9fono, WhatsApp ni email.','Visa, Mastercard y American Express.']],
    pols:[['Pago por adelantado:','Para garantizar su reserva, se requiere el pago total del coste de su estancia en el momento de realizar la reserva.'],
     ['Cancelaci\u00f3n y cambios:','Esta reserva no se puede cancelar, modificar ni reembolsar bajo ninguna circunstancia. En caso de no presentarse (no-show) o de realizar cambios en su reserva, se aplicar\u00e1 un cargo equivalente al 100% del coste total de su estancia a su tarjeta de cr\u00e9dito.'],
@@ -253,6 +254,7 @@
    nt:['night','nights'],ad:['adult','adults'],ch:['child','children'],total:'Total',taxInc:'Tourist tax included',
    add:'Add another unit',err:'This field is required.',prefix:'Country code',honor:['Title',['Mr','Mrs','Ms']],unit:'Unit',
    ci:['Check-in','16:00 \u2013 24:00'],co:['Check-out','by 11:00'],polHead:'Non refundable.',
+   cvv:['CVV','Where do I find it?','Visa and Mastercard: the 3 digits on the back, next to the signature. American Express: the 4 digits on the front, above the number.','Back','Front'],
    pay:['Card payment',['Complete the payment for your reservation here.','The charge is processed within the next few hours. You will receive confirmation by email and, if you shared your WhatsApp, by WhatsApp as well.','Encrypted payment, protected under the international card security standard. We will never ask for these details by phone, WhatsApp or email.','Visa, Mastercard and American Express.']],
    pols:[['Prepayment:','To secure your reservation, full payment of the total cost of your stay is required at the time of booking.'],
     ['Cancellation and Changes:','This reservation cannot be canceled, modified, or refunded under any circumstances. In the event of a no-show or changes to your reservation, a charge equivalent to 100% of the total cost of your stay will be applied to your credit card.'],
@@ -263,6 +265,7 @@
    nt:['nuit','nuits'],ad:['adulte','adultes'],ch:['enfant','enfants'],total:'Total',taxInc:'Taxe de s\u00e9jour incluse',
    add:'Ajouter un logement',err:'Ce champ est obligatoire.',prefix:'Indicatif',honor:['Civilit\u00e9',['M.','Mme']],unit:'Logement',
    ci:['Check-in','16:00 \u2013 24:00'],co:['Check-out','jusqu\u2019\u00e0 11:00'],polHead:'Tarif non remboursable',
+   cvv:['CVV','O\u00f9 le trouver ?','Visa et Mastercard : les 3 chiffres au dos, \u00e0 c\u00f4t\u00e9 de la signature. American Express : les 4 chiffres au recto, au-dessus du num\u00e9ro.','Verso','Recto'],
    pay:['Paiement par carte',['Finalisez ici le paiement de votre r\u00e9servation.','Le d\u00e9bit est effectu\u00e9 dans les prochaines heures. Vous recevrez la confirmation par e-mail et, si vous nous avez indiqu\u00e9 votre WhatsApp, \u00e9galement par WhatsApp.','Paiement chiffr\u00e9, prot\u00e9g\u00e9 selon la norme internationale de s\u00e9curit\u00e9 des cartes. Nous ne vous demanderons jamais ces donn\u00e9es par t\u00e9l\u00e9phone, WhatsApp ou e-mail.','Visa, Mastercard et American Express.']],
    pols:[['Pr\u00e9paiement :','Pour garantir votre r\u00e9servation, le paiement int\u00e9gral du montant total de votre s\u00e9jour est requis au moment de la r\u00e9servation.'],
     ['Annulation et modifications :','Cette r\u00e9servation ne peut \u00eatre annul\u00e9e, modifi\u00e9e ou rembours\u00e9e en aucun cas. En cas de non-pr\u00e9sentation (no-show) ou de modification de votre r\u00e9servation, des frais \u00e9quivalents \u00e0 100 % du montant total de votre s\u00e9jour seront pr\u00e9lev\u00e9s sur votre carte de cr\u00e9dit.'],
@@ -290,6 +293,24 @@
  function el(t,c,h){var e=document.createElement(t); if(c) e.className=c; if(h!=null) e.innerHTML=h; return e;}
  function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
  function txt(n){return n?n.textContent.replace(/\s+/g,' ').trim():'';}
+ function cvvSvg(back,front){ /* dos tarjetas: reverso con 3 d\u00edgitos y frente con 4 */
+  var N2='#112c4e',G2='#d7af74',W='#ffffff';
+  return '<svg viewBox="0 0 340 118" role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">'
+   +'<g font-family="Jost,sans-serif">'
+   +'<rect x="1" y="1" width="160" height="100" rx="9" fill="'+N2+'"/>'
+   +'<rect x="1" y="16" width="160" height="20" fill="#0a1b31"/>'
+   +'<rect x="14" y="48" width="92" height="18" fill="#e9e3d8"/>'
+   +'<rect x="110" y="45" width="40" height="24" rx="3" fill="'+W+'" stroke="'+G2+'" stroke-width="2.5"/>'
+   +'<text x="130" y="62" text-anchor="middle" font-size="12" fill="'+N2+'">123</text>'
+   +'<text x="81" y="115" text-anchor="middle" font-size="11" fill="#46535f">'+back+' \u00b7 Visa / Mastercard</text>'
+   +'<rect x="179" y="1" width="160" height="100" rx="9" fill="'+N2+'"/>'
+   +'<rect x="193" y="30" width="22" height="16" rx="3" fill="'+G2+'"/>'
+   +'<rect x="287" y="44" width="40" height="20" rx="3" fill="'+W+'" stroke="'+G2+'" stroke-width="2.5"/>'
+   +'<text x="307" y="58" text-anchor="middle" font-size="11" fill="'+N2+'">1234</text>'
+   +'<text x="193" y="80" font-size="11" letter-spacing="1.5" fill="'+W+'">\u2022\u2022\u2022\u2022 \u2022\u2022\u2022\u2022\u2022\u2022 \u2022\u2022\u2022\u2022\u2022</text>'
+   +'<text x="259" y="115" text-anchor="middle" font-size="11" fill="#46535f">'+front+' \u00b7 American Express</text>'
+   +'</g></svg>';
+ }
  function fields(n){return !!n.querySelector('input:not([type=hidden]),select,textarea');}
 
  var N='#112c4e',G='#d7af74',A='#876c3a',I='#16202e',S='#46535f',R='#ddd4c6',C='#faf7f2',PB='#f4efe6',E='#912018';
@@ -383,6 +404,11 @@
   P+'.op-pay-intro p{margin:0 0 6px;font-family:"Jost",sans-serif;font-weight:300;font-size:15px;line-height:23px;color:'+S+'}',
   P+'.op-pay-intro p:first-child{color:'+I+';font-size:16px}',
   P+'.op-f-exp .booktextdiv{display:flex;gap:10px}',
+  P+'button.op-cvv-q{background:none!important;border:0!important;padding:0!important;margin:8px 0 0;color:'+A+'!important;font-family:"Jost",sans-serif!important;font-weight:400!important;font-size:14px!important;letter-spacing:0!important;text-transform:none!important;border-bottom:1px solid '+A+'!important;cursor:pointer}',
+  P+'.op-cvv-h{display:none;margin:12px 0 0;padding:14px;background:'+C+';border:1px solid '+R+'}',
+  P+'.op-cvv-h.op-open{display:block}',
+  P+'.op-cvv-h svg{display:block;width:100%;max-width:340px;height:auto}',
+  P+'.op-cvv-h p{margin:10px 0 0;font-family:"Jost",sans-serif;font-weight:300;font-size:14px;line-height:21px;color:'+S+'}',
   P+'.op-f-exp .booktextdiv select{flex:1;min-width:0}',
   P+'.op-actions{display:flex;justify-content:flex-end;margin:0 0 48px}',
   P+'.book_confirmbooking{float:none!important;margin:0!important;text-align:right}',
@@ -552,6 +578,13 @@
   var gK=el('div','op-grid'); cK.appendChild(gK);
   [].slice.call(ccPanel.querySelectorAll('.questionrow')).forEach(function(r){
    var two=r.querySelectorAll('select').length>1; var fr=floaty(r); if(!fr) return;
+   if(r.classList.contains('questionrow-guestcardccv')&&T.cvv){
+    var fl=fr.querySelector('.op-fl'); if(fl) fl.innerHTML=esc(T.cvv[0])+(required(r)?'<em>*</em>':'');
+    var q=el('button','op-cvv-q',esc(T.cvv[1])); q.type='button'; q.setAttribute('aria-expanded','false');
+    var hp=el('div','op-cvv-h',cvvSvg(T.cvv[3],T.cvv[4])+'<p>'+esc(T.cvv[2])+'</p>'); hp.id='op-cvv-help'; q.setAttribute('aria-controls',hp.id);
+    q.onclick=function(){var o=hp.classList.toggle('op-open'); q.setAttribute('aria-expanded',o?'true':'false');};
+    var c8=fr.querySelector('.col-sm-8'); c8.appendChild(q); c8.appendChild(hp);
+   }
    if(two){fr.classList.add('op-f-exp'); [].forEach.call(fr.querySelectorAll('select'),function(x){x.classList.add('form-control');});}
    gK.appendChild(fr);
   });
