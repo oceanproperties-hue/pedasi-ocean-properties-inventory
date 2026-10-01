@@ -19,3 +19,8 @@
   - las etiquetas (Booking Flag Text Values);
   - Host Notifications;
   - Credit Card Security y el resto de ajustes de la cuenta.
+
+## Decisiones de Lili (1 oct 2026)
+
+- **Siempre con cuestionario.** Todo lo que dependa de Lili se le pregunta con opciones de
+  respuesta, y siempre con la opción de escribir su propia respuesta si ninguna le sirve.
