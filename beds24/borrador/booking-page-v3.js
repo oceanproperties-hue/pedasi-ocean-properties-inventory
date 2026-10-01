@@ -243,6 +243,7 @@
    nt:['noche','noches'],ad:['adulto','adultos'],ch:['ni\u00f1o','ni\u00f1os'],total:'Total',taxInc:'Impuesto tur\u00edstico incluido',
    add:'A\u00f1adir otra unidad',err:'Este campo es obligatorio.',prefix:'Prefijo',honor:['Tratamiento',['Sr.','Sra.']],unit:'Unidad',
    ci:['Check-in','16:00 \u2013 24:00'],co:['Check-out','hasta las 11:00'],polHead:'Tarifa no reembolsable',
+   pay:['Pago con tarjeta',['Complete aqu\u00ed el pago de su reserva.','El cargo se realiza en las pr\u00f3ximas horas. Recibir\u00e1 la confirmaci\u00f3n por email y, si nos indic\u00f3 su WhatsApp, tambi\u00e9n por WhatsApp.','Pago cifrado y protegido bajo la norma internacional de seguridad para tarjetas. Nunca le pediremos estos datos por tel\u00e9fono, WhatsApp ni email.','Visa, Mastercard y American Express.']],
    pols:[['Pago por adelantado:','Para garantizar su reserva, se requiere el pago total del coste de su estancia en el momento de realizar la reserva.'],
     ['Cancelaci\u00f3n y cambios:','Esta reserva no se puede cancelar, modificar ni reembolsar bajo ninguna circunstancia. En caso de no presentarse (no-show) o de realizar cambios en su reserva, se aplicar\u00e1 un cargo equivalente al 100% del coste total de su estancia a su tarjeta de cr\u00e9dito.'],
     ['Flexibilidad de fechas:','Tenga en cuenta que esta tarifa no permite cambios en las fechas de su estancia. El pago realizado por esta reserva no es reembolsable bajo ninguna circunstancia.'],
@@ -252,6 +253,7 @@
    nt:['night','nights'],ad:['adult','adults'],ch:['child','children'],total:'Total',taxInc:'Tourist tax included',
    add:'Add another unit',err:'This field is required.',prefix:'Country code',honor:['Title',['Mr','Mrs','Ms']],unit:'Unit',
    ci:['Check-in','16:00 \u2013 24:00'],co:['Check-out','by 11:00'],polHead:'Non refundable.',
+   pay:['Card payment',['Complete the payment for your reservation here.','The charge is processed within the next few hours. You will receive confirmation by email and, if you shared your WhatsApp, by WhatsApp as well.','Encrypted payment, protected under the international card security standard. We will never ask for these details by phone, WhatsApp or email.','Visa, Mastercard and American Express.']],
    pols:[['Prepayment:','To secure your reservation, full payment of the total cost of your stay is required at the time of booking.'],
     ['Cancellation and Changes:','This reservation cannot be canceled, modified, or refunded under any circumstances. In the event of a no-show or changes to your reservation, a charge equivalent to 100% of the total cost of your stay will be applied to your credit card.'],
     ['Date Flexibility:','Please note that this rate does not allow changes to the date of your stay. The payment made for this reservation is non-refundable under any circumstances.'],
@@ -261,6 +263,7 @@
    nt:['nuit','nuits'],ad:['adulte','adultes'],ch:['enfant','enfants'],total:'Total',taxInc:'Taxe de s\u00e9jour incluse',
    add:'Ajouter un logement',err:'Ce champ est obligatoire.',prefix:'Indicatif',honor:['Civilit\u00e9',['M.','Mme']],unit:'Logement',
    ci:['Check-in','16:00 \u2013 24:00'],co:['Check-out','jusqu\u2019\u00e0 11:00'],polHead:'Tarif non remboursable',
+   pay:['Paiement par carte',['Finalisez ici le paiement de votre r\u00e9servation.','Le d\u00e9bit est effectu\u00e9 dans les prochaines heures. Vous recevrez la confirmation par e-mail et, si vous nous avez indiqu\u00e9 votre WhatsApp, \u00e9galement par WhatsApp.','Paiement chiffr\u00e9, prot\u00e9g\u00e9 selon la norme internationale de s\u00e9curit\u00e9 des cartes. Nous ne vous demanderons jamais ces donn\u00e9es par t\u00e9l\u00e9phone, WhatsApp ou e-mail.','Visa, Mastercard et American Express.']],
    pols:[['Pr\u00e9paiement :','Pour garantir votre r\u00e9servation, le paiement int\u00e9gral du montant total de votre s\u00e9jour est requis au moment de la r\u00e9servation.'],
     ['Annulation et modifications :','Cette r\u00e9servation ne peut \u00eatre annul\u00e9e, modifi\u00e9e ou rembours\u00e9e en aucun cas. En cas de non-pr\u00e9sentation (no-show) ou de modification de votre r\u00e9servation, des frais \u00e9quivalents \u00e0 100 % du montant total de votre s\u00e9jour seront pr\u00e9lev\u00e9s sur votre carte de cr\u00e9dit.'],
     ['Flexibilit\u00e9 des dates :','Veuillez noter que ce tarif ne permet aucun changement de dates pour votre s\u00e9jour. Le paiement effectu\u00e9 pour cette r\u00e9servation est non remboursable en aucun cas.'],
@@ -376,6 +379,11 @@
   P+'.op-c-ack .requiredfield{display:none}',
   P+'.op-c-ack .op-err input[type=checkbox]{border-color:'+E+'}',
   /* bot\u00f3n de confirmar: azul marino, a la derecha, fuera de las tarjetas */
+  P+'.op-pay-intro{margin:0 0 18px}',
+  P+'.op-pay-intro p{margin:0 0 6px;font-family:"Jost",sans-serif;font-weight:300;font-size:15px;line-height:23px;color:'+S+'}',
+  P+'.op-pay-intro p:first-child{color:'+I+';font-size:16px}',
+  P+'.op-f-exp .booktextdiv{display:flex;gap:10px}',
+  P+'.op-f-exp .booktextdiv select{flex:1;min-width:0}',
   P+'.op-actions{display:flex;justify-content:flex-end;margin:0 0 48px}',
   P+'.book_confirmbooking{float:none!important;margin:0!important;text-align:right}',
   P+'input.book_confirmbookingbut{height:48px;min-width:202px;padding:0 48px 0 26px!important;background:'+N+' '+lock('#fff')+' no-repeat right 22px center/11px 13px!important;color:#fff!important;border:1px solid '+N+'!important;border-radius:0!important;box-shadow:none!important;font-family:"Jost",sans-serif!important;font-weight:400!important;font-size:12px!important;letter-spacing:3px;text-transform:uppercase;transition:background-color .1s,color .1s}',
@@ -534,6 +542,21 @@
   if(f.type==='checkbox'||f.type==='radio'){ackRows.push(r); r.appendChild(el('div','op-errbar',esc(T.err)));}
   else {var g=el('div','op-grid'); g.appendChild(floaty(r)); accItem(label(r),g,!!f.value);} });
  if(!acc.children.length) cS.classList.add('op-hide');
+
+ /* pago con tarjeta: Beds24 lo pinta en un panel aparte, debajo del bot\u00f3n */
+ var ccRow=form.querySelector('.questionrow-guestcardtype');
+ if(ccRow&&T.pay){
+  var ccPanel=ccRow.closest('.b24panel-room')||ccRow.parentNode;
+  var cK=card('op-c-pay',null,T.pay[0]);
+  cK.appendChild(el('div','op-pay-intro',T.pay[1].map(function(x){return '<p>'+esc(x)+'</p>';}).join('')));
+  var gK=el('div','op-grid'); cK.appendChild(gK);
+  [].slice.call(ccPanel.querySelectorAll('.questionrow')).forEach(function(r){
+   var two=r.querySelectorAll('select').length>1; var fr=floaty(r); if(!fr) return;
+   if(two){fr.classList.add('op-f-exp'); [].forEach.call(fr.querySelectorAll('select'),function(x){x.classList.add('form-control');});}
+   gK.appendChild(fr);
+  });
+  ccPanel.classList.add('op-hide');
+ }
 
  /* pol\u00edticas */
  var pb=det.querySelector('.panel-body');
