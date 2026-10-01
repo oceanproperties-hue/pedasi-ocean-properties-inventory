@@ -192,6 +192,37 @@ tienen texto en inglés; español y francés están vacíos.
   3) reserva de prueba en la web y cancelación.
 - La sesión de Chrome se cae cuando otra persona entra con el usuario oppedasi.
 
+## Villas (decisiones de Lili, 1 oct)
+
+- **El pago con tarjeta del aparthotel queda tal cual.** Las villas van aparte.
+- **La tarjeta es solo una garantía.** El huésped deja la tarjeta completa en el mismo
+  formulario, como garantía por daños. No se cobra nada por adelantado.
+- **La reserva se confirma con la transferencia.** El huésped transfiere el importe y
+  adjunta el comprobante (imagen o PDF). El equipo lo comprueba en el banco y confirma.
+- **En la web se reservan todas las villas, también Villa Alborán con precio.** Esto
+  cambia la regla de marca anterior, que decía "Alborán solo por contacto directo".
+- **El comprobante se sube en una página segura nuestra.** Se llega a ella con el botón
+  de la pantalla final y con el del email de reserva. El archivo se guarda en la reserva
+  de Beds24, como mensaje con adjunto por la API, y avisa al equipo.
+- **Plazo de 24 horas para el comprobante.** Si no llega, la villa se libera sin
+  cancelar (pasa a Inquiry), igual que en el aparthotel.
+
+Para montarlo, cuando las villas estén en Beds24 (hoy solo están las 7 unidades del
+aparthotel):
+
+- La villa entra como **Request** (solicitud con tarjeta): bloquea la unidad, pero no
+  queda confirmada. Hay que comprobar si Beds24 deja fijar ese tipo de reserva por
+  villa, en sus ofertas. Si no lo permite, las villas irían como propiedad aparte.
+- La Auto Action "Cobrar reserva web" debe **excluir las villas**: no hay cobro con el
+  terminal.
+- Hace falta una Auto Action propia para las villas, con la etiqueta "Esperando
+  transferencia", un recordatorio y un aviso a las 24 horas.
+- La página reconoce la villa y cambia el texto de la tarjeta (garantía, sin cargo).
+- Los datos bancarios y el importe salen en la pantalla final y en el email. Los datos
+  bancarios los da Lili.
+- En los T&C hay que cuadrar los horarios: las villas tienen entrada a las 3 pm y salida
+  a las 12 pm; los T&C dicen 4 pm y 11 am.
+
 ## Pendientes derivados
 
 - Mensajes generales de confirmación en español y francés (hoy solo inglés).
