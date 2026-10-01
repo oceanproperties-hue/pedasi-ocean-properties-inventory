@@ -229,6 +229,9 @@ Cuando las villas estén en Beds24 (hoy solo están las 7 unidades del aparthote
 
 ## Pendientes derivados
 
+- Cabecera de "datos del huésped" (guestDetailsHeader): se deja vacía (Lili, 1 oct). El
+  diseño de la página ya pone "CVV" y el dibujo "¿Dónde lo encuentro?".
+
 - Mensajes generales de confirmación en español y francés (hoy solo inglés).
 - Al configurar extras (upsells): el impuesto turístico 10 % solo sobre el alojamiento;
   los extras con ITBMS 7 %.
