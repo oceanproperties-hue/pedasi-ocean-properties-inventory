@@ -20,6 +20,13 @@
   - Host Notifications;
   - Credit Card Security y el resto de ajustes de la cuenta.
 
+- **Lo que Claude Code puede hacer, lo propone y lo hace primero** (Lili, 2 oct 2026). Antes
+  de pedir algo a Lili o a Chrome, Claude Code mira si lo puede hacer él con la API, con el
+  navegador automático (Playwright) o con un script. Ejemplo: la reserva de prueba la puede
+  hacer él con la tarjeta ficticia. A Lili solo se le pide lo que nadie más puede hacer:
+  captcha, contraseñas, subir a Bunny mientras no haya clave en el entorno, y decisiones.
+  A Chrome, solo lo que exige el panel de Beds24.
+
 ## Decisiones de Lili (1 oct 2026)
 
 - **Siempre con cuestionario.** Todo lo que dependa de Lili se le pregunta con opciones de
