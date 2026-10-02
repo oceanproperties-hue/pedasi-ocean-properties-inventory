@@ -259,8 +259,9 @@ página publicada:
 
 ### Pendientes para el 3 oct
 
-1. **Chrome:** cambiar el nombre del archivo en DEVELOPER de 20261001c a 20261002a.
-   Después, Claude Code comprueba la página publicada y que Visa funciona.
+1. ~~Chrome: cambiar el archivo a 20261002a~~ **Hecho el 1 oct por la noche.** La página
+   publicada carga `booking-page-20261002a.js` y, con Visa, el formulario se envía
+   (comprobado por Claude Code sin crear otra reserva).
 2. **Chrome, solo lectura:**
    - que la reserva 94046046 tiene la tarjeta terminada en 1111;
    - si salió el email "Cobrar reserva web" y por qué no llegó.
