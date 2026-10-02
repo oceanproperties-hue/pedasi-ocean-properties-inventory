@@ -227,6 +227,19 @@ Cuando las villas estén en Beds24 (hoy solo están las 7 unidades del aparthote
 - Cuadrar los horarios de los T&C: las villas tienen entrada a las 3 pm y salida a las
   12 pm; los T&C dicen 4 pm y 11 am.
 
+## Estado (2 oct)
+
+- **Página de reservas publicada con `booking-page-20261001c.js`**: sello, sección "Pago con
+  tarjeta" encima de las condiciones, CVV con "¿Dónde lo encuentro?", noches calculadas con
+  las fechas y botón "Buscar". Guardado por Chrome y comprobado por Claude Code y por Chrome.
+- **Auto Action "Cobrar reserva web" en Auto.** Envía a reservations@pedasioceanproperties.com
+  (destinatario y Reply To) con el paso 5 nuevo en los tres idiomas. Comprobado por Chrome
+  al volver a abrirla.
+- Ya activos por la API desde el 1 oct: Collect CC, recogida de tarjeta, Amex y CVV
+  obligatorio.
+- Falta la reserva de prueba: comprobar el email, la etiqueta, el referer y la factura, y
+  cancelarla por la API.
+
 ## Pendientes derivados
 
 - Cabecera de "datos del huésped" (guestDetailsHeader): se deja vacía (Lili, 1 oct). El
