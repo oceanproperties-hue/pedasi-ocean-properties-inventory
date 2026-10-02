@@ -265,7 +265,9 @@ página publicada:
 2. **Chrome, solo lectura:**
    - que la reserva 94046046 tiene la tarjeta terminada en 1111;
    - si salió el email "Cobrar reserva web" y por qué no llegó.
-3. **Cancelar la reserva 94046046 por la API** cuando esté revisada, con el "sí" de Lili.
+3. **Cancelar la reserva 94046046 por la API.** Lili decidió el 2 oct mantenerla hasta que
+   salga el aviso "Cobrar reserva web". Probable causa del retraso: falta configurar
+   SETTINGS › ACCOUNT › OUTGOING EMAIL, que Beds24 exige para los emails de Auto Actions.
 - **Lo que leyó Chrome en la reserva 94046046** (Mail & Actions):
   - "Booking · Auto · Cobrar reserva web": done a las 20:44;
   - "Email · Auto · Cobrar reserva web": **pending**, con botón "Send Now";
@@ -277,8 +279,8 @@ página publicada:
   las tarjetas y cobrarlas con el terminal.
 
 4. Mensajes generales de confirmación en español y francés (en el panel).
-5. Decidir cómo se paga el alquiler de las villas: tarjeta con el terminal, o
-   transferencia del 50 %.
+5. El pago del alquiler de las villas lo configura la sesión de la PWA (CC), por decisión
+   de Lili del 2 oct. Esta sesión no lo toca.
 
 ## Pendientes derivados
 

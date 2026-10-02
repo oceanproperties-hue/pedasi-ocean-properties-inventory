@@ -5,8 +5,8 @@ la condición de que el precio sea el de la calculadora. Plan aprobado por Lili 
 
 **Reparto (Lili, 1 oct): todo lo hace CC, la sesión de la PWA.** Crea la villa, la
 configura en Beds24 y envía los precios desde Supabase. Esta sesión solo revisa la página de
-reservas y comprueba que los precios coincidan. Sigue abierto cómo se paga el alquiler de
-las villas: tarjeta con el terminal, o transferencia del 50 %.
+reservas y comprueba que los precios coincidan. El pago del alquiler de las villas
+lo configura también la sesión de la PWA (Lili, 2 oct).
 
 ## Reglas de la calculadora (ocean-properties-pwa, `packages/villas/src/alboran.ts`)
 
