@@ -653,7 +653,9 @@
  var cb=form.querySelector('.book_confirmbooking'); if(cb) acts.appendChild(cb);
 
  /* comprobaci\u00f3n antes de enviar: campos obligatorios vac\u00edos y casillas sin marcar */
- function bad(r){var f=input(r); if(!f) return false; if(f.type==='checkbox') return !f.checked; return !String(f.value||'').trim()||(f.tagName==='SELECT'&&(f.value==='0'||f.value===''));}
+ /* una lista est\u00e1 vac\u00eda si no tiene valor, o si vale 0 y la opci\u00f3n elegida es un "seleccione" (en el tipo de tarjeta, 0 es Visa) */
+ function noSel(f){if(f.value==='') return true; var o=f.options[f.selectedIndex]; return f.value==='0'&&(!o||/^[\s\u2014-]*$|seleccion|select|choisi/i.test(o.text));}
+ function bad(r){var f=input(r); if(!f) return false; if(f.type==='checkbox') return !f.checked; if(f.tagName==='SELECT') return noSel(f); return !String(f.value||'').trim();}
  function check(r){var b=bad(r); r.classList.toggle('op-err',b); return !b;}
  var reqRows=[].slice.call(main.querySelectorAll('.op-required')).concat(ackRows.filter(required));
  reqRows.forEach(function(r){var f=input(r); f.addEventListener(f.type==='checkbox'?'change':'blur',function(){check(r);}); f.addEventListener('input',function(){if(r.classList.contains('op-err')) check(r);});});
