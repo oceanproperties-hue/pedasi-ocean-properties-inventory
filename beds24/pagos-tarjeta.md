@@ -265,6 +265,16 @@ página publicada:
    - que la reserva 94046046 tiene la tarjeta terminada en 1111;
    - si salió el email "Cobrar reserva web" y por qué no llegó.
 3. **Cancelar la reserva 94046046 por la API** cuando esté revisada, con el "sí" de Lili.
+- **Lo que leyó Chrome en la reserva 94046046** (Mail & Actions):
+  - "Booking · Auto · Cobrar reserva web": done a las 20:44;
+  - "Email · Auto · Cobrar reserva web": **pending**, con botón "Send Now";
+  - el único email enviado es "Booking Confirmation Message";
+  - no hay ningún error.
+  - Mañana: ver si salió solo durante la noche y, si no, por qué Beds24 lo deja en cola.
+- **Ver tarjetas, bloqueado:** Beds24 muestra "Password change required at Settings >
+  Account > Account Access". Lili tiene que cambiar la contraseña para que se puedan ver
+  las tarjetas y cobrarlas con el terminal.
+
 4. Mensajes generales de confirmación en español y francés (en el panel).
 5. Decidir cómo se paga el alquiler de las villas: tarjeta con el terminal, o
    transferencia del 50 %.
