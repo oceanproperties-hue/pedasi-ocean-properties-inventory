@@ -240,6 +240,35 @@ Cuando las villas estén en Beds24 (hoy solo están las 7 unidades del aparthote
 - Falta la reserva de prueba: comprobar el email, la etiqueta, el referer y la factura, y
   cancelarla por la API.
 
+## Reserva de prueba (2 oct, noche)
+
+Hecha por Claude Code con el navegador automático y la tarjeta ficticia 4111…1111, sobre la
+página publicada:
+- **Reserva 94046046**: PRUEBA NO VALIDA NO COBRAR, Estudio Doble Queen, 16→17 feb 2027,
+  2 adultos, $149 + impuesto turístico 10 % $14,90 = $163,90.
+- **Bien:** estado confirmada ("new"); Direct con referer "oceanproperties"; la Auto Action
+  puso la etiqueta "En proceso de cobro" (naranja); la pantalla final y el email al
+  huésped muestran el texto 1.
+- **Fallo encontrado y corregido:** con `booking-page-20261001c.js`, un huésped que elige
+  Visa no podía enviar la reserva, porque el aviso de campos obligatorios trataba el valor 0
+  (Visa) como vacío. Arreglo en `booking-page-20261002a.js`, ya subido a Bunny por Lili.
+- **Sin resolver:** el aviso interno "Cobrar reserva web" no llegó al buzón conectado (ni
+  spam ni papelera), y el email al huésped sí.
+- **El email al huésped mezcla inglés y español** ("Dear guest", "Please check your
+  details", "Best regards"): faltan los mensajes generales de confirmación en ES y FR.
+
+### Pendientes para el 3 oct
+
+1. **Chrome:** cambiar el nombre del archivo en DEVELOPER de 20261001c a 20261002a.
+   Después, Claude Code comprueba la página publicada y que Visa funciona.
+2. **Chrome, solo lectura:**
+   - que la reserva 94046046 tiene la tarjeta terminada en 1111;
+   - si salió el email "Cobrar reserva web" y por qué no llegó.
+3. **Cancelar la reserva 94046046 por la API** cuando esté revisada, con el "sí" de Lili.
+4. Mensajes generales de confirmación en español y francés (en el panel).
+5. Decidir cómo se paga el alquiler de las villas: tarjeta con el terminal, o
+   transferencia del 50 %.
+
 ## Pendientes derivados
 
 - Cabecera de "datos del huésped" (guestDetailsHeader): se deja vacía (Lili, 1 oct). El
